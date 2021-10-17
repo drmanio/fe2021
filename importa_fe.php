@@ -49,7 +49,7 @@
 
     </head>
     <body>
-        <img src="bootstrap-icons-1.5.0/bootstrap.svg" alt="Bootstrap" width="32" height="32">
+        <img src="bootstrap-icons/bootstrap.svg" alt="Bootstrap" width="32" height="32">
         <button id="btn_noxml" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Documento non xml</button>
         <div id="noxml" style='background-color: lightgray; border 2px solid #000000'>
         <!-- FORM PER INSERIRE UNA SCADENZA DI PAGAMENTO NON DA FATTURA ELETTRONICA -->
