@@ -15,7 +15,7 @@
               });
               $('#btn_file_xml').click(function(){
                 // $("#menu1").html=("<p>MENU 1</P>");
-                $("#menu1").load("pages.html #xml");
+                $("#menu1").load("page_menu1.html");
               });
               $('#btn_file_no_xml').click(function(){
                 // $("#Pagina").html="";

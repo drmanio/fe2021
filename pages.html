@@ -90,24 +90,6 @@
         Aliquam dignissim placerat libero vel pharetra. Morbi tempus tincidunt luctus. In hac habitasse platea dictumst. Aenean et purus velit. Sed porta ultricies consequat. Nulla facilisi. Donec ac pulvinar dui, id rutrum orci. Sed in metus quis mauris ornare venenatis. Donec elit magna, tempor at eleifend et, pellentesque congue justo. Nulla porttitor tempor ullamcorper. Sed varius non neque vitae feugiat. Nunc tristique lectus nec ligula viverra, vitae vestibulum tellus fermentum. Quisque fringilla nisi vitae ex gravida, efficitur luctus magna cursus. Morbi eget blandit arcu.
         </p>
 </div>
-<div id="xml" style='background-color: lightblue; border 2px solid #000000'>
-    <!--
-        FORM INIZIALE PER SELEZIONARE IL FILE E CHIEDERNE LA VISUALIZZAZIONE 
-        The enctype attribute specifies how the form-data should be encoded when submitting it to the server.
-        Note: The enctype attribute can be used only if method="post".
-        Attribute Values:
-        - application/x-www-form-urlencoded ** Default. All characters are encoded before sent (spaces are converted to "+" symbols, and special characters are converted to ASCII HEX values)
-        - multipart/form-data ** This value is necessary if the user will upload a file through the form
-        - text/plain ** Sends data without any encoding at all. Not recommended
-    -->
-    <!-- <form action="importa_fe.php" method="post" enctype="multipart/form-data"> -->
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-        <h3> Seleziona il file xml proveniente dallo Sdi da caricare:</h3>
-        <input type="file" name="file">
-        <br><br>
-        <input type="submit" value="visualizza dati" name="submit">
-    </form>
-</div>
 
 <div id="noxml" style='background-color: lightgray; border 2px solid #000000'>
     <!-- FORM PER INSERIRE UNA SCADENZA DI PAGAMENTO NON DA FATTURA ELETTRONICA -->
