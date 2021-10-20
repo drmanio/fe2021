@@ -1,50 +1,51 @@
 <html>
-    <head>
-        <!-- CSS -->
-        <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
-        <!-- JS -->
-        <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-        <script src="jquery-3.6.0.min.js"></script>
+  <head>
+      <!-- CSS -->
+      <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
+      <!-- JS -->
+      <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+      <script src="jquery-3.6.0.min.js"></script>
 
-        <script>
-            $(document).ready(function(){
-                $('a').click(function(){
-                    $('a').removeClass("nav-link active").addClass("nav-link");
-                    $(this).addClass("nav-link active");
-                });
-                $('#home').click(function(){
-                  $("#Pagina").html="";
-                  $("#Pagina").load("pages.html #home");
-                });
-                $('#file_xml').click(function(){
-                  $("#Pagina").html="";
-                  $("#Pagina").load("pages.html #xml");
-                });
-                $('#file_no_xml').click(function(){
-                  $("#Pagina").html="";
-                  $("#Pagina").load("pages.html #noxml");
-                });
-            });
-        </script>
-    </head>
-    <body>
-        <ul class="nav nav-pills nav-fill">
-            <li>
-              <a id="home" class="nav-link active" href="#"><img src="bootstrap-icons/house-fill.svg" alt="Home" height="25" width="32"></a>
-            </li>
-            <li class="nav-item">
-              <a id="file_xml" class="nav-link" aria-current="page" href="#">File xml</a>
-            </li>
-            <li class="nav-item">
-              <a id="file_no_xml" class="nav-link" href="#">Documento non xml</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <div id="Pagina"></div>
-    </body>
+      <script>
+          $(document).ready(function(){
+              $("#home").load("pages.html #homepage");
+              $('#btn_home').click(function(){
+                // $("#Pagina").html="";
+                $("#home").load("pages.html #homepage");
+              });
+              $('#btn_file_xml').click(function(){
+                // $("#menu1").html=("<p>MENU 1</P>");
+                $("#menu1").load("pages.html #xml");
+              });
+              $('#btn_file_no_xml').click(function(){
+                // $("#Pagina").html="";
+                $("#menu2").load("pages.html #noxml");
+              });
+          });
+      </script>
+  </head>
+  <body>
+  <nav class="navbar fixed-top bg-light">
+  <div class="container-fluid">
+    <!-- Nav pills -->
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" Id="btn_home" data-bs-toggle="pill" href="#home"><img src="bootstrap-icons/house-fill.svg" alt="Home" height="25" width="32"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" Id="btn_file_xml" data-bs-toggle="pill" href="#menu1">File xml</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" Id="btn_file_no_xml" data-bs-toggle="pill" href="#menu2">Documento non xml</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+    <!-- Tab panes -->
+    <div class="tab-content container-fluid" style="margin-top:80px">
+      <div class="tab-pane container active" id="home"></div>
+      <div class="tab-pane container fade" id="menu1"></div>
+      <div class="tab-pane container fade" id="menu2"></div>
+    </div>
+  </body>
 </html>
