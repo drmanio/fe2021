@@ -8,10 +8,10 @@
 
       <script>
           $(document).ready(function(){
-              $("#home").load("pages.html #homepage");
+              $("#home").load("page_home.html");
               $('#btn_home').click(function(){
                 // $("#Pagina").html="";
-                $("#home").load("pages.html #homepage");
+                $("#home").load("page_home.html");
               });
               $('#btn_file_xml').click(function(){
                 // $("#menu1").html=("<p>MENU 1</P>");
@@ -19,7 +19,7 @@
               });
               $('#btn_file_no_xml').click(function(){
                 // $("#Pagina").html="";
-                $("#menu2").load("pages.html #noxml");
+                $("#menu2").load("page_menu2.html");
               });
           });
       </script>
