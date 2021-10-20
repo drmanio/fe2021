@@ -12,6 +12,10 @@
                     $('a').removeClass("nav-link active").addClass("nav-link");
                     $(this).addClass("nav-link active");
                 });
+                $('#home').click(function(){
+                  $("#Pagina").html="";
+                  $("#Pagina").load("pages.html #home");
+                });
                 $('#file_xml').click(function(){
                   $("#Pagina").html="";
                   $("#Pagina").load("pages.html #xml");
@@ -25,6 +29,9 @@
     </head>
     <body>
         <ul class="nav nav-pills nav-fill">
+            <li>
+              <a id="home" class="nav-link active" href="#"><img src="bootstrap-icons/house-fill.svg" alt="Home" height="25" width="32"></a>
+            </li>
             <li class="nav-item">
               <a id="file_xml" class="nav-link" aria-current="page" href="#">File xml</a>
             </li>
