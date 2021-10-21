@@ -6,23 +6,20 @@
       <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
       <script src="jquery-3.6.0.min.js"></script>
 
-      <script>
+      <!-- <script>
           $(document).ready(function(){
-              $("#home").load("page_home.html");
+              // $("#home").load("page_home.html");
               $('#btn_home').click(function(){
-                // $("#Pagina").html="";
                 $("#home").load("page_home.html");
               });
               $('#btn_file_xml').click(function(){
-                // $("#menu1").html=("<p>MENU 1</P>");
                 $("#menu1").load("page_menu1.html");
               });
               $('#btn_file_no_xml').click(function(){
-                // $("#Pagina").html="";
                 $("#menu2").load("page_menu2.html");
               });
           });
-      </script>
+      </script> -->
   </head>
   <body>
   <nav class="navbar fixed-top bg-light">
@@ -43,9 +40,9 @@
   </nav>
     <!-- Tab panes -->
     <div class="tab-content container-fluid" style="margin-top:80px">
-      <div class="tab-pane container active" id="home"></div>
-      <div class="tab-pane container fade" id="menu1"></div>
-      <div class="tab-pane container fade" id="menu2"></div>
+      <div class="tab-pane container active" id="home"><iframe src="page_home.html" height="100%" width="100%"></iframe></div>
+      <div class="tab-pane container fade" id="menu1"><iframe src="page_menu1.html"height="100%" width="100%"></iframe></div>
+      <div class="tab-pane container fade" id="menu2"><iframe src="page_menu2.html" height="100%" width="100%"></iframe></div>
     </div>
   </body>
 </html>
