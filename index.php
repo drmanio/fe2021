@@ -41,7 +41,7 @@
     <!-- Tab panes -->
     <div class="tab-content container-fluid" style="margin-top:80px">
       <div class="tab-pane container active" id="home"><iframe src="page_home.html" height="100%" width="100%"></iframe></div>
-      <div class="tab-pane container fade" id="menu1"><iframe src="page_menu1.html"height="100%" width="100%"></iframe></div>
+      <div class="tab-pane container fade" id="menu1"><iframe src="page_menu1.php"height="100%" width="100%"></iframe></div>
       <div class="tab-pane container fade" id="menu2"><iframe src="page_menu2.html" height="100%" width="100%"></iframe></div>
     </div>
   </body>
