@@ -1,29 +1,9 @@
 <?php
+   function func1($data){
+      // echo $data+1;
+  }
 
-$filename = $_FILES["file"]["name"];
-
-
-/* Location */
-$location = "fe_project/fe2021/upload/".$filename;
-$uploadOk = 1;
-$imageFileType = pathinfo($location,PATHINFO_EXTENSION);
-
-/* Valid Extensions */
-$valid_extensions = array("jpg","jpeg","xml");
-/* Check file extension */
-if( !in_array(strtolower($imageFileType),$valid_extensions) ) {
-   $uploadOk = 0;
-}
-
-if($uploadOk == 0){
-   echo 0;
-}else{
-   /* Upload file */
-   if(move_uploaded_file($_FILES["file"]["tmp_name"],$location)){
-      echo $location;
-   }else{
-      echo 0;
-   }
-}
-
+  if (isset($_POST['callFunc1'])) {
+      echo func1($_POST['callFunc1']);
+  }
 ?>
