@@ -13,6 +13,12 @@
     include "fe_nodi.php";
 ?>
 
+<script>
+  $(document).ready(function(){
+    $("#btn_file_xml").addClass("active");
+  });
+</script>
+
 </head>
 <body>
 
