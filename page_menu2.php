@@ -1,13 +1,19 @@
 <html>
-    <head>
-        <!-- CSS -->
-        <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css">
-        <!-- JS -->
-        <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-        <script src="jquery-3.6.0.min.js"></script>
-    </head>
+<head>
+
+<?php
+include "header.html";
+?>
+
+</head>
 <body>
-<div id="noxml" style='background-color: lightgray; border 2px solid #000000'>
+
+<?php
+include "page_index_body.html";
+?>
+<script>$("#btn_file_no_xml").addClass("active");</script>
+
+<div id="xml" class="tab-content container-fluid" style="margin-top:80px">
     <!-- FORM PER INSERIRE UNA SCADENZA DI PAGAMENTO NON DA FATTURA ELETTRONICA -->
     <form action="save_scadenzeNoSdi.php" method="post" target="_blank">
         <h3>Inserisci il documento che non proviene dallo Sdi e che verrà caricato nel database:</h3>

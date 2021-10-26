@@ -2,22 +2,8 @@
 <head>
 
 <?php
-    include "page_index_head.html";
-    //INIZIALIZZO LA SESSIONE PER TRASFERIRE ALCUNI DATI CON I FORM
-    session_start(); 
-    // IMPORTO LE FUNZIONI CONTENUTE NEL FILE function.php
-    include "function.php";
-    // IMPORTO LE FUNZIONI CHE GENERANO I FORM DI MEMORIZZAZIONE CONTENUTI NEL FILE form.php
-    include 'form.php';
-    // IMPORTO LE VARIABILI ARRAY CONTENENTI I NODI XML DA ELABORARE CHE SI TROVANO NEL FILE fe_nodi.php
-    include "fe_nodi.php";
+include "header.html";
 ?>
-
-<script>
-  $(document).ready(function(){
-    $("#btn_file_xml").addClass("active");
-  });
-</script>
 
 </head>
 <body>
@@ -25,6 +11,7 @@
 <?php
 include "page_index_body.html";
 ?>
+<script>$("#btn_file_xml").addClass("active");</script>
 
 <div id="xml" class="tab-content container-fluid" style="margin-top:80px">
 <!--

@@ -1,8 +1,8 @@
 <html>
 <head>
-
+<title>home</title>
 <?php
-include "page_index_head.html";
+include "header.html";
 ?>
 
 <script>
@@ -10,6 +10,12 @@ include "page_index_head.html";
     $("#btn_home").addClass("active");
   });
 </script>
+
+<!-- <script>
+  function file_xml(){
+        window.open("page_menu1.php","_self");
+    };
+</script> -->
 
 </head>
 <body>
