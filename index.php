@@ -5,24 +5,14 @@
 include "header.html";
 ?>
 
-<script>
-  $(document).ready(function(){
-    $("#btn_home").addClass("active");
-  });
-</script>
-
-<!-- <script>
-  function file_xml(){
-        window.open("page_menu1.php","_self");
-    };
-</script> -->
-
 </head>
 <body>
 
 <?php
 include "page_index_body.html";
 ?>
+
+<script>$("#btn_home").addClass("active");</script>
 
 <div>
   <p>

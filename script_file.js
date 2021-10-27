@@ -15,5 +15,6 @@ $('#btn_test').click(function(){
   window.open("test.html","_self");
 });
 
-  
+
 });
+
