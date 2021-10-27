@@ -11,9 +11,10 @@ include "function.php";
 <!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
 <script>
     $(document).ready(function(){
-      $("#btn_file_xml").addClass("active");
+        pulsanti();
+        sc_menu1();
     });
-    </script>
+</script>
 
 </head>
 <body>

@@ -10,7 +10,8 @@
     <!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_home" -->
     <script>
     $(document).ready(function(){
-      $("#btn_home").addClass("active");
+      pulsanti();
+      sc_index();
     });
     </script>
 

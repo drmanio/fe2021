@@ -51,7 +51,7 @@
     <body>
         <img src="bootstrap-icons/bootstrap.svg" alt="Bootstrap" width="32" height="32">
         <button id="btn_noxml" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Documento non xml</button>
-        <div id="noxml" style='background-color: lightgray; border 2px solid #000000'>
+        <div id="noxml" style='background-color: lightgray; border: 2px solid #000000'>
         <!-- FORM PER INSERIRE UNA SCADENZA DI PAGAMENTO NON DA FATTURA ELETTRONICA -->
         <form action="save_scadenzeNoSdi.php" method="post" target="_blank">
             <h3>Inserisci il documento che non proviene dallo Sdi e che verrà caricato nel database:</h3>
@@ -162,7 +162,7 @@
         <br><br>
         
         <button id="btn_xml" type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Documento xml</button>
-        <div id="xml" style='background-color: lightblue; border 2px solid #000000'>
+        <div id="xml" style='background-color: lightblue; border: 2px solid #000000'>
         <!--
             FORM INIZIALE PER SELEZIONARE IL FILE E CHIEDERNE LA VISUALIZZAZIONE 
             The enctype attribute specifies how the form-data should be encoded when submitting it to the server.

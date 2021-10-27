@@ -5,13 +5,20 @@
 include "header.html";
 ?>
 
+<!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
+<script>
+    $(document).ready(function(){
+        pulsanti();
+        sc_menu2();
+    });
+</script>
+
 </head>
 <body>
 
 <?php
-include "page_index_body.html";
+include "navbar.html";
 ?>
-<script>$("#btn_file_no_xml").addClass("active");</script>
 
 <div id="xml" class="tab-content container-fluid" style="margin-top:80px">
     <!-- FORM PER INSERIRE UNA SCADENZA DI PAGAMENTO NON DA FATTURA ELETTRONICA -->
