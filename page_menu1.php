@@ -6,20 +6,22 @@ include "header.html";
 include "form.php";
 include "fe_nodi.php";
 include "function.php";
-include "save_beniservizi.php";
-include "save_dati_generali.php";
-include "save_ritenute.php";
-include "save_scadenze.php";
-
 ?>
+
+<!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
+<script>
+    $(document).ready(function(){
+        pulsanti();
+        sc_menu1();
+    });
+</script>
 
 </head>
 <body>
 
 <?php
-include "page_index_body.html";
+include "navbar.html";
 ?>
-<script>$("#btn_file_xml").addClass("active");</script>
 
 <div id="script_btn"></div>
 <div id="xml" class="tab-content container-fluid" style="margin-top:80px">
