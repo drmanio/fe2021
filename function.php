@@ -17,8 +17,10 @@ function dati_array($tabella_nodi, $radice){
 
 //FUNZIONE CHE CARICA NEL SERVER IL FILE XML SELEZIONATO E RITORNA L'ARRAY IN FORMATO SIMPLEXML
 function carica_xml(){
+    
     print_r($_FILES);
-
+    echo "<br>";
+    
     $uploadDir = __DIR__.'/uploads';
     foreach ($_FILES as $file) {
         if (UPLOAD_ERR_OK === $file['error']) {

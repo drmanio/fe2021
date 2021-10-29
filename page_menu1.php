@@ -38,7 +38,9 @@ Attribute Values:
     <h3> Seleziona il file xml proveniente dallo Sdi da caricare:</h3>
     <input type="file" name="file">
     <br><br>
-    <input type="submit" value="visualizza dati" name="submit">
+    <input id="btn_view_dati_xml" type="submit" value="visualizza dati" name="submit" onclick="this.style.display='none'">
+    <br><br>
+    <button id="btn_new_file">Carica un nuovo file</button>
 </form>
 </div>
 <div>
@@ -61,7 +63,7 @@ if (isset($_POST['submit'])){
     //     echo "<br/>";
     // }
     // VISUALIZZO I DATI DELLA FATTURA ELETTRONICA CONTENUTI NEL FILE SIMPLEXML ATTRAVERSO LA FUNZIONE visualizza_dati_xml PRESENTE NEL FILE function.php
-    echo "<br><b>VISUALIZZA I DATI CONTENUTI NEL FILE XML </b><br>";
+    echo "<br><b>VISUALIZZA I DATI CONTENUTI NEL FILE XML </b>";
     echo "<button id='btn_table_xml' class='btn btn-primary' type='button'>Dati file xml</button>";
     // RICHIAMO LA FUNZIONE PER VISUALIZZARE I DATI IN FORMA DI TABELLA
     visualizza_dati_xml($xml_file);
