@@ -137,7 +137,7 @@ function form_scadenze ($tabella_nodi, $xml_file){
         </select><br>';
         echo '<label>Note:</label><br>';
         echo '<input type="text" name="info9" size="100"><br>';
-        echo '<input type="submit" value="Memorizza ritenuta nel db" name="submit_db" onclick="this.style.display=\'none\'"><br>';
+        echo '<input type="submit" value="Memorizza scadenza nel db" name="submit_db" onclick="this.style.display=\'none\'"><br>';
         echo '</form>';
         $nr=$nr+1;
     }
@@ -204,7 +204,7 @@ function form_ritenute ($tabella_nodi, $xml_file){
         echo '<input type="date" name="info9"><br>';
         echo '<label>Note:</label><br>';
         echo '<input type="text" name="info10" size="100"><br>';
-        echo '<input type="submit" value="Memorizza scadenza nel db" name="submit_db" onclick="this.style.display=\'none\'"><br>';
+        echo '<input type="submit" value="Memorizza ritenuta nel db" name="submit_db" onclick="this.style.display=\'none\'"><br>';
         echo '</form>';
         $nr=$nr+1;
     }
