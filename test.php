@@ -19,7 +19,10 @@
     <?php
       include "navbar.html";
     ?>
-    <button type="button" id="btn_prova">Simula Upload</button>       
+
+    <div style="margin-top:80px">
+      <button type="button" id="btn_prova">Simula Upload</button>
+    </div>       
   
   </body>
 </html>

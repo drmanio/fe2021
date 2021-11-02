@@ -10,9 +10,15 @@ function pulsanti () {
   $('#btn_file_no_xml').click(function(){
     window.open("page_menu2.php","_self");
   });
+
+  $('#btn_scadenze').click(function(){
+    window.open("page_menu3.php","_self");
+  });
+
   $('#btn_test').click(function(){
     window.open("test.php","_self");
   });
+
 };
 
 function sc_index (){
@@ -54,6 +60,10 @@ function sc_menu1 (){
 
 function sc_menu2 (){
   $("#btn_file_no_xml").addClass("active");
+}
+
+function sc_menu3 (){
+  $("#btn_scadenze").addClass("active");
 }
 
 function sc_test (){
