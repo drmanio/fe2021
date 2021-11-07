@@ -15,14 +15,14 @@
 
       function cerca(){
         document.getElementById('row_elenco').className='row show';
-        var testo = document.getElementById('testo_da_cercare').value;
+        var azienda = document.getElementById('azienda').value;
         
 
             $.ajax({
               type: "POST",
               url: "script/carica_dati.php",
               async:false,
-              data: {testo:testo},
+              data: {testo:azienda},
               dataType: "html",
               success: function(msg)
               {
@@ -46,7 +46,14 @@
 
 <div style="margin-top:80px">
         <h1>Scadenzario</h1>
-        <input type='text' id='testo_da_cercare' placeholder='Filtra'></input>
+        <select name="Aziende" id="azienda">
+          <option value="%">Tutte le aziende</option>
+          <option value=1>SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE</option>
+          <option value=101>CENTRO ASSISTENZA IMPRESE COLDIRETTI VENETO SRL</option>
+          <option value=102>FEDERAZIONE REGIONALE COLDIRETTI DEL VENETO</option>
+          <option value=103>SERENISSIMA AGRIDATA SRL</option>
+          <option value=104>ORGANISMO DI CONSULENZA PSR & INNOVAZIONE VENETO SRL</option>
+        </select>
         <button onclick='cerca()' id='btn_cerca'>Carica dati azienda</button>					
 </div>
 
