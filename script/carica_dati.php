@@ -73,6 +73,18 @@
             echo   "<td>{$doc_importo}</td>";
             echo   "<td>{$scadenzaPagamento}</td>";
             echo   "<td>{$importoPagamento}</td>";
+            echo "<td>";
+				//echo " <button type='button' class='btn btn-warning' onclick='singoloitem(".$row[id].")' title='Modifica'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>";
+				echo " <button class='btn btn-warning' data-toggle='modal' data-target='#modal_modifica".$row['Id']."' title='Inserisci pagamento'>";
+				echo "<img src='bootstrap-icons/currency-euro.svg' height='12' width='9'>";
+				echo "</button>";
+				echo " <button class='btn btn-info' onclick='vcard(".$row['Id'].")' title='Crea bonifico'>";
+				echo "<img src='bootstrap-icons/send-fill.svg' height='12' width='9'>";
+				echo "</button>";
+				echo " <button class='btn btn-danger' onclick='delete_item(".$row['Id'].")' title='Elimina'>";
+                echo "<img src='bootstrap-icons/trash.svg' height='12' width='9'>";
+                echo "</button>";
+			echo "</td>";
             echo "</tr>";
     
         }
