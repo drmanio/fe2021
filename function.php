@@ -25,11 +25,26 @@ function carica_xml(){
     foreach ($_FILES as $file) {
         if (UPLOAD_ERR_OK === $file['error']) {
             $fileName = basename($file['name']);
+            echo "nome file ".$fileName."<br>";
+            $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+            echo "estensione ".$ext."<br>";
+            $fileout = pathinfo($fileName, PATHINFO_FILENAME);
+            echo "nome file senza estensione ".$fileout."<br>"; 
             move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$fileName);
-            $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileName);
+            
+            if ($ext=="p7m") {
+                $file = "..\uploads\\".$fileName;
+                $out = shell_exec('cd openssl & openssl smime -verify -inform DER -in '.$file.' -noverify -out "..\uploads\\'.$fileout.'"');
+                $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileout);
+            } else {
+                $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileName);
+            }
         }
     }
+
     return $xml;
+
+    
 }
 
 

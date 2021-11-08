@@ -22,7 +22,12 @@
 
     <div style="margin-top:80px">
       <button type="button" id="btn_prova">Simula Upload</button>
-    </div>       
+    </div>
+    <?php
+      $file = "..\uploads\prova.xml.p7m";
+      $out = shell_exec('cd openssl & openssl smime -verify -inform DER -in '.$file.' -noverify -out "..\uploads\prova.xml"');
+      var_dump($out);
+    ?>       
   
   </body>
 </html>
