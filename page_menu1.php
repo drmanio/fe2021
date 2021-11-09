@@ -54,7 +54,19 @@ if (isset($_POST['submit'])){
     //LA VARIABILE SUPERGLOBALE $_FILES E' UN ARRAY ASSOCIATIVO (chiavi: file) DI ARRAY ASSOCIATIVO (chiavi: name, type, tmp_name, error, size).
     //PER RECUPERARE IL NOME DEVO RECUPERARE IL VALORE DI name DELLA CHIAVE file
     $fileName = basename($_FILES['file']['name']);
-    $_SESSION['nomeFile'] = $fileName;
+    echo $fileName;
+    echo "<br>";
+    $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+    echo $ext;
+    echo "<br>";
+    $fileout = pathinfo($fileName, PATHINFO_FILENAME);
+    echo $fileout;
+    echo "<br>";
+    if ($ext=="p7m"){
+        $_SESSION['nomeFile'] = $fileout;
+    } else {
+        $_SESSION['nomeFile'] = $fileName;
+    }
     // echo "Nome del file caricato: ".$fileName."<br/>";
     // echo "<br>";
     // VERIFICO SE IL FILE SIMPLEXML E' STATO ATTRIBUITO ALLA VARIABILE

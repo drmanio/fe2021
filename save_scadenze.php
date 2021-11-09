@@ -11,6 +11,14 @@ if (!$test){
     //SETTAGGIO MESSAGGIO DI ERRORE
     echo ("Messagio di errore: ". mysqli_error($connessioneDB));
 } else {
+    if ($info[5]=="SI") {
+        $istruzione_sql= "INSERT INTO pagamenti_scadenze(idScadenzario, importoPagamento, DataPagamento, ModoPagamento, Note)
+        VALUES ((SELECT MAX(Id) FROM scadenzario), '$info[3]', NULLIF('$info[6]',''),'$info[7]','$info[8]')";
+        $test = mysqli_query($connessioneDB, $istruzione_sql);
+        echo "Inserito pagamento";
+        echo "<br>";
+    }
     echo "Dati memorizzati";
 }
+
 ?>
