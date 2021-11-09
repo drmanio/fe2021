@@ -75,14 +75,11 @@
             echo   "<td>{$importoPagamento}</td>";
             echo "<td>";
                 echo " <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Inserisci pagamento'>";
-				echo "<img src='bootstrap-icons/currency-euro.svg' height='12' width='9'>";
+				echo "<img src='bootstrap-icons/currency-euro.svg'";
 				echo "</button>";
 				echo " <button class='btn btn-info' onclick='vcard(".$Id.")' title='Crea bonifico'>";
-				echo "<img src='bootstrap-icons/send-fill.svg' height='12' width='9'>";
+				echo "<img src='bootstrap-icons/send-fill.svg'>";
 				echo "</button>";
-				echo " <button class='btn btn-danger' onclick='delete_item(".$Id.")' title='Elimina'>";
-                echo "<img src='bootstrap-icons/trash.svg' height='12' width='9'>";
-                echo "</button>";
 			echo "</td>";
            
             //MODAL		
@@ -92,7 +89,6 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="myModalLabel'.$Id.'"><strong>Inserisci pagamento<br>'.$Id.' - '.$forn_den.' - doc. nr. '.$doc_nr.' - data '.$doc_data.'</strong></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                             <div class="modal-body">
 
@@ -130,7 +126,7 @@
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="update_pag('.$Id.')">Save changes</button>
                         </div>
                     </div>
                 </div>

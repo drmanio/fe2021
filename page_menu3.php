@@ -35,6 +35,30 @@
 
       }
 
+      function update_pag(iditem) {
+			  var importo_mod = document.getElementById('importo_mod'+ iditem).value;
+			  var data_mod = document.getElementById('data_mod' + iditem).value;
+			  var mezzo_mod = document.getElementById('mezzo_mod' + iditem).value;
+			  var note_mod = document.getElementById('note_mod' + iditem).value;
+			  
+				$.ajax({
+				  type: "POST",
+				  url: "script/pay_update.php",
+				  
+				  async:false,
+				  
+				  data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
+				  dataType: "html",
+				  success: function(msg)
+				  {
+					id_contact = iditem;
+				  },
+				  error: function(XMLHttpRequest, textStatus, errorThrown) { 
+					alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+				}  
+				});
+  };
+
     </script>
 
   </head>
