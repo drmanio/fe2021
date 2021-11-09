@@ -74,23 +74,73 @@
             echo   "<td>{$scadenzaPagamento}</td>";
             echo   "<td>{$importoPagamento}</td>";
             echo "<td>";
-				//echo " <button type='button' class='btn btn-warning' onclick='singoloitem(".$row[id].")' title='Modifica'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>";
-				echo " <button class='btn btn-warning' data-toggle='modal' data-target='#modal_modifica".$row['Id']."' title='Inserisci pagamento'>";
+                echo " <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Inserisci pagamento'>";
 				echo "<img src='bootstrap-icons/currency-euro.svg' height='12' width='9'>";
 				echo "</button>";
-				echo " <button class='btn btn-info' onclick='vcard(".$row['Id'].")' title='Crea bonifico'>";
+				echo " <button class='btn btn-info' onclick='vcard(".$Id.")' title='Crea bonifico'>";
 				echo "<img src='bootstrap-icons/send-fill.svg' height='12' width='9'>";
 				echo "</button>";
-				echo " <button class='btn btn-danger' onclick='delete_item(".$row['Id'].")' title='Elimina'>";
+				echo " <button class='btn btn-danger' onclick='delete_item(".$Id.")' title='Elimina'>";
                 echo "<img src='bootstrap-icons/trash.svg' height='12' width='9'>";
                 echo "</button>";
 			echo "</td>";
+           
+            //MODAL		
+            echo '
+            <div class="modal fade" id="modalModifica'.$Id.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel'.$Id.'"><strong>Inserisci pagamento<br>'.$Id.' - '.$forn_den.' - doc. nr. '.$doc_nr.' - data '.$doc_data.'</strong></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                            <div class="modal-body">
+
+                                <div class="form-group form-group-sm">
+                                    <label>Importo pagamento</label>
+                                    <input type="text" class="form-control" id="importo_mod'.$Id.'" value="'.$importoPagamento.'">
+                                </div>
+
+                                <div class="form-group form-group-sm">
+                                    <label>Data pagamento:</label><br>
+                                    <input type="date" class="form-control" id="data_mod'.$Id.'">
+                                </div>
+
+                                <div class="form-group form-group-sm">
+                                    <label>Mezzo di pagamento:</label><br>
+                                    <select class="form-control" id="mezzo_mod'.$Id.'">
+                                        <option value="Bonifico">Bonifico</option>
+                                        <option value="Rid">Rid</option>
+                                        <option value="Riba">Riba</option>
+                                        <option value="Assegno">Assegno</option>
+                                        <option value="Carta">Carta</option>
+                                        <option value="Bancomat">Bancomat</option>
+                                        <option value="Cassa">Cassa</option>
+                                        <option value="Addebito diretto in conto">Addebito diretto in conto</option>
+                                        <option value="Altro">Altro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group form-group-sm"> 
+                                    <label>Note pagamento:</label><br>
+                                    <input class="form-control" type="text" id="note_mod'.$Id.'">
+                                </div>
+
+                            </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+            //MODAL
             echo "</tr>";
     
         }
     }
     
-
 echo '</tbody>';
 echo '</table>';
 
