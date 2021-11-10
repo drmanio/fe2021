@@ -18,20 +18,20 @@
         var azienda = document.getElementById('azienda').value;
         
 
-            $.ajax({
-              type: "POST",
-              url: "script/carica_dati.php",
-              async:false,
-              data: {testo:azienda},
-              dataType: "html",
-              success: function(msg)
-              {
-              $("#tabella").html(msg);
-              },
-              error: function(XMLHttpRequest, textStatus, errorThrown) { 
-              alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-            }  
-            });
+        $.ajax({
+          type: "POST",
+          url: "script/carica_dati.php",
+          async:false,
+          data: {testo:azienda},
+          dataType: "html",
+          success: function(msg)
+          {
+            $("#tabella").html(msg);
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown);
+          } 
+        });
 
       }
 
@@ -52,14 +52,47 @@
 				  dataType: "html",
 				  success: function(msg)
 				  {
-					id_contact = iditem;
-          cerca();
+					  id_contact = iditem;
+            cerca();
 				  },
 				  error: function(XMLHttpRequest, textStatus, errorThrown) { 
-					alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-				}  
-				});
-  };
+					  alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+				  }  
+			  });
+
+      }
+
+      function insert_pag(iditem) {
+
+        document.getElementById('btnBonifico'+iditem).classList.remove("btn-primary"); 
+        document.getElementById('btnBonifico'+iditem).classList.add("btn-success");
+        document.getElementById('btnBonifico'+iditem).classList.add("disabled");
+        document.getElementById('btnPagamento'+iditem).classList.remove("btn-primary"); 
+        document.getElementById('btnPagamento'+iditem).classList.add("btn-success");
+        document.getElementById('btnPagamento'+iditem).classList.add("disabled");
+        // var importo_mod = document.getElementById('importo_mod'+ iditem).value;
+        // var data_mod = document.getElementById('data_mod' + iditem).value;
+        // var mezzo_mod = document.getElementById('mezzo_mod' + iditem).value;
+        // var note_mod = document.getElementById('note_mod' + iditem).value;
+         
+        // $.ajax({
+        //   type: "POST",
+        //   url: "script/pay_insert.php",
+
+        //   async:false,
+
+        //   data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
+        //   dataType: "html",
+        //   success: function(msg)
+        //   {
+        //     id_contact = iditem;
+        //     cerca();
+        //   },
+        //   error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        //     alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        //   }  
+        // });
+      }
 
     </script>
 
