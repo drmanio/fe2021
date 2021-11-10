@@ -24,8 +24,8 @@
     }
 
     $query = "SELECT Id, idAzienda, denominazione, forn_den, doc_tipo, doc_nr, doc_data, 
-    doc_importo, scadenzaPagamento, importoPagamento FROM pagamenti 
-    WHERE Pagato = 'NO' and idAzienda like ('{$testo}') ORDER BY scadenzaPagamento";
+    doc_importo, scadenzaPagamento, importoPagamento, importoPagato, differenza FROM view_scadenzario_aperto 
+    WHERE idAzienda like ('{$testo}') ORDER BY scadenzaPagamento";
     $dati = mysqli_query($connessioneDB,$query);
      
     
@@ -43,6 +43,8 @@
     echo    '<th>Importo doc</th>';
     echo    '<th>Scadenza</th>';
     echo    '<th>Importo scadenza</th>';
+    echo    '<th>Importo pagato</th>';
+    echo    '<th>Residuo da pagare</th>';
     echo  '</tr>';
     echo '</thead>';
     echo '<tbody>';
@@ -60,6 +62,8 @@
             $doc_importo = $row['doc_importo'];
             $scadenzaPagamento = $row['scadenzaPagamento'];
             $importoPagamento = $row['importoPagamento'];
+            $importoPagato = $row['importoPagato'];
+            $importoResiduo = $row['differenza'];
     
             echo "<tr>";
             echo   "<th>{$Id}</th>";
@@ -73,6 +77,8 @@
             echo   "<td>{$doc_importo}</td>";
             echo   "<td>{$scadenzaPagamento}</td>";
             echo   "<td>{$importoPagamento}</td>";
+            echo   "<td>{$importoPagato}</td>";
+            echo   "<td>{$importoResiduo}</td>";
             echo "<td>";
                 echo " <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Inserisci pagamento'>";
 				echo "<img src='bootstrap-icons/currency-euro.svg'";
