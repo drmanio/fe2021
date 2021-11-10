@@ -64,34 +64,28 @@
 
       function insert_pag(iditem) {
 
-        document.getElementById('btnBonifico'+iditem).classList.remove("btn-primary"); 
-        document.getElementById('btnBonifico'+iditem).classList.add("btn-success");
-        document.getElementById('btnBonifico'+iditem).classList.add("disabled");
-        document.getElementById('btnPagamento'+iditem).classList.remove("btn-primary"); 
-        document.getElementById('btnPagamento'+iditem).classList.add("btn-success");
-        document.getElementById('btnPagamento'+iditem).classList.add("disabled");
-        // var importo_mod = document.getElementById('importo_mod'+ iditem).value;
-        // var data_mod = document.getElementById('data_mod' + iditem).value;
-        // var mezzo_mod = document.getElementById('mezzo_mod' + iditem).value;
-        // var note_mod = document.getElementById('note_mod' + iditem).value;
+        var importo_mod = document.getElementById('importoPre_mod'+ iditem).value;
+        var data_mod = document.getElementById('dataPre_mod' + iditem).value;
+        var mezzo_mod = document.getElementById('mezzoPre_mod' + iditem).value;
+        var note_mod = document.getElementById('notePre_mod' + iditem).value;
          
-        // $.ajax({
-        //   type: "POST",
-        //   url: "script/pay_insert.php",
+        $.ajax({
+          type: "POST",
+          url: "script/pay_insert.php",
 
-        //   async:false,
+          async:false,
 
-        //   data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
-        //   dataType: "html",
-        //   success: function(msg)
-        //   {
-        //     id_contact = iditem;
-        //     cerca();
-        //   },
-        //   error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        //     alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-        //   }  
-        // });
+          data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
+          dataType: "html",
+          success: function(msg)
+          {
+            id_contact = iditem;
+            cerca();
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+          }  
+        });
       }
 
     </script>

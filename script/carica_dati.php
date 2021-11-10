@@ -151,23 +151,23 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="myModalLabel'.$Id.'"><strong>Inserisci pagamento<br>'.$Id.' - '.$forn_den.' - doc. nr. '.$doc_nr.' - data '.$doc_data.'</strong></h5>
+                            <h5 class="modal-title" id="myModal2Label'.$Id.'"><strong>Inserisci pagamento<br>'.$Id.' - '.$forn_den.' - doc. nr. '.$doc_nr.' - data '.$doc_data.'</strong></h5>
                         </div>
                             <div class="modal-body">
 
                                 <div class="form-group form-group-sm">
                                     <label>Importo pagamento</label>
-                                    <input type="text" class="form-control" id="importo_mod'.$Id.'" value="'.$importoPagamento.'">
+                                    <input type="text" class="form-control" id="importoPre_mod'.$Id.'" value="'.$importoPagamento.'">
                                 </div>
 
                                 <div class="form-group form-group-sm">
                                     <label>Data pagamento:</label><br>
-                                    <input type="date" class="form-control" id="data_mod'.$Id.'">
+                                    <input type="date" class="form-control" id="dataPre_mod'.$Id.'">
                                 </div>
 
                                 <div class="form-group form-group-sm">
                                     <label>Mezzo di pagamento:</label><br>
-                                    <select class="form-control" id="mezzo_mod'.$Id.'">
+                                    <select class="form-control" id="mezzoPre_mod'.$Id.'">
                                         <option value="Bonifico">Bonifico</option>
                                         <option value="Rid">Rid</option>
                                         <option value="Riba">Riba</option>
@@ -182,7 +182,7 @@
 
                                 <div class="form-group form-group-sm"> 
                                     <label>Note pagamento:</label><br>
-                                    <input class="form-control" type="text" id="note_mod'.$Id.'">
+                                    <input class="form-control" type="text" id="notePre_mod'.$Id.'">
                                 </div>
 
                             </div>

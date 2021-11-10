@@ -43,7 +43,18 @@
         where scadenza.Id='$iditem'";
 
     $dati = mysqli_query($connessioneDB,$query);
-    if (!$test){
+    if (!$dati){
+        //SETTAGGIO MESSAGGIO DI ERRORE
+        echo ("Messagio di errore: ". mysqli_error($connessioneDB));
+    }
+
+    $query_update = "UPDATE pagamenti_temp SET 
+    DataPagamento = NULLIF('$data_mod',''), ImportoPagato = '$importo_mod', 
+    Note = NULLIF('$note_mod',''), modPagamento = '$mezzo_mod'
+    WHERE idScadenzario ='$iditem'";
+
+    $dati_update = mysqli_query($connessioneDB,$query_update);
+    if (!$dati_update){
         //SETTAGGIO MESSAGGIO DI ERRORE
         echo ("Messagio di errore: ". mysqli_error($connessioneDB));
     }
