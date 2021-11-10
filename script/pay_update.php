@@ -2,18 +2,18 @@
 
     include "..\db.php";
 
-    $iditem = $_POST['iditem'];
+    $iditem = $_POST['idScadenzario'];
 
-    $importo_mod = $_POST['importo_mod'];
-    $data_mod = $_POST['data_mod'];
-    $mezzo_mod = $_POST['mezzo_mod'];
-    $note_mod = $_POST['note_mod'];
+    $importo_mod = $_POST['importoPagamento'];
+    $data_mod = $_POST['DataPagamento'];
+    $mezzo_mod = $_POST['ModoPagamento'];
+    $note_mod = $_POST['Note'];
 
-    $query_string = "INSERT INTO pagamenti_scadenze (idScadenzario, importoPagamento, 
-    DataPagamento, ModoPagamento, Note) VALUES ('$iditem','$importo_mod', '$data_mod', 
-    '$mezzo_mod','$note_mod')";
+    $query = "INSERT INTO pagamenti_scadenze (idScadenzario, importoPagamento, 
+    DataPagamento, ModoPagamento, Note) VALUES ('$iditem','$importo_mod', NULLIF('$data_mod',''), 
+    '$mezzo_mod',NULLIF('$note_mod',''))";
 
-    $test = mysqli_query($connessioneDB, $istruzione_sql);
+    $dati = mysqli_query($connessioneDB,$query);
     if (!$test){
         //SETTAGGIO MESSAGGIO DI ERRORE
         echo ("Messagio di errore: ". mysqli_error($connessioneDB));

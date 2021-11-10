@@ -36,6 +36,7 @@
       }
 
       function update_pag(iditem) {
+         
 			  var importo_mod = document.getElementById('importo_mod'+ iditem).value;
 			  var data_mod = document.getElementById('data_mod' + iditem).value;
 			  var mezzo_mod = document.getElementById('mezzo_mod' + iditem).value;
@@ -52,6 +53,7 @@
 				  success: function(msg)
 				  {
 					id_contact = iditem;
+          cerca();
 				  },
 				  error: function(XMLHttpRequest, textStatus, errorThrown) { 
 					alert("Status: " + textStatus); alert("Error: " + errorThrown); 
@@ -69,7 +71,7 @@
     ?>
 
 <div style="margin-top:80px">
-        <h1>Scadenzario</h1>
+        <h1>Inserisci pagamenti</h1>
         <select name="Aziende" id="azienda">
           <option value="%">Tutte le aziende</option>
           <option value=1>SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE</option>

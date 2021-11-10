@@ -77,9 +77,6 @@
                 echo " <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Inserisci pagamento'>";
 				echo "<img src='bootstrap-icons/currency-euro.svg'";
 				echo "</button>";
-				echo " <button class='btn btn-info' onclick='vcard(".$Id.")' title='Crea bonifico'>";
-				echo "<img src='bootstrap-icons/send-fill.svg'>";
-				echo "</button>";
 			echo "</td>";
            
             //MODAL		
@@ -126,7 +123,7 @@
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="update_pag('.$Id.')">Save changes</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="update_pag('.$Id.')">Save changes</button>
                         </div>
                     </div>
                 </div>
