@@ -14,7 +14,7 @@
 				echo "</thead>";
 				echo "<tbody>";
 				
-			$query = "SELECT * FROM pagamenti_temp;
+			$query = "SELECT * FROM pagamenti_temp";
 			
 				$result = mysqli_query($connessioneDB,$query);
 				while($row = mysqli_fetch_array($result)){
