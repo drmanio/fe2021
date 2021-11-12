@@ -25,7 +25,9 @@
     WHERE idAzienda like ('{$testo}') ORDER BY forn_den, scadenzaPagamento";
     $dati = mysqli_query($connessioneDB,$query);
 
-    
+    echo '
+    <a href="script/export_excel.php" id="btn_cerca_tmp">Carica dati azienda</a>				
+    ';
     echo '<table class="table table-hover">';
     echo '<thead>';
     echo  '<tr>';

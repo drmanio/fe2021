@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
   <head>
 
@@ -33,6 +37,26 @@
           } 
         });
 
+      }
+
+      function export_xls() {
+
+        $.ajax({
+          type: "POST",
+          url: "script/export_excel.php",
+          async:false,
+          data: {},
+          dataType: "html",
+          success: function(msg)
+          {
+            // id_contact = iditem;
+            // cerca();
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+          }  
+        });
+ 
       }
 
       function update_pag(iditem) {
@@ -95,7 +119,10 @@
 
     <?php
       include "navbar.html";
+      $_SESSION['idaz']="1";
     ?>
+
+
 
 <div style="margin-top:80px">
         <h1>Inserisci pagamenti</h1>
