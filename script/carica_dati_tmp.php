@@ -26,7 +26,7 @@
     $dati = mysqli_query($connessioneDB,$query);
 
     echo '
-    <a href="script/export_excel.php" id="btn_cerca_tmp">Carica dati azienda</a>				
+    <a href="script/export_excel.php?idaz='.$testo.'" id="btn_cerca_tmp">Carica dati azienda</a>				
     ';
     echo '<table class="table table-hover">';
     echo '<thead>';

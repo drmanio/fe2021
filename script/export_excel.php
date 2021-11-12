@@ -1,5 +1,6 @@
 <?php
 		include "..\db.php";
+        $idazienda=$_GET['idaz'];
 
 		 $filename="quickybook_".date('d-m-Y').".xls";
 		 header ("Content-Type: application/vnd.ms-excel");
@@ -14,7 +15,7 @@
 				echo "</thead>";
 				echo "<tbody>";
 				
-			$query = "SELECT * FROM pagamenti_temp";
+			$query = "SELECT * FROM pagamenti_temp WHERE idAzienda = '$idazienda'";
 			
 				$result = mysqli_query($connessioneDB,$query);
 				while($row = mysqli_fetch_array($result)){
