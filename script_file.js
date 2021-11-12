@@ -15,6 +15,10 @@ function pulsanti () {
     window.open("page_menu3.php","_self");
   });
 
+  $('#btn_pagamenti').click(function(){
+    window.open("page_menu4.php","_self");
+  });
+
   $('#btn_test').click(function(){
     window.open("test.php","_self");
   });
@@ -64,6 +68,10 @@ function sc_menu2 (){
 
 function sc_menu3 (){
   $("#btn_scadenze").addClass("active");
+}
+
+function sc_menu4 (){
+  $("#btn_pagamenti").addClass("active");
 }
 
 function sc_test (){
