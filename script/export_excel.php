@@ -8,22 +8,28 @@
 		 
 		 echo "<table>";
 				echo "<thead>";
-				echo "<th>Cognome</th>";				
-				echo "<th>Nome</th>";
-				echo "<th>Telefono</th>";
-				echo "<th>Email</th>";
+				echo "<th>id</th>";				
+				echo "<th>Fornitore</th>";
+				echo "<th>IBAN</th>";
+				echo "<th>Importo</th>";
+				echo "<th>Note</th>";
+				echo "<th>Data pagamento</th>";
 				echo "</thead>";
 				echo "<tbody>";
 				
-			$query = "SELECT * FROM pagamenti_temp WHERE idAzienda = '$idazienda'";
+			$query = "SELECT 
+			idScadenzario, forn_den, IBAN, importoPagato, Note, DataPagamento 
+			FROM pagamenti_temp WHERE idAzienda = '$idazienda'";
 			
 				$result = mysqli_query($connessioneDB,$query);
 				while($row = mysqli_fetch_array($result)){
 					//echo print_r($row);
 					echo "<tr>";
+					echo "<td>".$row['idScadenzario']."</td>";
 					echo "<td>".$row['forn_den']."</td>";
 					echo "<td>".$row['IBAN']."</td>";					
-					echo "<td>".str_replace(".",",",$row['importoPagamento'])."</td>";
+					echo "<td>".str_replace(".",",",$row['importoPagato'])."</td>";
+					echo "<td>".$row['Note']."</td>";
 					echo "<td>".$row['DataPagamento']."</td>";
 					echo "</tr>";
 					}

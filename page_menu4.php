@@ -39,18 +39,18 @@ session_start();
 
       }
 
-      function export_xls() {
+      function archivia_pag(iditem) {
 
         $.ajax({
           type: "POST",
-          url: "script/export_excel.php",
+          url: "script/archivia_pag.php",
           async:false,
-          data: {},
+          data: {idAzienda:iditem},
           dataType: "html",
           success: function(msg)
           {
-            // id_contact = iditem;
-            // cerca();
+            id_contact = iditem;
+            cerca();
           },
           error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
