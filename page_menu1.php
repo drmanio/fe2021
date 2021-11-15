@@ -1,22 +1,22 @@
 <html>
-<head>
+  <head>
 
-<?php
-include "header.html";
-include "form.php";
-include "fe_nodi.php";
-include "function.php";
-?>
+    <?php
+      include "header.html";
+      include "form.php";
+      include "fe_nodi.php";
+      include "function.php";
+    ?>
 
-<!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
-<script>
-    $(document).ready(function(){
-        pulsanti();
-        sc_menu1();
-    });
-</script>
+    <!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
+    <script>
+      $(document).ready(function(){
+          pulsanti();
+          sc_menu1();
+      });
+    </script>
 
-</head>
+  </head>
 <body>
 
 <?php
