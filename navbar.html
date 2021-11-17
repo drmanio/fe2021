@@ -1,12 +1,48 @@
-<nav class="navbar fixed-top bg-light">
+<!-- A standard navigation bar is created with the .navbar class, 
+followed by a responsive collapsing class: .navbar-expand-xxl|xl|lg|md|sm 
+Use the .sticky-top class to make the navbar fixed/stay at the top of the page when you scroll past it-->
+<!-- A grey horizontal navbar -->
+<nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
   <div class="container-fluid">
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a class="nav-link" Id="btn_home" href="#"><img src="bootstrap-icons/house-fill.svg" alt="Home" height="25" width="32"></a></li>
-      <li class="nav-item"><a class="nav-link" Id="btn_file_xml" href="#">File xml</a></li>
-      <li class="nav-item"><a class="nav-link" Id="btn_file_no_xml" href="#">Documento non xml</a></li>
-      <li class="nav-item"><a class="nav-link" Id="btn_scadenze" href="#">Inserisci pagamenti</a></li>
-      <li class="nav-item"><a class="nav-link" Id="btn_pagamenti" href="#">Pagamenti predisposti</a></li>
-      <li class="nav-item"><a class="nav-link" Id="btn_test" href="#">Test</a></li>
-    </ul>
+    
+    <!-- The .navbar-brand class is used to highlight the brand/logo/project name of your page -->
+    <a class="navbar-brand" href="#">Logo</a>
+    
+    <!-- Very often, especially on small screens, you want to hide the navigation links and replace 
+    them with a button that should reveal them when clicked on.
+
+    To create a collapsible navigation bar, use a button with class="navbar-toggler", data-bs-toggle="collapse" and data-bs-target="#thetarget". 
+    Then wrap the navbar content (links, etc) inside a <div> element with class="collapse navbar-collapse", 
+    followed by an id that matches the data-bs-target of the button: "thetarget". -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a class="nav-link" Id="btn_home" href="#"><img src="bootstrap-icons/house-fill.svg" alt="Home" height="25" width="32"></a></li>
+        <li class="nav-item"><a class="nav-link" Id="btn_file_xml" href="#">File xml</a></li>
+        <li class="nav-item"><a class="nav-link" Id="btn_file_no_xml" href="#">Documento non xml</a></li>
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pagamenti</a>
+        <li class="nav-item"><a class="nav-link" Id="btn_scadenze" href="#">Inserisci pagamenti</a></li>
+        <li class="nav-item"><a class="nav-link" Id="btn_pagamenti" href="#">Pagamenti predisposti</a></li>
+        
+        <!-- SPAZIO PER I TEST -->
+        <li class="nav-item"><a class="nav-link" Id="btn_test" href="#">Test</a></li>
+        
+        <!-- PROVA DI UN DROPDOWN MENU -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Link</a></li>
+            <li><a class="dropdown-item" href="#">Another link</a></li>
+            <li><a class="dropdown-item" href="#">A third link</a></li>
+          </ul>
+        </li>
+        <!-- FINE PROVA DROPDOWN MENU-->
+
+      </ul>
+    </div>
   </div>
 </nav>
