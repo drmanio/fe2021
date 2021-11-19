@@ -32,10 +32,11 @@ function carica_xml(){
             echo "nome file senza estensione ".$fileout."<br>"; 
             move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$fileName);
             
-            
-            if ($ext=="p7m") {
+            //LA FUNZIONE strcasecmp PERMETTE DI FARE UNA VERIFICA DELLE STRINGHE CASE INSENSITIVE
+            if (strcasecmp($ext, "p7m") == 0) {
                 $file = "..\uploads\\".$fileName;
                 $out = shell_exec('cd openssl & openssl smime -decrypt -in '.$file.' -inform DER -verify -noverify -out "..\uploads\\'.$fileout.'"');
+                // $out = shell_exec('cd openssl & openssl smime -verify -inform DER -in '.$file.' -noverify -out "..\uploads\\'.$fileout.'"');
                 $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileout);
             } else {
                 $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileName);
