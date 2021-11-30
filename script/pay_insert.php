@@ -3,7 +3,6 @@
     include "..\db.php";
 
     $iditem = $_POST['idScadenzario'];
-
     $importo_mod = $_POST['importoPagamento'];
     $data_mod = $_POST['DataPagamento'];
     $mezzo_mod = $_POST['ModoPagamento'];
@@ -50,7 +49,7 @@
 
     $query_update = "UPDATE pagamenti_temp SET 
     DataPagamento = NULLIF('$data_mod',''), ImportoPagato = '$importo_mod', 
-    Note = NULLIF('$note_mod',''), modPagamento = '$mezzo_mod'
+    Note = NULLIF('$note_mod',''), modPagamento = '$mezzo_mod' 
     WHERE idScadenzario ='$iditem'";
 
     $dati_update = mysqli_query($connessioneDB,$query_update);

@@ -24,13 +24,13 @@
     }
 
     $query = "SELECT Id, idAzienda, denominazione, forn_den, doc_tipo, doc_nr, doc_data, 
-    doc_importo, scadenzaPagamento, importoPagamento, importoPagato, differenza FROM view_scadenzario_aperto 
+    doc_importo, scadenzaPagamento, IBAN, importoPagamento, importoPagato, differenza, Note FROM view_scadenzario_aperto 
     WHERE idAzienda like ('{$testo}') ORDER BY scadenzaPagamento";
     $dati = mysqli_query($connessioneDB,$query);
 
     //rilevo gli id delle scadenze a cui è associata la preparazione di un bonifico
-    $query = "SELECT idScadenzario FROM pagamenti_temp";
-    $dati_bontmp = mysqli_query($connessioneDB,$query);
+    $query_tmp = "SELECT idScadenzario FROM pagamenti_temp WHERE idAzienda like ('{$testo}')";
+    $dati_bontmp = mysqli_query($connessioneDB,$query_tmp);
      
     
     echo '<table class="table table-hover">';
@@ -65,9 +65,11 @@
             $doc_data = $row['doc_data'];
             $doc_importo = $row['doc_importo'];
             $scadenzaPagamento = $row['scadenzaPagamento'];
+            $IBAN = $row['IBAN'];
             $importoPagamento = $row['importoPagamento'];
             $importoPagato = $row['importoPagato'];
             $importoResiduo = $row['differenza'];
+            $note = $row['Note'];
     
             echo "<tr>";
             echo   "<th>{$Id}</th>";
@@ -131,7 +133,7 @@
 
                                 <div class="form-group form-group-sm"> 
                                     <label>Note pagamento:</label><br>
-                                    <input class="form-control" type="text" id="note_mod'.$Id.'">
+                                    <input class="form-control" type="text" id="note_mod'.$Id.'" value="'.$note.'">
                                 </div>
 
                             </div>
@@ -157,12 +159,17 @@
 
                                 <div class="form-group form-group-sm">
                                     <label>Importo pagamento</label>
-                                    <input type="text" class="form-control" id="importoPre_mod'.$Id.'" value="'.$importoPagamento.'">
+                                    <input type="text" class="form-control" id="importoPre_mod'.$Id.'" value="'.$importoResiduo.'">
                                 </div>
 
                                 <div class="form-group form-group-sm">
                                     <label>Data pagamento:</label><br>
                                     <input type="date" class="form-control" id="dataPre_mod'.$Id.'">
+                                </div>
+
+                                <div class="form-group form-group-sm">
+                                    <label>Iban destinatario:</label><br>
+                                    <input class="form-control" type="text" id="iban_mod'.$Id.'" value="'.$IBAN.'">
                                 </div>
 
                                 <div class="form-group form-group-sm">
@@ -182,7 +189,7 @@
 
                                 <div class="form-group form-group-sm"> 
                                     <label>Note pagamento:</label><br>
-                                    <input class="form-control" type="text" id="notePre_mod'.$Id.'">
+                                    <input class="form-control" type="text" id="notePre_mod'.$Id.'" value="'.$note.'">
                                 </div>
 
                             </div>
