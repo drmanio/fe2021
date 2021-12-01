@@ -20,11 +20,9 @@
 				echo "<tbody>";
 				
 			$query = "SELECT 
-<<<<<<< HEAD
+
 			idScadenzario, forn_piva, forn_den, IBAN, doc_nr, importoPagato, Note, DataPagamento 
-=======
 			idScadenzario, forn_den, IBAN, importoPagato, Note, DataPagamento 
->>>>>>> dbaf31b (alcune correzione su inserimento dei pagamenti)
 			FROM pagamenti_temp WHERE idAzienda = '$idazienda' ORDER BY forn_den";
 			
 				$result = mysqli_query($connessioneDB,$query);
