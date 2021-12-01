@@ -18,18 +18,18 @@ function dati_array($tabella_nodi, $radice){
 //FUNZIONE CHE CARICA NEL SERVER IL FILE XML SELEZIONATO E RITORNA L'ARRAY IN FORMATO SIMPLEXML
 function carica_xml(){
     
-    print_r($_FILES);
-    echo "<br>";
+    // print_r($_FILES);
+    // echo "<br>";
     
     $uploadDir = __DIR__.'/uploads';
     foreach ($_FILES as $file) {
         if (UPLOAD_ERR_OK === $file['error']) {
             $fileName = basename($file['name']);
-            echo "nome file ".$fileName."<br>";
+            // echo "nome file ".$fileName."<br>";
             $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-            echo "estensione ".$ext."<br>";
+            // echo "estensione ".$ext."<br>";
             $fileout = pathinfo($fileName, PATHINFO_FILENAME);
-            echo "nome file senza estensione ".$fileout."<br>"; 
+            // echo "nome file senza estensione ".$fileout."<br>"; 
             move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$fileName);
             
             //LA FUNZIONE strcasecmp PERMETTE DI FARE UNA VERIFICA DELLE STRINGHE CASE INSENSITIVE

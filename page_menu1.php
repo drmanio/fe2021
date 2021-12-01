@@ -23,8 +23,6 @@
 include "navbar.html";
 ?>
 
-<div id="script_btn"></div>
-<div id="xml" class="tab-content container-fluid" style="margin-top:80px">
 <!--
 FORM INIZIALE PER SELEZIONARE IL FILE E CHIEDERNE LA VISUALIZZAZIONE 
 The enctype attribute specifies how the form-data should be encoded when submitting it to the server.
@@ -32,15 +30,19 @@ Note: The enctype attribute can be used only if method="post".
 Attribute Values:
 - application/x-www-form-urlencoded ** Default. All characters are encoded before sent (spaces are converted to "+" symbols, and special characters are converted to ASCII HEX values)
 - multipart/form-data ** This value is necessary if the user will upload a file through the form
-- text/plain ** Sends data without any encoding at all. Not recommended -->
-<!-- <form action="importa_fe.php" method="post" enctype="multipart/form-data"> -->
+- text/plain ** Sends data without any encoding at all. Not recommended 
+
+$ _SERVER [ 'PHP_SELF'] è una variabile d'ambiente supportata da tutte le piattaforme che indica il nome del file su cui è attualmente in esecuzione lo script PHP rispetto alla root del Web server.
+$ _SERVER [ 'PHP_SELF'] è comodo perché rende il codice di un form riutilizzabile, non dovrai infatti cambiare ogni volta l'argomento riferito all'ACTION.
+-->
+
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
     <h3> Seleziona il file xml proveniente dallo Sdi da caricare:</h3>
-    <input type="file" name="file">
-    <br><br>
+    <input class="form-control" type="file" name="file">
+    <br>
     <input id="btn_view_dati_xml" type="submit" value="visualizza dati" name="submit" onclick="this.style.display='none'">
-    <br><br>
-    <button id="btn_new_file">Carica un nuovo file</button>
+    <!-- <br><br>
+    <button id="btn_new_file">Carica un nuovo file</button> -->
 </form>
 </div>
 <div>
@@ -54,14 +56,14 @@ if (isset($_POST['submit'])){
     //LA VARIABILE SUPERGLOBALE $_FILES E' UN ARRAY ASSOCIATIVO (chiavi: file) DI ARRAY ASSOCIATIVO (chiavi: name, type, tmp_name, error, size).
     //PER RECUPERARE IL NOME DEVO RECUPERARE IL VALORE DI name DELLA CHIAVE file
     $fileName = basename($_FILES['file']['name']);
-    echo $fileName;
-    echo "<br>";
+    // echo $fileName;
+    // echo "<br>";
     $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-    echo $ext;
-    echo "<br>";
+    // echo $ext;
+    // echo "<br>";
     $fileout = pathinfo($fileName, PATHINFO_FILENAME);
-    echo $fileout;
-    echo "<br>";
+    // echo $fileout;
+    // echo "<br>";
     if ($ext=="p7m"){
         $_SESSION['nomeFile'] = $fileout;
     } else {
