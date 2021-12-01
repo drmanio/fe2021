@@ -17,6 +17,8 @@ function dati_array($tabella_nodi, $radice){
 
 //FUNZIONE CHE CARICA NEL SERVER IL FILE XML SELEZIONATO E RITORNA L'ARRAY IN FORMATO SIMPLEXML
 function carica_xml(){
+
+  
     
     // print_r($_FILES);
     // echo "<br>";

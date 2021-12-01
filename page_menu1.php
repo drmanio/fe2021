@@ -8,9 +8,10 @@
       include "function.php";
     ?>
 
-    <!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
+    
     <script>
       $(document).ready(function(){
+        <!-- EVIDENZIO IL PULSANTE DELLA NAVBAR MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
           pulsanti();
           sc_menu1();
       });
@@ -36,8 +37,32 @@ $ _SERVER [ 'PHP_SELF'] è una variabile d'ambiente supportata da tutte le piatt
 $ _SERVER [ 'PHP_SELF'] è comodo perché rende il codice di un form riutilizzabile, non dovrai infatti cambiare ogni volta l'argomento riferito all'ACTION.
 -->
 
+<!-- With PHP, it is easy to upload files to the server. -->
+<!-- However, with ease comes danger, so always be careful when allowing file uploads! -->
+<!-- First, ensure that PHP is configured to allow file uploads. -->
+<!-- In your "php.ini" file, search for the file_uploads directive, and set it to On: -->
+
+<!-- create an HTML form that allow users to choose the file they want to upload -->
+<!-- Some rules to follow for the HTML form: -->
+<!-- Make sure that the form uses method="post" -->
+<!-- The form also needs the following attribute: enctype="multipart/form-data". It specifies which content-type to use when submitting the form -->
+<!-- Without the requirements above, the file upload will not work. -->
+
+<!-- Other things to notice: -->
+
+<!-- The type="file" attribute of the <input> tag shows the input field as a file-select control, with a "Browse" button next to the input control -->
+<!-- The form sends data to a file called "upload.php" -->
+
+<!-- Because in different OS there is different directory separator. In Windows it's \ in Linux it's /. DIRECTORY_SEPARATOR is constant with that OS directory separator. -->
+<form action = <?php echo '"script'.DIRECTORY_SEPARATOR.'upload.php"'; ?> method="post" enctype="multipart/form-data">
+  <h3> Seleziona il file xml/p7m proveniente dallo Sdi da caricare:</h3>
+  <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
+  <br>
+  <input type="submit" id="btn_view_dati_xml" value="visualizza dati" name="submit" onclick="this.style.display='none'">
+</form>
+
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-    <h3> Seleziona il file xml proveniente dallo Sdi da caricare:</h3>
+    <h3> Seleziona il file xml/p7m proveniente dallo Sdi da caricare:</h3>
     <input class="form-control" type="file" name="file">
     <br>
     <input id="btn_view_dati_xml" type="submit" value="visualizza dati" name="submit" onclick="this.style.display='none'">
