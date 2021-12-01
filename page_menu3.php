@@ -64,28 +64,40 @@
 
       function insert_pag(iditem) {
 
-        var importo_mod = document.getElementById('importoPre_mod'+ iditem).value;
-        var data_mod = document.getElementById('dataPre_mod' + iditem).value;
-        var mezzo_mod = document.getElementById('mezzoPre_mod' + iditem).value;
-        var note_mod = document.getElementById('notePre_mod' + iditem).value;
-         
-        $.ajax({
-          type: "POST",
-          url: "script/pay_insert.php",
+        $(document).ready(function(){
 
-          async:false,
+          var importo_mod = document.getElementById('importoPre_mod'+ iditem).value;
+          var iban_mod = document.getElementById('ibanPre_mod' + iditem).value;
+          var data_mod = document.getElementById('dataPre_mod' + iditem).value;
+          var mezzo_mod = document.getElementById('mezzoPre_mod' + iditem).value;
+          var note_mod = document.getElementById('notePre_mod' + iditem).value;
+          
+          $.ajax({
+            type: "POST",
+            url: "script/pay_insert.php",
 
-          data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
-          dataType: "html",
-          success: function(msg)
-          {
-            id_contact = iditem;
-            cerca();
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-          }  
+            async:false,
+
+            data: {"idScadenzario":iditem,
+              "iban_str":iban_mod,
+              "importoPagamento":importo_mod,
+              "DataPagamento":data_mod,
+              "ModoPagamento":mezzo_mod,
+              "Note":note_mod},
+            dataType: "html",
+            success: function(msg)
+            {
+              id_contact = iditem;
+              cerca();
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+              alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }  
+          });
+
         });
+
+        
       }
 
     </script>

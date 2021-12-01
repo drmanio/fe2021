@@ -169,7 +169,7 @@
 
                                 <div class="form-group form-group-sm">
                                     <label>Iban destinatario:</label><br>
-                                    <input class="form-control" type="text" id="iban_mod'.$Id.'" value="'.$IBAN.'">
+                                    <input class="form-control" type="text" id="ibanPre_mod'.$Id.'" value="'.$IBAN.'">
                                 </div>
 
                                 <div class="form-group form-group-sm">
