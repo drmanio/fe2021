@@ -11,7 +11,7 @@
     
     <script>
       $(document).ready(function(){
-        <!-- EVIDENZIO IL PULSANTE DELLA NAVBAR MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
+        // EVIDENZIO IL PULSANTE DELLA NAVBAR MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml"
           pulsanti();
           sc_menu1();
       });
