@@ -83,6 +83,7 @@ $ _SERVER [ 'PHP_SELF'] è comodo perché rende il codice di un form riutilizzab
 if (isset($_POST['submit'])){
     //ESEGUO LA FUNZIONE carica_xml() CHE ARCHIVIA IL FILE IN UNA CARTELLA DEL SERVER E RITORNA UN FILE IN FORMATO SIMPLEXML CHE ASSEGNO ALLA VARIABILE $xml_file                
     $xml_file = carica_xml();
+    echo '<div id="avviso"></div>';
 
     if ($xml_file){
       //LA VARIABILE SUPERGLOBALE $_FILES E' UN ARRAY ASSOCIATIVO (chiavi: file) DI ARRAY ASSOCIATIVO (chiavi: name, type, tmp_name, error, size).
