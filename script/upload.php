@@ -83,7 +83,7 @@ function carica_xml() {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
       echo '<div class="alert alert-success alert-dismissible">';
       echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
-      echo '<strong>Success!</strong> The file '.htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). 'has been uploaded';
+      echo '<strong>Success!</strong> The file '.htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). ' has been uploaded';
       echo '</div>';
 
       //LA FUNZIONE strcasecmp PERMETTE DI FARE UNA VERIFICA DELLE STRINGHE CASE INSENSITIVE
