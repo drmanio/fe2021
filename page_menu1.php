@@ -62,6 +62,24 @@
 
           // Questa parte della pagina viene attivata se la variabile $xml_file non è vuota (quindi il caricamento del file xml è andato a buon fine)
           if ($xml_file){
+
+            // LA VARIABILE SUPERGLOBALE $_FILES E' UN ARRAY ASSOCIATIVO (chiavi: file) DI ARRAY ASSOCIATIVO (chiavi: name, type, tmp_name, error, size).
+            // PER RECUPERARE IL NOME DEVO RECUPERARE IL VALORE DI name DELLA CHIAVE file
+            // $fileName = basename($_FILES['fileToUpload']['name']);
+            // echo $fileName;
+            // echo "<br>";
+            // $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+            // echo $ext;
+            // echo "<br>";
+            // $fileout = pathinfo($fileName, PATHINFO_FILENAME);
+            // echo $fileout;
+            // echo "<br>";
+            // if ($ext=="p7m"){
+            //     $_SESSION['nomeFile'] = $fileout;
+            // } else {
+            //     $_SESSION['nomeFile'] = $fileName;
+            // }
+
             // RICHIAMO LA FUNZIONE crea_id() CONTENUTA NEL FILE function.php PER ASSEGNARE ALLA VARIABILE $id_db L'ID UNIVOCO DELLA FATTURA XML
             // CHE VERRA' MEMORIZZATO NEL DATABASE
             $id_db=crea_id();
@@ -69,7 +87,7 @@
             // MEMORIZZO L'ID UNIVOCO CONTENUTO NELLA VARIABILE $id_db IN UNA VARIABILE SUPER GLOBALE DI SESSIONE id
             $_SESSION['id'] = $id_db;
             //*********************************
-            ?>
+      ?>
             
             <!-- If you want to create a simple horizontal menu, add the .nav class to a <ul> element, followed by .nav-item for each <li> and add the .nav-link class to their links -->
 
@@ -96,8 +114,9 @@
             </ul>
 
             <!-- Tab panes -->
+            <!-- Per fare in modo che i tab appaiano con un’animazione “a comparsa” (fade in), è sufficiente aggiungere la classe .fade ad ogni .tab-pane. Il primo .tab-pane dovrà anche avere la classe .show per rendere il contenuto iniziale visibile. -->
             <div class="tab-content">
-              <div class="tab-pane container active" id="datigen">
+              <div class="tab-pane container fade show active" id="datigen">
                 <?php
                 //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
                 //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
@@ -131,22 +150,7 @@
             </div>
 
             <?php
-      //LA VARIABILE SUPERGLOBALE $_FILES E' UN ARRAY ASSOCIATIVO (chiavi: file) DI ARRAY ASSOCIATIVO (chiavi: name, type, tmp_name, error, size).
-      //PER RECUPERARE IL NOME DEVO RECUPERARE IL VALORE DI name DELLA CHIAVE file
-      // $fileName = basename($_FILES['fileToUpload']['name']);
-      // echo $fileName;
-      // echo "<br>";
-      // $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-      // echo $ext;
-      // echo "<br>";
-      // $fileout = pathinfo($fileName, PATHINFO_FILENAME);
-      // echo $fileout;
-      // echo "<br>";
-      // if ($ext=="p7m"){
-          // $_SESSION['nomeFile'] = $fileout;
-      // } else {
-          // $_SESSION['nomeFile'] = $fileName;
-      // }
+      
       // echo "Nome del file caricato: ".$fileName."<br/>";
       // echo "<br>";
       // VERIFICO SE IL FILE SIMPLEXML E' STATO ATTRIBUITO ALLA VARIABILE
@@ -188,9 +192,8 @@
              
         }
 
-?>
-<br><br>
-</div>
-</body>
+      ?>
+    </div>
+  </body>
 </html>
         

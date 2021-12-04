@@ -24,8 +24,8 @@ function form_dati_generali($tabella_nodi, $xml_file){
     echo '<form id="dati_generali" action="save_dati_generali.php" method="post" target="_blank">';
     echo '<label>Id database:</label><br>';
     echo '<input type="text" readonly value="'.$_SESSION['id'].'" name="info1" STYLE="background-color : lightgray;"><br>';
-    // echo '<label>Nome file xml:</label><br>';
-    // echo '<input type="text" readonly value="'.$_SESSION['nomeFile'].'" name="info2" size="100" STYLE="background-color : lightgray;"><br>';
+    echo '<label>Nome file xml:</label><br>';
+    echo '<input type="text" readonly value="'.$_SESSION['nomeFile'].'" name="info2" size="100" STYLE="background-color : lightgray;"><br>';
     echo '<label>Protocollo:</label><br>';
     echo '<input type="text" name="info3" STYLE="background-color : #72A4D2;"><br>';
     echo '<label>Id barcode:</label><br>';

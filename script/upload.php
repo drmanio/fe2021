@@ -93,8 +93,10 @@ function carica_xml() {
         $out = shell_exec('cd openssl & openssl smime -decrypt -in '.$file.' -inform DER -verify -noverify -out "..'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.$fileout.'"');
         // $out = shell_exec('cd openssl & openssl smime -verify -inform DER -in '.$file.' -noverify -out "..\uploads\\'.$fileout.'"');
         $xml = simplexml_load_file($target_dir.$fileout);
+        $_SESSION['nomeFile']=$fileout;
       } else {
           $xml = simplexml_load_file($target_file);
+          $_SESSION['nomeFile']=basename($target_file);
       }
       return $xml;
 
