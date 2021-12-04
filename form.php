@@ -18,14 +18,14 @@ function form_dati_generali($tabella_nodi, $xml_file){
             //echo "<br/>";
         }
     }
-    echo "----------------------------------------------<br>";
-    echo "<b>MEMORIZZAZIONE DEI DATI GENERALI DEL DOCUMENTO </b>";
-    echo "<button id='btn_view_dati_generali' class='btn btn-primary' type='button'>Dati generali</button>";
+    // echo "----------------------------------------------<br>";
+    // echo "<b>MEMORIZZAZIONE DEI DATI GENERALI DEL DOCUMENTO </b>";
+    // echo "<button id='btn_view_dati_generali' class='btn btn-primary' type='button'>Dati generali</button>";
     echo '<form id="dati_generali" action="save_dati_generali.php" method="post" target="_blank">';
     echo '<label>Id database:</label><br>';
     echo '<input type="text" readonly value="'.$_SESSION['id'].'" name="info1" STYLE="background-color : lightgray;"><br>';
-    echo '<label>Nome file xml:</label><br>';
-    echo '<input type="text" readonly value="'.$_SESSION['nomeFile'].'" name="info2" size="100" STYLE="background-color : lightgray;"><br>';
+    // echo '<label>Nome file xml:</label><br>';
+    // echo '<input type="text" readonly value="'.$_SESSION['nomeFile'].'" name="info2" size="100" STYLE="background-color : lightgray;"><br>';
     echo '<label>Protocollo:</label><br>';
     echo '<input type="text" name="info3" STYLE="background-color : #72A4D2;"><br>';
     echo '<label>Id barcode:</label><br>';
@@ -98,10 +98,10 @@ function form_scadenze ($tabella_nodi, $xml_file){
     //************************************
 
     //ESEGUO LA CREAZIONE DEL FORM PER OGNI SCADENZA PRESENTE NELLA VARIABILE $scadenze_array
-    echo "----------------------------------------------<br>";
-    echo "<b>MEMORIZZAZIONE DELLE SCADENZE DI PAGAMENTO </b>";
+    // echo "----------------------------------------------<br>";
+    // echo "<b>MEMORIZZAZIONE DELLE SCADENZE DI PAGAMENTO </b>";
     $nr=1;
-    echo "<button id='btn_view_scadenze' class='btn btn-primary' type='button'>Dati scadenze</button><br>";
+    // echo "<button id='btn_view_scadenze' class='btn btn-primary' type='button'>Dati scadenze</button><br>";
     foreach ($scadenze_array as $info_scadenze){
         echo '<form class="scadenze" action="save_scadenze.php" method="post" target="_blank">';
         echo "---SCADENZA NUMERO $nr---";
@@ -145,8 +145,8 @@ function form_scadenze ($tabella_nodi, $xml_file){
 
 //FUNZIONE PER CREARE IL FORM NECESSARIO ALLA MEMORIZZAZIONE DELLE RITENUTE DEL DOCUEMENTO
 function form_ritenute ($tabella_nodi, $xml_file){
-        echo "----------------------------------------------<br>";
-        echo "<b>MEMORIZZAZIONE DELLE RITENUTA DA VERSARE </b>";
+        // echo "----------------------------------------------<br>";
+        // echo "<b>MEMORIZZAZIONE DELLE RITENUTA DA VERSARE </b>";
     //INIZIALIZZO LE VARIABILI CHE UTILIZZERO' PER CREARE IL FORM
     //- $nr_ritenute CONTIENE L'ARRAY DEL FILE SIMPLEXML NELLA PARTE RELATIVA AI DATI DI PAGAMENTO
     //- $ritenute_array INIZIALIZZA UN ARRAY DI ARRAY CHE CONTERRA' I DATI DA INSERIRE NEL FORM
@@ -175,7 +175,7 @@ function form_ritenute ($tabella_nodi, $xml_file){
     //************************************
 
     //ESEGUO LA CREAZIONE DEL FORM PER OGNI SCADENZA PRESENTE NELLA VARIABILE $ritenute_array
-    echo "<button id='btn_view_ritenute' class='btn btn-primary' type='button'>Dati ritenute</button><br>";
+    // echo "<button id='btn_view_ritenute' class='btn btn-primary' type='button'>Dati ritenute</button><br>";
     $nr=1;
     foreach ($ritenute_array as $info){
         echo '<form class="ritenute" id="ritenute" action="save_ritenute.php" method="post" target="_blank">';
@@ -247,8 +247,8 @@ function form_beniservizi ($tabella_nodi, $tabella_nodi2, $xml_file){
 
 //ISTRUZIONI DA ESEGUIRE NEL CASO SIANO PRESENTI DELLE RITENUTE NEL FILE XML
 
-    echo "----------------------------------------------<br>";
-    echo "<b>MEMORIZZAZIONE DEI BENI E SERVIZI </b>";
+    // echo "----------------------------------------------<br>";
+    // echo "<b>MEMORIZZAZIONE DEI BENI E SERVIZI </b>";
     foreach ($nr_beniservizi as $beniservizi){
         $beniservizi_array[]=dati_array($tabella_nodi, $beniservizi);
     //     foreach ($tabella_nodi as $dati){
@@ -269,7 +269,7 @@ function form_beniservizi ($tabella_nodi, $tabella_nodi2, $xml_file){
     //************************************
 
     //ESEGUO LA CREAZIONE DEL FORM PER OGNI SCADENZA PRESENTE NELLA VARIABILE $ritenute_array
-    echo "<button id='btn_view_beniservizi' class='btn btn-primary' type='button'>Dati beni e servizi</button><br>";
+    // echo "<button id='btn_view_beniservizi' class='btn btn-primary' type='button'>Dati beni e servizi</button><br>";
     $nr=1;
     foreach ($beniservizi_array as $info){
         echo '<form class="beniservizi" action="save_beniservizi.php" method="post" target="_blank">';

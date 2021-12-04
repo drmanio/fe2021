@@ -53,7 +53,6 @@
 
 
     <div>
-      <br>
       <!-- CODICE PHP CHE SI ATTIVA QUANDO VIENE PREMUTO IL PULSANTE CON NAME submit IN AGGIUNTA ALLA ACTION RIPORTATA NEL FORM -->
       <?php
         //VERIFICO SE E' STATO PREMUTO IL PULSANTE CON NAME submit
@@ -83,10 +82,16 @@
                 <a class="nav-link active" data-bs-toggle="tab" href="#datigen">Dati generali</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#menu1">Menu 1</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#scadenze">Scadenze</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" href="#menu2">Menu 2</a>
+                <a class="nav-link" data-bs-toggle="tab" href="#ritenute">Ritenute</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#beniservizi">Beni e servizi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#filexml">File xml</a>
               </li>
             </ul>
 
@@ -100,8 +105,29 @@
                 form_dati_generali($dati_generali, $xml_file);
                 ?>
               </div>
-              <div class="tab-pane container fade" id="menu1">...</div>
-              <div class="tab-pane container fade" id="menu2">...</div>
+              <div class="tab-pane container fade" id="scadenze">
+                <?php
+                //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+                //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+                //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+                form_scadenze($scadenze, $xml_file);
+                ?>
+              </div>
+              <div class="tab-pane container fade" id="ritenute">
+                <?php  
+                form_ritenute($ritenute, $xml_file);
+                ?>
+              </div>
+              <div class="tab-pane container fade" id="beniservizi">
+                <?php  
+                form_beniservizi($beniservizi, $ddt, $xml_file);
+                ?>
+              </div>
+              <div class="tab-pane container fade" id="filexml">
+                <?php  
+                visualizza_dati_xml($xml_file);
+                ?>
+              </div>
             </div>
 
             <?php

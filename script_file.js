@@ -32,30 +32,30 @@ function sc_index (){
 function sc_menu1 (){
   $("#btn_file_xml").addClass("active");
 
-  $("#tbl_xml").hide();
-  $("#btn_table_xml").click(function(){
-    $("#tbl_xml").toggle();
-  });
+  // $("#tbl_xml").hide();
+  // $("#btn_table_xml").click(function(){
+  //   $("#tbl_xml").toggle();
+  // });
 
-  $("#dati_generali").hide();
-  $("#btn_view_dati_generali").click(function(){
-    $("#dati_generali").toggle();
-  });
+  // $("#dati_generali").hide();
+  // $("#btn_view_dati_generali").click(function(){
+    // $("#dati_generali").toggle();
+  // });
 
-  $(".scadenze").hide();
-  $("#btn_view_scadenze").click(function(){
-    $(".scadenze").toggle();
-  });
+  // $(".scadenze").hide();
+  // $("#btn_view_scadenze").click(function(){
+  //   $(".scadenze").toggle();
+  // });
 
-  $(".ritenute").hide();
-  $("#btn_view_ritenute").click(function(){
-    $(".ritenute").toggle();
-  });
+  // $(".ritenute").hide();
+  // $("#btn_view_ritenute").click(function(){
+  //   $(".ritenute").toggle();
+  // });
 
-  $(".beniservizi").hide();
-  $("#btn_view_beniservizi").click(function(){
-    $(".beniservizi").toggle();
-  });
+  // $(".beniservizi").hide();
+  // $("#btn_view_beniservizi").click(function(){
+  //   $(".beniservizi").toggle();
+  // });
 
   $("#btn_new_file").click(function(){
     window.location.reload(ture);
