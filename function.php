@@ -295,7 +295,7 @@ function visualizza_dati_xml($xml_file){
             }
         }
     }
-    echo "<br/>";
+    // echo "<br/>";
     //SCRIVO I DATI CONTENUTI NELL'ARRAY $array_xml POCO SOPRA POPOLATO IN UNA TABELLA
     //INIZIALIZZO LA TABELLA IN HTML
     echo "<div id='tbl_xml'>";

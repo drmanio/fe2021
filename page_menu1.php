@@ -89,13 +89,56 @@
             //*********************************
       ?>
             
+            <div class="d-flex align-items-start">
+              <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#datigen" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Dati generali</button>
+                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#scadenze" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Scadenze</button>
+                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#ritenute" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Ritenute</button>
+                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#beniservizi" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Beni e servizi</button>
+                <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#filexml" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">File xml</button>
+              </div>
+              <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="datigen" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                  <?php
+                  //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+                  //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+                  //RICHIAMO LA FUNZIONE form_dati_generali() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+                  form_dati_generali($dati_generali, $xml_file);
+                  ?>
+                </div>
+                <div class="tab-pane fade" id="scadenze" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                  <?php
+                  //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+                  //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+                  //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+                  form_scadenze($scadenze, $xml_file);
+                  ?>
+                </div>
+                <div class="tab-pane fade" id="ritenute" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                  <?php  
+                  form_ritenute($ritenute, $xml_file);
+                  ?>
+                </div>
+                <div class="tab-pane fade" id="beniservizi" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                  <?php  
+                  form_beniservizi($beniservizi, $ddt, $xml_file);
+                  ?>
+                </div>
+                <div class="tab-pane fade" id="filexml" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                  <?php  
+                  visualizza_dati_xml($xml_file);
+                  ?>
+                </div>
+              </div>
+            </div>
+            
             <!-- If you want to create a simple horizontal menu, add the .nav class to a <ul> element, followed by .nav-item for each <li> and add the .nav-link class to their links -->
 
             <!-- To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a <div> element with class .tab-content.
 
             If you want the tabs to fade in and out when clicking on them, add the .fade class to .tab-pane -->
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
+            <!-- <ul class="nav nav-tabs">
               <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" href="#datigen">Dati generali</a>
               </li>
@@ -111,43 +154,43 @@
               <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="tab" href="#filexml">File xml</a>
               </li>
-            </ul>
+            </ul> -->
 
             <!-- Tab panes -->
             <!-- Per fare in modo che i tab appaiano con un’animazione “a comparsa” (fade in), è sufficiente aggiungere la classe .fade ad ogni .tab-pane. Il primo .tab-pane dovrà anche avere la classe .show per rendere il contenuto iniziale visibile. -->
-            <div class="tab-content">
-              <div class="tab-pane container fade show active" id="datigen">
+            <!-- <div class="tab-content">
+              <div class="tab-pane container fade show active" id="datigen"> -->
                 <?php
                 //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
                 //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
                 //RICHIAMO LA FUNZIONE form_dati_generali() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
-                form_dati_generali($dati_generali, $xml_file);
+                // form_dati_generali($dati_generali, $xml_file);
                 ?>
-              </div>
-              <div class="tab-pane container fade" id="scadenze">
+              <!-- </div> -->
+              <!-- <div class="tab-pane container fade" id="scadenze"> -->
                 <?php
                 //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
                 //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
                 //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
-                form_scadenze($scadenze, $xml_file);
+                // form_scadenze($scadenze, $xml_file);
                 ?>
-              </div>
-              <div class="tab-pane container fade" id="ritenute">
+              <!-- </div> -->
+              <!-- <div class="tab-pane container fade" id="ritenute"> -->
                 <?php  
-                form_ritenute($ritenute, $xml_file);
+                // form_ritenute($ritenute, $xml_file);
                 ?>
-              </div>
-              <div class="tab-pane container fade" id="beniservizi">
+              <!-- </div> -->
+              <!-- <div class="tab-pane container fade" id="beniservizi"> -->
                 <?php  
-                form_beniservizi($beniservizi, $ddt, $xml_file);
+                // form_beniservizi($beniservizi, $ddt, $xml_file);
                 ?>
-              </div>
-              <div class="tab-pane container fade" id="filexml">
+              <!-- </div> -->
+              <!-- <div class="tab-pane container fade" id="filexml"> -->
                 <?php  
-                visualizza_dati_xml($xml_file);
+                // visualizza_dati_xml($xml_file);
                 ?>
-              </div>
-            </div>
+              <!-- </div> -->
+            <!-- </div> -->
 
             <?php
       

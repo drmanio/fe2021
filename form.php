@@ -70,7 +70,7 @@ function form_scadenze ($tabella_nodi, $xml_file){
     $nr_scadenze = $xml_file->xpath("FatturaElettronicaBody/DatiPagamento");
     $scadenze_array = array();
     $posizione_array = 0;
-    echo "<br/>";
+    // echo "<br/>";
 //ISTRUZIONI DA ESEGUIRE NEL CASO NON SIA PRESENTE ALCUNA SCADENZA NEL FILE XML
     if (!$nr_scadenze){
         $data = (string) $xml_file->xpath("FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Data")[0];
