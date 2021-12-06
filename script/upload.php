@@ -88,9 +88,9 @@ function carica_xml() {
 
       //LA FUNZIONE strcasecmp PERMETTE DI FARE UNA VERIFICA DELLE STRINGHE CASE INSENSITIVE
       if (strcasecmp($FileType, "p7m") == 0) {
-        $file = "..".DIRECTORY_SEPARATOR.$target_dir.DIRECTORY_SEPARATOR.$target_file;
+        $file = "..".DIRECTORY_SEPARATOR.$target_file;
         $fileout = pathinfo($target_file, PATHINFO_FILENAME);
-        $out = shell_exec('cd openssl & openssl smime -decrypt -in '.$file.' -inform DER -verify -noverify -out "..'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.$fileout.'"');
+        $out = shell_exec('cd openssl & openssl smime -decrypt -in '.$file.' -inform DER -verify -noverify -out "..'.DIRECTORY_SEPARATOR.$target_dir.$fileout.'"');
         // $out = shell_exec('cd openssl & openssl smime -verify -inform DER -in '.$file.' -noverify -out "..\uploads\\'.$fileout.'"');
         $xml = simplexml_load_file($target_dir.$fileout);
         $_SESSION['nomeFile']=$fileout;
