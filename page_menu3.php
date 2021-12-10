@@ -109,7 +109,7 @@
       include "navbar.html";
     ?>
 
-<div style="margin-top:80px">
+<div style="margin-left:165px">
         <h1>Inserisci pagamenti</h1>
         <select name="Aziende" id="azienda">
           <option value="%">Tutte le aziende</option>

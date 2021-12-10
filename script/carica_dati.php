@@ -33,7 +33,7 @@
     $dati_bontmp = mysqli_query($connessioneDB,$query_tmp);
      
     
-    echo '<table class="table table-hover">';
+    echo '<table class="table table-hover" style="margin-left:165px">';
     echo '<thead>';
     echo  '<tr>';
     echo    '<th>Id</th>';

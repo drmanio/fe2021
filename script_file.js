@@ -1,4 +1,16 @@
 function pulsanti () {
+  $('#btn_sidenav').click(function(){
+    var x = document.getElementById("div_sidenav");
+    var y = document.getElementById("v-pills-tabContent");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.marginLeft="165";
+    } else {
+      x.style.display = "none";
+      y.style.marginLeft="10";
+    }
+  });
+
   $('#btn_home').click(function(){
     window.open("index.php","_self");
   });

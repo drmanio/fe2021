@@ -11,7 +11,7 @@
     ?>
 
     <!-- Collego il foglio di stile per gestire la sidebar -->
-    <link rel="stylesheet" href="sidebar.css" type="text/css">
+    <!-- <link rel="stylesheet" href="sidebar.css" type="text/css"> -->
     
     <script>
       $(document).ready(function(){
@@ -24,7 +24,7 @@
   </head>
   <body>
     
-    <div class="sidenav">
+    <!-- <div class="sidenav">
       <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <button class="nav-link active" id="v-pills-upload-tab" data-bs-toggle="pill" data-bs-target="#upload" type="button" role="tab" aria-controls="v-pills-upload" aria-selected="true">Upload file</button>
         <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#datigen" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Dati generali</button>
@@ -33,7 +33,7 @@
         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#beniservizi" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Beni e servizi</button>
         <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#filexml" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">File xml</button>
       </div>
-    </div>
+    </div> -->
     
     <div class="tab-content" id="v-pills-tabContent" style="margin-left:165px">
       <div class="tab-pane fade show active" id="upload" role="tabpanel" aria-labelledby="v-pills-home-tab">

@@ -29,7 +29,7 @@
     <a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>				
     <button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>				 
     ';
-    echo '<table class="table table-hover">';
+    echo '<table class="table table-hover" style="margin-left:165px">';
     echo '<thead>';
     echo  '<tr>';
     echo    '<th>Id</th>';
