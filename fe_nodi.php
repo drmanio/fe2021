@@ -1,5 +1,7 @@
 <?php
 
+// nodi del file xml necessari per recuperare i dati da inserire nella tabella dati_generali.
+// questo array viene passato alla funzione che costruisce il form dei dati generali
 $dati_generali = array(
     array("DatiAnagrafici/IdFiscaleIVA/IdCodice","FatturaElettronicaHeader/CessionarioCommittente/","DatiAnagrafici/IdFiscaleIVA/IdCodice"),
     array("DatiAnagrafici/CodiceFiscale","FatturaElettronicaHeader/CessionarioCommittente/","DatiAnagrafici/CodiceFiscale"),

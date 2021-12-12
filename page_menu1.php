@@ -1,43 +1,89 @@
+<?php
+// session_start();
+?>
+
 <html>
   <head>
     <!-- Elenco dei file che vengono inclusi nella pagina -->
     <?php
-      include "header.html";
-      include "form.php";
-      include "fe_nodi.php";
-      include "function.php";
-      include "navbar.html";
-      include "script".DIRECTORY_SEPARATOR."upload.php";
+    // inserisco i riferimenti ai file necessari
+    // riferimento alle informazioni da inserire nella parte head del file html
+    include "header.html";
+    // *****
+    // riferimento al file che crea le form all'interno della pagina
+    include "form.php";
+    // *****
+    // riferimento al file che contiene i nodi del file xml da leggere
+    include "fe_nodi.php";
+    // *****
+    // riferimento al file che contiene le funzioni utilizzate nella pagina
+    include "function.php";
+    // riferimento al file che contiene la navbar superiore
+    include "navbar.html";
+    // riferimento al file che esegue l'upload del file xml/p7m
+    include "script".DIRECTORY_SEPARATOR."upload.php";
     ?>
-
-    <!-- Collego il foglio di stile per gestire la sidebar -->
-    <!-- <link rel="stylesheet" href="sidebar.css" type="text/css"> -->
     
+    <!-- script che vengono caricati all'apertura della pagina -->
     <script>
       $(document).ready(function(){
-        // EVIDENZIO IL PULSANTE DELLA NAVBAR MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml"
-          pulsanti();
-          sc_menu1();
+        // script che vengono attivati alla pressione dei pulsanti della navbar
+        pulsanti();
+        // script attivati dal caricamento della scelta del menu1
+        sc_menu1();
       });
     </script>
 
   </head>
   <body>
-    
+
     <!-- creo la barra di navigazione laterale -->
+    <!-- la barra laterale viene formatata con il file sidebar.css -->
     <div class="sidenav" id="div_sidenav">
-      <div class="nav flex-column nav-pills me-3"id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button class="nav-link active" id="v-pills-upload-tab" data-bs-toggle="pill" data-bs-target="#upload" type="button" role="tab" aria-controls="v-pills-upload" aria-selected="true">Upload file</button>
-        <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#datigen" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Dati generali</button>
-        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#scadenze" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Scadenze</button>
-        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#ritenute" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Ritenute</button>
-        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#beniservizi" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Beni e servizi</button>
-        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#filexml" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">File xml</button>
+      <!-- Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states. 
+      Swap modifier classes to switch between each style.
+      The base .nav component is built with flexbox and provide a strong foundation for building all types of navigation components. 
+      It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling. -->
+      <!-- Takes the basic nav from above and adds the .nav-pills class to generate a pilled interface. -->
+      <div class="nav nav-pills">
+        <button class="nav-link active" id="v-pills-upload-tab" data-bs-toggle="pill" data-bs-target="#upload">Upload file</button>
+        <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#datigen">Dati generali</button>
+        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#scadenze">Scadenze</button>
+        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#ritenute">Ritenute</button>
+        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#beniservizi">Beni e servizi</button>
+        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#filexml">File xml</button>
       </div>
     </div>
-    
+      
+    <!-- div che contiene gli elementi principali della pagina.
+    Il margine sinistro viene impostato a 165px se è presente la sidebar.
+    Se non è presente o se viene nascosta (attraverso lo script) il margine sinistro viene impostato a 10px -->
     <div class="tab-content" id="v-pills-tabContent" style="margin-left:165px">
+      <!-- div che viene visualizzato premendo il relativo pulsante upload sulla sidebar -->
       <div class="tab-pane fade show active" id="upload" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        
+        <!-- FORM INIZIALE PER SELEZIONARE IL FILE E CHIEDERNE LA VISUALIZZAZIONE -->
+
+        <!-- With PHP, it is easy to upload files to the server. -->
+        <!-- However, with ease comes danger, so always be careful when allowing file uploads! -->
+        <!-- First, ensure that PHP is configured to allow file uploads. -->
+        <!-- In your "php.ini" file, search for the file_uploads directive, and set it to On: -->
+
+        <!-- create an HTML form that allow users to choose the file they want to upload -->
+        <!-- Some rules to follow for the HTML form: -->
+        <!-- Make sure that the form uses method="post" -->
+        <!-- The form also needs the following attribute: enctype="multipart/form-data". It specifies which content-type to use when submitting the form -->
+        <!-- Without the requirements above, the file upload will not work. -->
+
+        <!-- Other things to notice: -->
+
+        <!-- The type="file" attribute of the <input> tag shows the input field as a file-select control, with a "Browse" button next to the input control -->
+        <!-- The form sends data to a file called "upload.php" -->
+
+        <!-- $ _SERVER [ 'PHP_SELF'] è una variabile d'ambiente supportata da tutte le piattaforme che indica il nome del file su cui è attualmente in esecuzione
+        lo script PHP rispetto alla root del Web server.
+        $ _SERVER [ 'PHP_SELF'] è comodo perché rende il codice di un form riutilizzabile, non dovrai infatti cambiare ogni volta l'argomento riferito 
+        all'ACTION. -->
         <form action = <?php echo $_SERVER['PHP_SELF']; ?> method="post" enctype="multipart/form-data">
           <h3> Seleziona il file xml/p7m proveniente dallo Sdi da caricare:</h3>
           <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
@@ -45,90 +91,65 @@
           <input type="submit" id="btn_view_dati_xml" value="carica il file" name="submit" onclick="this.style.display='none'">
         </form>
       </div>
-      <?php
-        if (isset($_POST['submit'])){
-          $xml_file = carica_xml();
-          if ($xml_file) {
-            $id_db=crea_id();
-            $_SESSION['id'] = $id_db;
-            ?>
-            <div class="tab-pane fade show" id="datigen" role="tabpanel" aria-labelledby="v-pills-home-tab">
-              <?php
-                //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
-                //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
-                //RICHIAMO LA FUNZIONE form_dati_generali() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
-                form_dati_generali($dati_generali, $xml_file);
-              ?>
-            </div>
-            <div class="tab-pane fade" id="scadenze" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-              <?php
-                //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
-                //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
-                //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
-                form_scadenze($scadenze, $xml_file);
-              ?>
-            </div>
-            <div class="tab-pane fade" id="ritenute" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-              <?php  
-                form_ritenute($ritenute, $xml_file);
-              ?>
-            </div>
-            <div class="tab-pane fade" id="beniservizi" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-              <?php  
-                form_beniservizi($beniservizi, $ddt, $xml_file);
-              ?>
-            </div>
-            <div class="tab-pane fade" id="filexml" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-              <?php  
-                visualizza_dati_xml($xml_file);
-              ?>
-            </div>
-        <?php
-          }
-        }
-        ?>
-    </div>
 
-    <!--
-    FORM INIZIALE PER SELEZIONARE IL FILE E CHIEDERNE LA VISUALIZZAZIONE 
-    -->
-
-    <!-- With PHP, it is easy to upload files to the server. -->
-    <!-- However, with ease comes danger, so always be careful when allowing file uploads! -->
-    <!-- First, ensure that PHP is configured to allow file uploads. -->
-    <!-- In your "php.ini" file, search for the file_uploads directive, and set it to On: -->
-
-    <!-- create an HTML form that allow users to choose the file they want to upload -->
-    <!-- Some rules to follow for the HTML form: -->
-    <!-- Make sure that the form uses method="post" -->
-    <!-- The form also needs the following attribute: enctype="multipart/form-data". It specifies which content-type to use when submitting the form -->
-    <!-- Without the requirements above, the file upload will not work. -->
-
-    <!-- Other things to notice: -->
-
-    <!-- The type="file" attribute of the <input> tag shows the input field as a file-select control, with a "Browse" button next to the input control -->
-    <!-- The form sends data to a file called "upload.php" -->
-
-    <!-- $ _SERVER [ 'PHP_SELF'] è una variabile d'ambiente supportata da tutte le piattaforme che indica il nome del file su cui è attualmente in esecuzione lo script PHP rispetto alla root del Web server.
-    $ _SERVER [ 'PHP_SELF'] è comodo perché rende il codice di un form riutilizzabile, non dovrai infatti cambiare ogni volta l'argomento riferito all'ACTION. -->
-    <!-- <form action = <?php echo $_SERVER['PHP_SELF']; ?> method="post" enctype="multipart/form-data">
-      <h3> Seleziona il file xml/p7m proveniente dallo Sdi da caricare:</h3>
-      <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">
-      <br>
-      <input type="submit" id="btn_view_dati_xml" value="carica il file" name="submit" onclick="this.style.display='none'">
-    </form> -->
-
-
-    <!-- <div> -->
       <!-- CODICE PHP CHE SI ATTIVA QUANDO VIENE PREMUTO IL PULSANTE CON NAME submit IN AGGIUNTA ALLA ACTION RIPORTATA NEL FORM -->
       <?php
-        //VERIFICO SE E' STATO PREMUTO IL PULSANTE CON NAME submit
-        // if (isset($_POST['submit'])){
-          //ESEGUO LA FUNZIONE carica_xml() CHE ARCHIVIA IL FILE IN UNA CARTELLA DEL SERVER E RITORNA UN FILE IN FORMATO SIMPLEXML CHE ASSEGNO ALLA VARIABILE $xml_file. La funzione si trova nel file upload.php all'interno della cartella script                
-          // $xml_file = carica_xml();
 
-          // Questa parte della pagina viene attivata se la variabile $xml_file non è vuota (quindi il caricamento del file xml è andato a buon fine)
-          // if ($xml_file){
+      // intercetto la pressione del pulsante con name submit
+      if (isset($_POST['submit'])){
+        // richiamo la funzione carica_xml contenuta nel file upload.php e assegno il tracciato xml ritornato dalla funzione alla variabile $xml
+        $xml_file = carica_xml();
+        // verifico se la variabile $xml non è vuota (contiene il tracciato xml). Se non è vuota procedo con le istruzioni successive
+        if ($xml_file) {
+          // recupero l'id_db univoco da utilizzare per memorizzare i dati nel database
+          $id_db=crea_id();
+          // memorizzo il valore nella variabile di sessione id
+          $_SESSION['id'] = $id_db;
+      ?>
+          <!-- div che viene visualizzato premendo il relativo pulsante upload sulla sidebar -->
+          <div class="tab-pane fade show" id="datigen" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <?php
+              //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+              //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+              //RICHIAMO LA FUNZIONE form_dati_generali() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+              form_dati_generali($dati_generali, $xml_file);
+            ?>
+          </div>
+
+
+          <div class="tab-pane fade" id="scadenze" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <?php
+              //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+              //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+              //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+              form_scadenze($scadenze, $xml_file);
+            ?>
+          </div>
+          <div class="tab-pane fade" id="ritenute" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <?php  
+              form_ritenute($ritenute, $xml_file);
+            ?>
+          </div>
+          <div class="tab-pane fade" id="beniservizi" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <?php  
+              form_beniservizi($beniservizi, $ddt, $xml_file);
+            ?>
+          </div>
+          <div class="tab-pane fade" id="filexml" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <?php  
+              visualizza_dati_xml($xml_file);
+            ?>
+          </div>
+      <?php
+        }
+      }
+      ?>
+      </div>
+
+      <?php
+
+        //VERIFICO SE E' STATO PREMUTO IL PULSANTE CON NAME submit
+
 
             // LA VARIABILE SUPERGLOBALE $_FILES E' UN ARRAY ASSOCIATIVO (chiavi: file) DI ARRAY ASSOCIATIVO (chiavi: name, type, tmp_name, error, size).
             // PER RECUPERARE IL NOME DEVO RECUPERARE IL VALORE DI name DELLA CHIAVE file

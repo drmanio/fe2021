@@ -1,65 +1,118 @@
 <?php
 //FUNZIONE PER CREARE IL FORM NECESSARIO ALLA MEMORIZZAZIONE DEI DATI GENERALI DELLA FATTURA 
+// la funzione ha bisogno di due variabili:
+// l'array $tabella_nodi che contiene i riferimenti dei nodi del file xml necessari
+// il tracciato xml da analizzare
 function form_dati_generali($tabella_nodi, $xml_file){
-    foreach ($tabella_nodi as $dati){
-        $elemento = $dati[1].$dati[2];
-        $verifica=$xml_file->xpath($elemento);
-        if($verifica){
-            foreach ($xml_file->xpath($elemento) as $informazioni) {
-                //echo $dati[0].": ";
-                //echo "<b>".$informazioni."</b>";
-                $dato = (string) $informazioni;
-                //echo "<br/>";
-                $info_array[] = $dato;
-            }
-        } else {
-            //echo $dati[0].":";
-            $info_array[] = "";
-            //echo "<br/>";
-        }
+  // per ogni nodo contenuto nell'array di riferimento
+  foreach ($tabella_nodi as $dati){
+    // recupero il nome completo del nodo
+    $elemento = $dati[1].$dati[2];
+    // assegno il valore recuperato alla variabile $verifica
+    $verifica=$xml_file->xpath($elemento);
+    // se la variabile non è vuota (il nodo xml contiene un valore)
+    if($verifica){
+      // per ogni valore contenuto nel singolo nodo
+      foreach ($xml_file->xpath($elemento) as $informazioni) {
+        // recupero il dato
+        $dato = (string) $informazioni;
+        // lo aggiungo ad un array di array contenente le informazioni
+        $info_array[] = $dato;
+      }
+      // altrimenti
+    } else {
+        // memorizzo un valore vuoto
+        $info_array[] = "";
     }
-    // echo "----------------------------------------------<br>";
-    // echo "<b>MEMORIZZAZIONE DEI DATI GENERALI DEL DOCUMENTO </b>";
-    // echo "<button id='btn_view_dati_generali' class='btn btn-primary' type='button'>Dati generali</button>";
-    echo '<form id="dati_generali" action="save_dati_generali.php" method="post" target="_blank">';
-    echo '<label>Id database:</label><br>';
-    echo '<input type="text" readonly value="'.$_SESSION['id'].'" name="info1" STYLE="background-color : lightgray;"><br>';
-    echo '<label>Nome file xml:</label><br>';
-    echo '<input type="text" readonly value="'.$_SESSION['nomeFile'].'" name="info2" size="100" STYLE="background-color : lightgray;"><br>';
-    echo '<label>Protocollo:</label><br>';
-    echo '<input type="text" name="info3" STYLE="background-color : #72A4D2;"><br>';
-    echo '<label>Id barcode:</label><br>';
-    echo '<input type="text" name="info4" STYLE="background-color : #72A4D2;"><br>';
-    echo '<label>Partita Iva azienda:</label><br>';
-    echo '<input type="text" value="'.$info_array[0].'" name="info5"><br>';
-    echo '<label>Codice fiscale azienda:</label><br>';
-    echo '<input type="text" value="'.$info_array[1].'" name="info6"><br>';
-    echo '<label>Denominazione azienda:</label><br>';
-    echo '<input type="text" value="'.$info_array[2].'" name="info7" size="100"><br>';
-    echo '<label>Partita Iva fornitore:</label><br>';
-    echo '<input type="text" value="'.$info_array[3].'" name="info8"><br>';
-    echo '<label>Codice fiscale fornitore:</label><br>';
-    echo '<input type="text" value="'.$info_array[4].'" name="info9"><br>';
-    echo '<label>Denominazione fornitore:</label><br>';
-    echo '<input type="text" value="'.trim($info_array[5].$info_array[6]." ".$info_array[7]).'" name="info10" size="100"><br>';
-    echo '<label>TipoDocumento:</label><br>';
-    echo '<input type="text" value="'.$info_array[8].'" name="info11"><br>';
-    echo '<label>Divisa:</label><br>';
-    echo '<input type="text" value="'.$info_array[9].'" name="info12"><br>';
-    echo '<label>Data:</label><br>';
-    echo '<input type="date" value="'.$info_array[10].'" name="info13"><br>';
-    echo '<label>Numero:</label><br>';
-    echo '<input type="text" value="'.$info_array[11].'" name="info14"><br>';
-    echo '<label>Importo totale del documento:</label><br>';
+  }
+
+  // Costruisco il form che contiene i dati generali
+  ?>
+  
+  <form id="dati_generali" action="save_dati_generali.php" method="post" target="_blank">
+    <label>Id database:</label><br>
+    <input type="text" readonly value="<?php echo $_SESSION['id'] ?>" name="info1" STYLE="background-color: lightgray;"><br>
+    <label>Nome file xml:</label><br>
+    <input type="text" readonly value="<?php echo $_SESSION['nomeFile'] ?>" name="info2" size="50" STYLE="background-color: lightgray;"><br>
+    <label>Protocollo:</label><br>
+    <input type="text" name="info3" STYLE="background-color : #72A4D2;"><br>
+    <label>Id barcode:</label><br>
+    <input type="text" name="info4" STYLE="background-color : #72A4D2;"><br>
+    <label>Partita Iva azienda:</label><br>
+    <input type="text" value="<?php echo $info_array[0] ?>" name="info5"><br>
+    <label>Codice fiscale azienda:</label><br>
+    <input type="text" value="<?php echo $info_array[1] ?>" name="info6"><br>
+    <label>Denominazione azienda:</label><br>
+    <input type="text" value="<?php echo $info_array[2] ?>" name="info7" size="100"><br>
+    <label>Partita Iva fornitore:</label><br>
+    <input type="text" value="<?php echo $info_array[3] ?>" name="info8"><br>
+    <label>Codice fiscale fornitore:</label><br>
+    <input type="text" value="<?php echo $info_array[4] ?>" name="info9"><br>
+    <label>Denominazione fornitore:</label><br>
+    <input type="text" value="<?php echo trim($info_array[5].$info_array[6].' '.$info_array[7]) ?>" name="info10" size="100"><br>
+    <label>TipoDocumento:</label><br>
+    <input type="text" value="<?php echo $info_array[8] ?>" name="info11"><br>
+    <label>Divisa:</label><br>
+    <input type="text" value="<?php echo $info_array[9] ?>" name="info12"><br>
+    <label>Data:</label><br>
+    <input type="date" value="<?php echo $info_array[10] ?>" name="info13"><br>
+    <label>Numero:</label><br>
+    <input type="text" value="<?php echo $info_array[11] ?>" name="info14"><br>
+    <label>Importo totale del documento:</label><br>
+    <?php
     if ($info_array[8]=="TD04") {
-        $info_array[12]=abs($info_array[12])*(-1);
+       $info_array[12]=abs($info_array[12])*(-1);
     }
-    echo '<input type="text" value="'.$info_array[12].'" name="info15"><br>';
-    echo '<label>Note:</label><br>';
-    echo '<input type="text" name="info16" size="100"><br>';
-    echo '<input id="btn_dati_generali" type="submit" value="Memorizza nel db" name="submit_db" onclick="this.style.display=\'none\'"><br>';
-    echo '</form>';
+    ?>
+    <input type="text" value="<?php echo $info_array[12] ?>" name="info15"><br>
+    <label>Note:</label><br>
+    <input type="text" name="info16" size="100"><br>
+    <input id="btn_dati_generali" type="submit" value="Memorizza nel db" name="submit_db" onclick="this.style.display='none'"><br>
+  </form>
+<?php
 }
+?>
+
+  <?php
+  // echo '<form id="dati_generali" action="save_dati_generali.php" method="post" target="_blank">';
+  // echo '<label>Id database:</label><br>';
+  // echo '<input type="text" readonly value="'.$_SESSION['id'].'" name="info1" STYLE="background-color : lightgray;"><br>';
+  // echo '<label>Nome file xml:</label><br>';
+  // echo '<input type="text" readonly value="'.$_SESSION['nomeFile'].'" name="info2" size="100" STYLE="background-color : lightgray;"><br>';
+  // echo '<label>Protocollo:</label><br>';
+  // echo '<input type="text" name="info3" STYLE="background-color : #72A4D2;"><br>';
+  // echo '<label>Id barcode:</label><br>';
+  // echo '<input type="text" name="info4" STYLE="background-color : #72A4D2;"><br>';
+  // echo '<label>Partita Iva azienda:</label><br>';
+  // echo '<input type="text" value="'.$info_array[0].'" name="info5"><br>';
+  // echo '<label>Codice fiscale azienda:</label><br>';
+  // echo '<input type="text" value="'.$info_array[1].'" name="info6"><br>';
+  // echo '<label>Denominazione azienda:</label><br>';
+  // echo '<input type="text" value="'.$info_array[2].'" name="info7" size="100"><br>';
+  // echo '<label>Partita Iva fornitore:</label><br>';
+  // echo '<input type="text" value="'.$info_array[3].'" name="info8"><br>';
+  // echo '<label>Codice fiscale fornitore:</label><br>';
+  // echo '<input type="text" value="'.$info_array[4].'" name="info9"><br>';
+  // echo '<label>Denominazione fornitore:</label><br>';
+  // echo '<input type="text" value="'.trim($info_array[5].$info_array[6]." ".$info_array[7]).'" name="info10" size="100"><br>';
+  // echo '<label>TipoDocumento:</label><br>';
+  // echo '<input type="text" value="'.$info_array[8].'" name="info11"><br>';
+  // echo '<label>Divisa:</label><br>';
+  // echo '<input type="text" value="'.$info_array[9].'" name="info12"><br>';
+  // echo '<label>Data:</label><br>';
+  // echo '<input type="date" value="'.$info_array[10].'" name="info13"><br>';
+  // echo '<label>Numero:</label><br>';
+  // echo '<input type="text" value="'.$info_array[11].'" name="info14"><br>';
+  // echo '<label>Importo totale del documento:</label><br>';
+  // if ($info_array[8]=="TD04") {
+  //     $info_array[12]=abs($info_array[12])*(-1);
+  // }
+  // echo '<input type="text" value="'.$info_array[12].'" name="info15"><br>';
+  // echo '<label>Note:</label><br>';
+  // echo '<input type="text" name="info16" size="100"><br>';
+  // echo '<input id="btn_dati_generali" type="submit" value="Memorizza nel db" name="submit_db" onclick="this.style.display=\'none\'"><br>';
+  // echo '</form>';
+// }
 
 //FUNZIONE PER CREARE IL FORM NECESSARIO ALLA MEMORIZZAZIONE DELLE SCADENZE DEL DOCUEMENTO
 function form_scadenze ($tabella_nodi, $xml_file){

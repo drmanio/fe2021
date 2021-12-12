@@ -9,13 +9,13 @@
     An element with greater stack order is always in front of an element with a lower stack order.
     Note: z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) and flex items (elements that are direct children of display:flex elements).
     Note: If two positioned elements overlap without a z-index specified, the element positioned last in the HTML code will be shown on top.  */
-  z-index: 1;
+  /* z-index: 1; */
   /* margine esterno superiore della sidenav. Se non è presente si posiziona sotto l'elemento precedente, in questo caso la navbar */
   /* top: 0; */
   /* margine esterno sinistro della sidenav */
-  left: 0;
+  /* left: 0; */
   /* colore di sfondo della sidenav */
-  background-color: rgb(150, 197, 252);
+  background-color: rgb(182, 198, 207);
   /* The overflow-x property specifies whether to clip the content, add a scroll bar, or display overflow content of a block-level element, when it overflows at the left and right edges.
   Value	Description	Play it
     visible   	The content is not clipped, and it may be rendered outside the left and right edges. This is default	
@@ -24,30 +24,30 @@
     auto      	Should cause a scrolling mechanism to be provided for overflowing boxes	
     initial   	Sets this property to its default value. Read about initial	
     inherit   	Inherits this property from its parent element. Read about inherit */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* margine interno superiore della sidenav */
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #0e0d0d;
-  display: block;
-}
+/* .sidenav a { */
+  /* padding: 6px 8px 6px 16px; */
+  /* text-decoration: none; */
+  /* font-size: 20px; */
+  /* color: #0e0d0d; */
+  /* display: block; */
+/* } */
 
-.sidenav a:hover {
-  color: #f1f1f1;
-}
+/* .sidenav a:hover { */
+  /* color: #f1f1f1; */
+/* } */
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
+/* .main { */
+  /* margin-left: 160px; Same as the width of the sidenav */
   /* font-size: 28px; Increased text to enable scrolling */
-  padding: 0px 10px;
-}
+  /* padding: 0px 10px; */
+/* } */
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+/* @media screen and (max-height: 450px) { */
+  /* .sidenav {padding-top: 15px;} */
+  /* .sidenav a {font-size: 18px;} */
+/* } */

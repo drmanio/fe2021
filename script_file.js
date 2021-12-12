@@ -1,4 +1,6 @@
+// script che vengono eseguiti alla pressione dei pulsanti
 function pulsanti () {
+  // visualizza/nasconde la sidebar e adatta il margine sinistro della pagina di conseguenza
   $('#btn_sidenav').click(function(){
     var x = document.getElementById("div_sidenav");
     var y = document.getElementById("v-pills-tabContent");
@@ -11,26 +13,32 @@ function pulsanti () {
     }
   });
 
+  // apre la pagina index
   $('#btn_home').click(function(){
     window.open("index.php","_self");
   });
   
+  // apre la pagina page_menu1
   $('#btn_file_xml').click(function(){    
     window.open("page_menu1.php","_self");
   });
   
+  // apre la pagina page_menu2
   $('#btn_file_no_xml').click(function(){
     window.open("page_menu2.php","_self");
   });
 
+  // apre la pagina page_menu3
   $('#btn_scadenze').click(function(){
     window.open("page_menu3.php","_self");
   });
 
+  // apre la pagina page_menu4
   $('#btn_pagamenti').click(function(){
     window.open("page_menu4.php","_self");
   });
 
+  // apre la pagina test
   $('#btn_test').click(function(){
     window.open("test.php","_self");
   });
@@ -41,37 +49,10 @@ function sc_index (){
   $("#btn_home").addClass("active");
 }
 
+// script attivati dalla pressione del tasto di scelta menu1
 function sc_menu1 (){
+  // aggiunge la class active al button premuto per evidenziarlo
   $("#btn_file_xml").addClass("active");
-
-  // $("#tbl_xml").hide();
-  // $("#btn_table_xml").click(function(){
-  //   $("#tbl_xml").toggle();
-  // });
-
-  // $("#dati_generali").hide();
-  // $("#btn_view_dati_generali").click(function(){
-    // $("#dati_generali").toggle();
-  // });
-
-  // $(".scadenze").hide();
-  // $("#btn_view_scadenze").click(function(){
-  //   $(".scadenze").toggle();
-  // });
-
-  // $(".ritenute").hide();
-  // $("#btn_view_ritenute").click(function(){
-  //   $(".ritenute").toggle();
-  // });
-
-  // $(".beniservizi").hide();
-  // $("#btn_view_beniservizi").click(function(){
-  //   $(".beniservizi").toggle();
-  // });
-
-  $("#btn_new_file").click(function(){
-    window.location.reload(ture);
-  });
 }
 
 function sc_menu2 (){

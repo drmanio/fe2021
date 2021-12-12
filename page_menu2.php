@@ -20,7 +20,7 @@ include "header.html";
 include "navbar.html";
 ?>
 
-<div id="xml" class="tab-content container-fluid" style="margin-left:165px">
+<div id="v-pills-tabContent" class="tab-content container-fluid" style="margin-left:165px">
     <!-- FORM PER INSERIRE UNA SCADENZA DI PAGAMENTO NON DA FATTURA ELETTRONICA -->
     <form action="save_scadenzeNoSdi.php" method="post" target="_blank">
         <h3>Inserisci il documento che non proviene dallo Sdi e che verrà caricato nel database:</h3>
