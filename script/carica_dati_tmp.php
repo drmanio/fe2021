@@ -29,7 +29,7 @@
     <a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>				
     <button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>				 
     ';
-    echo '<table class="table table-hover" style="margin-left:165px">';
+    echo '<table class="table table-hover" style="margin-left:10px">';
     echo '<thead>';
     echo  '<tr>';
     echo    '<th>Id</th>';
@@ -70,16 +70,16 @@
             echo   "<td>{$iban}</td>";
             echo   "<td>{$importoPagato}</td>";
             echo   "<td>{$note}</td>";
-            // echo "<td>";
-            //     echo " <button type='button' id='btnPagamento".$Id."' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Inserisci pagamento'>";
-			// 	echo "<img src='bootstrap-icons/currency-euro.svg'";
-			// 	echo "</button>";
-			// echo "</td>";
-            // echo "<td>";
-            //     echo " <button type='button' id='btnBonifico".$Id."' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalPredisponi".$Id."' title='Predisponi pagamento'>";
-			// 	echo "<img src='bootstrap-icons/send-fill.svg'";
-			// 	echo "</button>";
-			// echo "</td>";
+            echo   "<td>";
+            echo     "<button type='button' id='btnModPag".$Id."' class='btn' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Modifica pagamento'>";
+            echo        "<img src='bootstrap-icons/currency-euro.svg'";
+            echo     "</button>";
+			      echo    "</td>";
+            echo     "<td>";
+            echo      "<button type='button' id='btnDelPag".$Id."' class='btn' data-bs-toggle='modal' data-bs-target='#modalElimina".$Id."' title='Elimina pagamento'>";
+				    echo        "<img src='bootstrap-icons/trash.svg'";
+				    echo      "</button>";
+			      echo     "</td>";
            
             //Inizio MODAL	modalModifica	
             // echo '

@@ -124,7 +124,7 @@ session_start();
 
 
 
-<div style="margin-left:165px">
+<div style="margin-left:10px">
         <h1>Inserisci pagamenti</h1>
         <select name="Aziende" id="azienda">
           <option value="" disabled selected>Seleziona azienda</option>
@@ -139,7 +139,7 @@ session_start();
 
 <div class="row" id='row_elenco'>
 		<div class='col-md-12' id="elenco">
-			<span id="tabella">....</span>
+			<span id="tabella"></span>
 		</div>
 	</div>
   
