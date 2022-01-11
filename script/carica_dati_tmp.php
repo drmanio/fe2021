@@ -1,5 +1,5 @@
 <?php
-    include "..\db.php";
+    include "..".DIRECTORY_SEPARATOR."db.php";
     $testo = $_POST['testo'];
     
     switch ($testo){
