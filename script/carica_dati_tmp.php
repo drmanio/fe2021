@@ -1,63 +1,87 @@
 <?php
-    include "..".DIRECTORY_SEPARATOR."db.php";
-    $testo = $_POST['testo'];
+
+include "..".DIRECTORY_SEPARATOR."db.php";
+$testo = $_POST['testo'];
     
-    switch ($testo){
-        case "1":
-            $denominazione="SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE";
-            break;
-        case "101":
-            $denominazione="CENTRO ASSISTENZA IMPRESE COLDIRETTI VENETO SRL";
-            break;
-        case "102":
-            $denominazione="FEDERAZIONE REGIONALE COLDIRETTI DEL VENETO";
-            break;
-        case "103":
-            $denominazione="SERENISSIMA AGRIDATA SRL";
-            break;
-        case "104":
-            $denominazione="ORGANISMO DI CONSULENZA PSR & INNOVAZIONE VENETO SRL";
-            break;
-    }
+switch ($testo){
+  case "1":
+    $denominazione="SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE";
+    break;
+  case "101":
+    $denominazione="CENTRO ASSISTENZA IMPRESE COLDIRETTI VENETO SRL";
+    break;
+  case "102":
+    $denominazione="FEDERAZIONE REGIONALE COLDIRETTI DEL VENETO";
+    break;
+  case "103":
+    $denominazione="SERENISSIMA AGRIDATA SRL";
+    break;
+  case "104":
+    $denominazione="ORGANISMO DI CONSULENZA PSR & INNOVAZIONE VENETO SRL";
+    break;
+}
 
-    $query = "SELECT idPagamentiTemp, idScadenzario, idAzienda, forn_den, doc_tipo, doc_nr, doc_data, 
-    importoPagamento, DataPagamento, IBAN, importoPagato, Note FROM pagamenti_temp 
-    WHERE idAzienda like ('{$testo}') ORDER BY forn_den, scadenzaPagamento";
-    $dati = mysqli_query($connessioneDB,$query);
+$query = "SELECT idPagamentiTemp, idScadenzario, idAzienda, forn_den, doc_tipo, doc_nr, doc_data, 
+importoPagamento, DataPagamento, IBAN, importoPagato, Note FROM pagamenti_temp 
+WHERE idAzienda like ('{$testo}') ORDER BY forn_den, scadenzaPagamento";
+$dati = mysqli_query($connessioneDB,$query);
 
-    echo '
-    <a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>				
-    <button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>				 
-    ';
-    echo '<table class="table table-hover" style="margin-left:10px">';
-    echo '<thead>';
-    echo  '<tr>';
-    echo    '<th>Id</th>';
-    echo    '<th>Fornitore</th>';
-    echo    '<th>Tipo doc</th>';
-    echo    '<th>Nr doc</th>';
-    echo    '<th>Data doc</th>';
-    echo    '<th>Importo scadenza</th>';
-    echo    '<th>Data Pagamento</th>';
-    echo    '<th>IBAN</th>';
-    echo    '<th>Importo pagato</th>';
-    echo    '<th>Note</th>';
-    echo  '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
+?>
 
-    if ($dati) {
-        while ($row = mysqli_fetch_array($dati)) {
-            $Id = $row['idPagamentiTemp'];
-            $forn_den = $row['forn_den'];
-            $doc_tipo = $row['doc_tipo'];
-            $doc_nr = $row['doc_nr'];
-            $doc_data = $row['doc_data'];
-            $scadenza_importo = $row['importoPagamento'];
-            $dataPagamento = $row['DataPagamento'];
-            $iban = $row['IBAN'];
-            $importoPagato = $row['importoPagato'];
-            $note = $row['Note'];
+<a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>
+<button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>
+
+<table class="table table-hover" style="margin-left:10px">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Fornitore</th>
+      <th>Tipo doc</th>
+      <th>Nr doc</th>
+      <th>Data doc</th>
+      <th>Importo scadenza</th>
+      <th>Data Pagamento</th>
+      <th>IBAN</th>
+      <th>Importo pagato</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<?php
+    // echo '
+    // <a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>				
+    // <button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>				 
+    // ';
+    // echo '<table class="table table-hover" style="margin-left:10px">';
+    // echo '<thead>';
+    // echo  '<tr>';
+    // echo    '<th>Id</th>';
+    // echo    '<th>Fornitore</th>';
+    // echo    '<th>Tipo doc</th>';
+    // echo    '<th>Nr doc</th>';
+    // echo    '<th>Data doc</th>';
+    // echo    '<th>Importo scadenza</th>';
+    // echo    '<th>Data Pagamento</th>';
+    // echo    '<th>IBAN</th>';
+    // echo    '<th>Importo pagato</th>';
+    // echo    '<th>Note</th>';
+    // echo  '</tr>';
+    // echo '</thead>';
+    // echo '<tbody>';
+
+if ($dati) {
+  while ($row = mysqli_fetch_array($dati)) {
+    $Id = $row['idPagamentiTemp'];
+    $forn_den = $row['forn_den'];
+    $doc_tipo = $row['doc_tipo'];
+    $doc_nr = $row['doc_nr'];
+    $doc_data = $row['doc_data'];
+    $scadenza_importo = $row['importoPagamento'];
+    $dataPagamento = $row['DataPagamento'];
+    $iban = $row['IBAN'];
+    $importoPagato = $row['importoPagato'];
+    $note = $row['Note'];
     
             echo "<tr>";
             echo   "<th>{$Id}</th>";
