@@ -29,7 +29,7 @@ $dati = mysqli_query($connessioneDB,$query);
 ?>
 
 <a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>
-<button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>
+<button class="btn btn-info" onclick="archivia_pag('<?php echo $testo ?>')">Archivia dati pagamenti</button>
 
 <table class="table table-hover" style="margin-left:10px">
   <thead>
@@ -40,35 +40,14 @@ $dati = mysqli_query($connessioneDB,$query);
       <th>Nr doc</th>
       <th>Data doc</th>
       <th>Importo scadenza</th>
-      <th>Data Pagamento</th>
       <th>IBAN</th>
-      <th>Importo pagato</th>
+      <th>Importo bonifico</th>
       <th>Note</th>
     </tr>
   </thead>
   <tbody>
 
 <?php
-    // echo '
-    // <a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>				
-    // <button class="btn btn-info" onclick="archivia_pag('.$testo.')">Archivia dati pagamenti</button>				 
-    // ';
-    // echo '<table class="table table-hover" style="margin-left:10px">';
-    // echo '<thead>';
-    // echo  '<tr>';
-    // echo    '<th>Id</th>';
-    // echo    '<th>Fornitore</th>';
-    // echo    '<th>Tipo doc</th>';
-    // echo    '<th>Nr doc</th>';
-    // echo    '<th>Data doc</th>';
-    // echo    '<th>Importo scadenza</th>';
-    // echo    '<th>Data Pagamento</th>';
-    // echo    '<th>IBAN</th>';
-    // echo    '<th>Importo pagato</th>';
-    // echo    '<th>Note</th>';
-    // echo  '</tr>';
-    // echo '</thead>';
-    // echo '<tbody>';
 
 if ($dati) {
   while ($row = mysqli_fetch_array($dati)) {
@@ -78,33 +57,34 @@ if ($dati) {
     $doc_nr = $row['doc_nr'];
     $doc_data = $row['doc_data'];
     $scadenza_importo = $row['importoPagamento'];
-    $dataPagamento = $row['DataPagamento'];
     $iban = $row['IBAN'];
     $importoPagato = $row['importoPagato'];
     $note = $row['Note'];
     
-            echo "<tr>";
-            echo   "<th>{$Id}</th>";
-            echo   "<td>{$forn_den}</td>";
-            echo   "<td>{$doc_tipo}</td>";
-            echo   "<td>{$doc_nr}</td>";
-            echo   "<td>{$doc_data}</td>";
-            echo   "<td>{$scadenza_importo}</td>";
-            echo   "<td>{$dataPagamento}</td>";
-            echo   "<td>{$iban}</td>";
-            echo   "<td>{$importoPagato}</td>";
-            echo   "<td>{$note}</td>";
-            echo   "<td>";
-            echo     "<button type='button' id='btnModPag".$Id."' class='btn' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Modifica pagamento'>";
-            echo        "<img src='bootstrap-icons/currency-euro.svg'";
-            echo     "</button>";
-			      echo    "</td>";
-            echo     "<td>";
-            echo      "<button type='button' id='btnDelPag".$Id."' class='btn' data-bs-toggle='modal' data-bs-target='#modalElimina".$Id."' title='Elimina pagamento'>";
-				    echo        "<img src='bootstrap-icons/trash.svg'";
-				    echo      "</button>";
-			      echo     "</td>";
-           
+?>
+
+    <tr>
+      <th><?php echo $Id ?></th>
+      <td><?php echo $forn_den ?></td>
+      <td><?php echo $doc_tipo ?></td>
+      <td><?php echo $doc_nr ?></td>
+      <td><?php echo $doc_data ?></td>
+      <td><?php echo $scadenza_importo ?></td>
+      <td><?php echo $iban ?></td>
+      <td><?php echo $importoPagato ?></td>
+      <td><?php echo $note ?></td>  
+      <td>
+        <button type="button" id="btnModPag<?php echo $Id ?>" class="btn" data-bs-toggle="modal" data-bs-target="#modalModifica<?php echo $Id ?>" title="Modifica pagamento">
+          <img src="bootstrap-icons/currency-euro.svg">
+        </button>
+      </td>
+      <td>
+        <button type="button" id="btnDelPag<?php echo $Id ?>" class="btn" data-bs-toggle="modal" data-bs-target="#modalElimina<?php echo $Id ?>" title="Elimina pagamento">
+          <img src="bootstrap-icons/trash.svg">
+        </button>
+      </td>
+
+<?php     
             //Inizio MODAL	modalModifica	
             // echo '
             // <div class="modal fade" id="modalModifica'.$Id.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
