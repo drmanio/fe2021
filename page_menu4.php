@@ -125,7 +125,7 @@ session_start();
 
 
 <div style="margin-left:10px">
-        <h1>Inserisci pagamenti</h1>
+        <h1>Esporta/registra pagamenti</h1>
         <select name="Aziende" id="azienda">
           <option value="" disabled selected>Seleziona azienda</option>
           <option value=1>SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE</option>

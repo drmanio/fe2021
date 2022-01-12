@@ -14,19 +14,21 @@ $activeSheet = $spreadsheet->getActiveSheet();
 $activeSheet->setTitle('Report_pagamenti');
 	 
 $activeSheet->setCellValue('A1', 'id');
-$activeSheet->setCellValue('B1', 'IdFornitore');
-$activeSheet->setCellValue('C1', 'Fornitore');
-$activeSheet->setCellValue('D1', 'IBAN');
-$activeSheet->setCellValue('E1', 'nr_documento');
-$activeSheet->setCellValue('F1', 'Importo');
-$activeSheet->setCellValue('G1', 'Note');
-$activeSheet->setCellValue('H1', 'Data pagamento');
+$activeSheet->setCellValue('B1', 'IdAzienda');
+$activeSheet->setCellValue('C1', 'Azienda');
+$activeSheet->setCellValue('D1', 'IdFornitore');
+$activeSheet->setCellValue('E1', 'Fornitore');
+$activeSheet->setCellValue('F1', 'IBAN');
+$activeSheet->setCellValue('G1', 'nr_documento');
+$activeSheet->setCellValue('H1', 'Importo');
+$activeSheet->setCellValue('I1', 'Note');
+$activeSheet->setCellValue('J1', 'Data pagamento');
 
 // include "..\db.php";
 $idazienda=$_GET['idaz'];
 				
 $query = "SELECT 
-idScadenzario, forn_piva, forn_den, IBAN, doc_nr, importoPagato, Note, DataPagamento 
+idScadenzario, idAzienda, denominazione, forn_piva, forn_den, IBAN, doc_nr, importoPagato, Note, DataPagamento 
 FROM pagamenti_temp WHERE idAzienda = '$idazienda' ORDER BY forn_den";
 			
 $result = mysqli_query($connessioneDB,$query);
@@ -40,13 +42,15 @@ if($result->num_rows > 0) {
         $forn_piva = $row['forn_piva']; 
       }
       $activeSheet->setCellValue('A'.$i, $row['idScadenzario']);
-      $activeSheet->setCellValue('B'.$i, $forn_piva);
-      $activeSheet->setCellValue('C'.$i, $row['forn_den']);
-      $activeSheet->setCellValue('D'.$i, $row['IBAN']);
-      $activeSheet->setCellValue('E'.$i, "Saldo doc. ".$row['doc_nr']);
-      $activeSheet->setCellValue('F'.$i, $row['importoPagato']);
-      $activeSheet->setCellValue('G'.$i, $row['Note']);
-      $activeSheet->setCellValue('H'.$i, $row['DataPagamento']);
+      $activeSheet->setCellValue('B'.$i, $row['idAzienda']);
+      $activeSheet->setCellValue('C'.$i, $row['denominazione']);
+      $activeSheet->setCellValue('D'.$i, $forn_piva);
+      $activeSheet->setCellValue('E'.$i, $row['forn_den']);
+      $activeSheet->setCellValue('F'.$i, $row['IBAN']);
+      $activeSheet->setCellValue('G'.$i, "Saldo doc. ".$row['doc_nr']);
+      $activeSheet->setCellValue('H'.$i, $row['importoPagato']);
+      $activeSheet->setCellValue('I'.$i, $row['Note']);
+      $activeSheet->setCellValue('J'.$i, $row['DataPagamento']);
       
       $i++;
   }
