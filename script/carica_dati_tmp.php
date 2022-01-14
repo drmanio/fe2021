@@ -28,7 +28,7 @@ $dati = mysqli_query($connessioneDB,$query);
 
 ?>
 
-<a class="btn btn-success" href="script/export_excel.php?idaz='.$testo.'">Esporta dati in excel</a>
+<a class="btn btn-success" href="script/export_excel.php?idaz=<?php echo $testo;?>">Esporta dati in excel</a>
 <button class="btn btn-info" onclick="archivia_pag('<?php echo $testo ?>')">Archivia dati pagamenti</button>
 
 <table class="table table-hover" style="margin-left:10px">
