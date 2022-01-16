@@ -86,20 +86,15 @@ session_start();
 
       }
 
-      function insert_pag(iditem) {
-
-        var importo_mod = document.getElementById('importoPre_mod'+ iditem).value;
-        var data_mod = document.getElementById('dataPre_mod' + iditem).value;
-        var mezzo_mod = document.getElementById('mezzoPre_mod' + iditem).value;
-        var note_mod = document.getElementById('notePre_mod' + iditem).value;
+      function delete_pag(iditem) {
          
         $.ajax({
           type: "POST",
-          url: "script/pay_insert.php",
+          url: "script/pay_delete.php",
 
           async:false,
 
-          data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
+          data: {idScadenzario:iditem},
           dataType: "html",
           success: function(msg)
           {

@@ -84,6 +84,32 @@ if ($dati) {
         </button>
       </td>
 
+      <!-- The Modal -->
+      <div class="modal fade" id="modalElimina<?php echo $Id ?>">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Elimina</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              Vuoi annullare l'importo predisposto per il bonifico?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="delete_pag('<?php echo $Id ?>')">Elimina importo</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
 <?php     
             //Inizio MODAL	modalModifica	
             // echo '
