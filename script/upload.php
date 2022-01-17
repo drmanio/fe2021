@@ -64,7 +64,7 @@ function carica_xml() {
 
   // Now, we want to check the size of the file. If the file is larger than 900KB, an error message is displayed, and $uploadOk is set to 0:
 
-  if ($_FILES["fileToUpload"]["size"] > 900000) {
+  if ($_FILES["fileToUpload"]["size"] > 2000000) {
     echo '<div class="alert alert-secondary alert-dismissible">';
     echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
     echo '<strong>Warning!</strong> Sorry, your file is too large';
