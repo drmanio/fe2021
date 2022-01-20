@@ -33,6 +33,12 @@ if (!$test){
     echo "Dati memorizzati";
 }
 
+$sql = "INSERT INTO xml_tracciato SELECT * FROM xml_tmp;";
+$query = mysqli_query($connessioneDB, $sql);
+
+$sql = "DELETE FROM xml_tmp";
+$query = mysqli_query($connessioneDB, $sql);
+
 $uploadDir = __DIR__.'/uploads/'.$azienda;
 $uploadDirOld = __DIR__.'/uploads/';
 $fileName = $info[1];

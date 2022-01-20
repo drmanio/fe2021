@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 //FUNZIONE PER POPOLARE L'ARRAY CHE VERRA' UTILIZZATO PER LA CREAZIONE DEI FORM NEL FILE form.php
 function dati_array($tabella_nodi, $radice){
     foreach ($tabella_nodi as $dati){
@@ -314,5 +316,81 @@ function visualizza_dati_xml($xml_file){
     //CHIUDO LA TABELLA
     echo('</table>');
     echo "</div>";
-}
+  }
+
+  //FUNZIONE PER REGISTRARE I DATI XML NEL DATABASE
+  function carica_dati_xml_tmp($xml_file){
+    //INIZIALIZZO L'ARRAY CHE CONTERRA' I DATI. SI TRATTA DI UN ARRAY DI ARRAY
+    $array_xml=Array();
+    //CICLO 6 LIVELLI DEL FILE SIMPLEXML E PER OGNUNO RECUPERO:
+    //- IL NOME DEL NODO;
+    //- L'EVENTUALE VALORE AD ESSO ASSOCIATO.
+    // I DATI COSI RECUPERATI VENGONO MEMORIZZATI NELL'ARRAY
+    foreach ($xml_file->children() as $item1){
+        $nodo1=$item1->getname();
+        $valore1=(string) $item1[0];
+        $newdata=array($nodo1,"","","","","",$valore1);
+        $array_xml[][]=$newdata;
+        foreach ($item1->children() as $item2){
+            $nodo2=$item2->getname();
+            $valore2=(string) $item2[0];
+            $newdata=Array($nodo1,$nodo2,"","","","",$valore2);
+            $array_xml[][]=$newdata;
+            foreach ($item2->children() as $item3){
+                $nodo3=$item3->getname();
+                $valore3=(string) $item3[0];
+                $newdata=Array($nodo1,$nodo2,$nodo3,"","","",$valore3);
+                $array_xml[][]=$newdata;
+                foreach ($item3->children() as $item4){
+                    $nodo4=$item4->getname();
+                    $valore4=(string) $item4[0];
+                    $newdata=Array($nodo1,$nodo2,$nodo3,$nodo4,"","",$valore4);
+                    $array_xml[][]=$newdata;
+                    foreach ($item4->children() as $item5){
+                        $nodo5=$item5->getname();
+                        $valore5=(string) $item5[0];
+                        $newdata=Array($nodo1,$nodo2,$nodo3,$nodo4,$nodo5,"",$valore5);
+                        $array_xml[][]=$newdata;
+                        foreach ($item5->children() as $item6){                            
+                            $nodo6=$item6->getname();
+                            $valore6=(string) $item6[0];
+                            $newdata=Array($nodo1,$nodo2,$nodo3,$nodo4,$nodo5,$nodo6,$valore6);
+                            $array_xml[][]=$newdata;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+    include "db.php";
+    
+    $sql = "DELETE FROM xml_tmp";
+    $query = mysqli_query($connessioneDB, $sql);
+    $id = $_SESSION['id'];
+
+    foreach ($array_xml as $dato1) {
+      foreach ($dato1 as $dato2) {
+          $dato2=str_replace ("'","\'",$dato2);
+          $c1 = $dato2[0];
+          $c2 = $dato2[1];
+          $c3 = $dato2[2];
+          $c4 = $dato2[3];
+          $c5 = $dato2[4];
+          $c6 = $dato2[5];
+          $c7 = $dato2[6];
+          if ($c2 == 'Allegati'){
+            continue;
+          }
+          $sql = "INSERT INTO xml_tmp (Id, C1, C2, C3, C4, C5, C6, C7) VALUES ('$id', '$c1','$c2','$c3','$c4','$c5','$c6','$c7')";
+          $query = mysqli_query($connessioneDB, $sql);
+          if(!$query){
+            echo ("Messagio di errore: ". mysqli_error($connessioneDB));
+          }
+      }
+
+    }
+  }
 ?>

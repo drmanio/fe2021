@@ -105,6 +105,7 @@
           $id_db=crea_id();
           // memorizzo il valore nella variabile di sessione id
           $_SESSION['id'] = $id_db;
+          carica_dati_xml_tmp($xml_file);
       ?>
           <!-- div che viene visualizzato premendo il relativo pulsante upload sulla sidebar -->
           <div class="tab-pane fade show" id="datigen" role="tabpanel" aria-labelledby="v-pills-home-tab">
