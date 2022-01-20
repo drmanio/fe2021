@@ -110,30 +110,36 @@
           <!-- div che viene visualizzato premendo il relativo pulsante upload sulla sidebar -->
           <div class="tab-pane fade show" id="datigen" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <?php
-              //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
-              //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
-              //RICHIAMO LA FUNZIONE form_dati_generali() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
-              form_dati_generali($dati_generali, $xml_file);
+            //RECUPERO I DATI GENERALI DELLA FATTURA E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+            //I DATI DA RICERCARE SONO CONTENUTI NELL'ARRAY $dati_generali CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+            //RICHIAMO LA FUNZIONE form_dati_generali() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+            form_dati_generali($dati_generali, $xml_file);
             ?>
           </div>
 
 
           <div class="tab-pane fade" id="scadenze" role="tabpanel" aria-labelledby="v-pills-profile-tab">
             <?php
-              //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
-              //I DATI GENERALI SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
-              //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
-              form_scadenze($scadenze, $xml_file);
+            //RECUPERO I DATI SUI PAGAMENTI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+            //I DATI DA RICERCARE SONO CONTENUTI NELL'ARRAY $scadenze CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+            //RICHIAMO LA FUNZIONE form_scadenze() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+            form_scadenze($scadenze, $xml_file);
             ?>
           </div>
           <div class="tab-pane fade" id="ritenute" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-            <?php  
-              form_ritenute($ritenute, $xml_file);
+            <?php
+            //RECUPERO I DATI SULLE RITENUTE E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+            //I DATI DA RICERCARE SONO CONTENUTI NELL'ARRAY $ritenute CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+            //RICHIAMO LA FUNZIONE form_ritenute() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI  
+            form_ritenute($ritenute, $xml_file);
             ?>
           </div>
           <div class="tab-pane fade" id="beniservizi" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <?php  
-              form_beniservizi($beniservizi, $ddt, $xml_file);
+            <?php
+            //RECUPERO I DATI SUI BENI E SUI SERVIZI E LI INSERISCO IN UN FORM PER EVENTUALI MODIFICHE E PER PROCEDERE POI CON LA MEMORIZZAZIONE                
+            //I DATI DA RICERCARE SONO CONTENUTI NELL'ARRAY $beniservizi CONTENUTO NEL FILE nodi_fe.php CHE E' STATO INCLUSO
+            //RICHIAMO LA FUNZIONE form_beniservizi() CHE VISUALIZZA E PERMETTE DI MEMORIZZARE I DATI
+            form_beniservizi($beniservizi, $ddt, $xml_file);
             ?>
           </div>
           <div class="tab-pane fade" id="filexml" role="tabpanel" aria-labelledby="v-pills-settings-tab">

@@ -16,43 +16,6 @@ function dati_array($tabella_nodi, $radice){
     return $dati_array;
 }
 
-
-//FUNZIONE CHE CARICA NEL SERVER IL FILE XML SELEZIONATO E RITORNA L'ARRAY IN FORMATO SIMPLEXML
-// function carica_xml(){
- 
-    
-//     // print_r($_FILES);
-//     // echo "<br>";
-    
-//     $uploadDir = __DIR__.'/uploads';
-//     foreach ($_FILES as $file) {
-//         if (UPLOAD_ERR_OK === $file['error']) {
-//             $fileName = basename($file['name']);
-//             // echo "nome file ".$fileName."<br>";
-//             $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-//             // echo "estensione ".$ext."<br>";
-//             $fileout = pathinfo($fileName, PATHINFO_FILENAME);
-//             // echo "nome file senza estensione ".$fileout."<br>"; 
-//             move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$fileName);
-            
-//             //LA FUNZIONE strcasecmp PERMETTE DI FARE UNA VERIFICA DELLE STRINGHE CASE INSENSITIVE
-//             if (strcasecmp($ext, "p7m") == 0) {
-//                 $file = "..\uploads\\".$fileName;
-//                 $out = shell_exec('cd openssl & openssl smime -decrypt -in '.$file.' -inform DER -verify -noverify -out "..\uploads\\'.$fileout.'"');
-//                 // $out = shell_exec('cd openssl & openssl smime -verify -inform DER -in '.$file.' -noverify -out "..\uploads\\'.$fileout.'"');
-//                 $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileout);
-//             } else {
-//                 $xml = simplexml_load_file($uploadDir.DIRECTORY_SEPARATOR.$fileName);
-//             }
-//         }
-//     }
-
-//     return $xml;
-
-    
-// }
-
-
 //FUNZIONE PER ACQUISIRE L'ID UNIVOCO DA INSERIRE NEL DATABASE NEL FORMATO AAAAMMDDhhmmss
 function crea_id(){
     $id_db = date("YmdHis");
