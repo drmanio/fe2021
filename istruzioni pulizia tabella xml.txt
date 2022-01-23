@@ -1,0 +1,4 @@
+UPDATE xml_tracciato SET `C7` = REPLACE(`C7`, "  " ," ");
+UPDATE xml_tracciato.C7 SET C7 = REPLACE (REPLACE (C7, CHAR (10), ' '), CHAR (13), ' ');
+UPDATE xml_tracciato SET `C7` = REPLACE(`C7`, " " ,"") WHERE `C7`=' '
+
