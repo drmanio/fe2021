@@ -52,7 +52,7 @@ function carica_xml() {
         echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
         echo '<strong>Warning!</strong> Sorry, file already exists';
         echo '</div>';
-        $uploadOk = 0;
+        // $uploadOk = 0;
         break;
       }
     }

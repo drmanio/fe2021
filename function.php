@@ -334,16 +334,31 @@ function visualizza_dati_xml($xml_file){
     $query = mysqli_query($connessioneDB, $sql);
     $id = $_SESSION['id'];
 
+    
+
     foreach ($array_xml as $dato1) {
       foreach ($dato1 as $dato2) {
           $dato2=str_replace ("'","\'",$dato2);
+          // NORMALIZZO I VALORI NELL'ARRAY TOGLIENDO I RITORNI A CAPO E I DOPPI SPAZI
+          // while (in_array(array("\n","\r"), $dato2)) {
+          //   $dato2 = str_replace(array("\n","\r"), " ", $dato2);
+          // }
           $c1 = $dato2[0];
           $c2 = $dato2[1];
           $c3 = $dato2[2];
           $c4 = $dato2[3];
           $c5 = $dato2[4];
           $c6 = $dato2[5];
-          $c7 = $dato2[6];
+          $dato2[6] = preg_replace("/\r|\n/", " ", $dato2[6]);
+          while (strpos($dato2[6], "  ") !== false) {
+            $dato2[6] = str_replace("  ", " ", $dato2[6]);
+          }  
+          if ($dato2[6] == " ") {
+            $c7 = "";
+          } else {
+            $c7 = $dato2[6];
+          }
+
           if ($c2 == 'Allegati'){
             continue;
           }

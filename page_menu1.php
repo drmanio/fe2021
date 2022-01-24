@@ -30,8 +30,9 @@
         // script che vengono attivati alla pressione dei pulsanti della navbar
         pulsanti();
         // script attivati dal caricamento della scelta del menu1
-        sc_menu1();
+        // sc_menu1();
       });
+      $("#btn_file_xml").addClass("active");
     </script>
 
   </head>

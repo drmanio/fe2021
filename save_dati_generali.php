@@ -33,11 +33,19 @@ if (!$test){
     echo "Dati memorizzati";
 }
 
-$sql = "INSERT INTO xml_tracciato SELECT * FROM xml_tmp;";
+$sql = "INSERT INTO xml_tracciato (id, C1, C2, C3, C4, C5, C6, C7) SELECT id, C1, C2, C3, C4, C5, C6, C7 FROM xml_tmp;";
 $query = mysqli_query($connessioneDB, $sql);
+if (!$query){
+  //SETTAGGIO MESSAGGIO DI ERRORE
+  echo ("Messagio di errore: ". mysqli_error($connessioneDB));
+}
 
 $sql = "DELETE FROM xml_tmp";
 $query = mysqli_query($connessioneDB, $sql);
+if (!$query){
+  //SETTAGGIO MESSAGGIO DI ERRORE
+  echo ("Messagio di errore: ". mysqli_error($connessioneDB));
+}
 
 $uploadDir = __DIR__.'/uploads/'.$azienda;
 $uploadDirOld = __DIR__.'/uploads/';

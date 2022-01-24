@@ -52,7 +52,7 @@ function sc_index (){
 // script attivati dalla pressione del tasto di scelta menu1
 function sc_menu1 (){
   // aggiunge la class active al button premuto per evidenziarlo
-  $("#btn_file_xml").addClass("active");
+  // $("#btn_file_xml").addClass("active");
 }
 
 function sc_menu2 (){
