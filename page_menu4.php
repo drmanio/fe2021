@@ -12,9 +12,11 @@ session_start();
 
     <!-- EVIDENZIO IL PULSANTE HOME MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
     <script>
+      // ATTIVO L'EVIDENZIAZIONE DEL PULSANTE
+      $("#btn_pagamenti").addClass("active");
+
       $(document).ready(function(){
           pulsanti();
-          sc_menu4();
       });
 
       function cerca(){

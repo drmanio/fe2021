@@ -64,7 +64,7 @@ function sc_menu3 (){
 }
 
 function sc_menu4 (){
-  $("#btn_pagamenti").addClass("active");
+  // $("#btn_pagamenti").addClass("active");
 }
 
 function sc_test (){

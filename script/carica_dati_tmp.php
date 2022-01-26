@@ -34,6 +34,7 @@ $dati = mysqli_query($connessioneDB,$query);
 <table class="table table-hover" style="margin-left:10px">
   <thead>
     <tr>
+      <th>#</th>
       <th>Id</th>
       <th>Fornitore</th>
       <th>Tipo doc</th>
@@ -64,6 +65,7 @@ if ($dati) {
 ?>
 
     <tr>
+      <th><input type="checkbox" name="selezione[]" value="<?php echo $Id; ?>" onclick="update_importo()" id=""></th>
       <th><?php echo $Id ?></th>
       <td><?php echo $forn_den ?></td>
       <td><?php echo $doc_tipo ?></td>
@@ -74,7 +76,7 @@ if ($dati) {
       <td><?php echo $importoPagato ?></td>
       <td><?php echo $note ?></td>  
       <td>
-        <button type="button" id="btnModPag<?php echo $Id ?>" class="btn" data-bs-toggle="modal" data-bs-target="#modalModifica<?php echo $Id ?>" title="Modifica pagamento">
+        <button type="button" id="btnModPag<?php echo $Id; ?>" class="btn" data-bs-toggle="modal" data-bs-target="#modalModifica<?php echo $Id ?>" title="Modifica pagamento">
           <img src="bootstrap-icons/currency-euro.svg">
         </button>
       </td>
@@ -84,7 +86,7 @@ if ($dati) {
         </button>
       </td>
 
-      <!-- The Modal -->
+      <!-- The Modal modalElimina - lo utilizzo per eliminare il pagamento dai bonifici -->
       <div class="modal fade" id="modalElimina<?php echo $Id ?>">
         <div class="modal-dialog">
           <div class="modal-content">
