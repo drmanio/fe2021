@@ -88,6 +88,30 @@ session_start();
 
       }
 
+      function update_bonifico_tmp(id) {
+
+        var bon_importo = document.getElementById('bon_imp'+ id).value;
+
+        if ($('#cbox'+id).prop('checked')) {
+          var tipo = 'ins';
+        } else {
+          var tipo = 'del';
+        }
+        $.ajax({
+          type: "POST",
+          url: "script/update_bonifico_tmp.php",
+          async:false,
+          data: {chiave:tipo,idbonifico:id,importo:bon_importo},
+          success: function(msg)
+          {
+            id_contact = id;
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+          } 
+        })
+      }
+
       function delete_pag(iditem) {
          
         $.ajax({

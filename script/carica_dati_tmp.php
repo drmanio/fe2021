@@ -65,7 +65,7 @@ if ($dati) {
 ?>
 
     <tr>
-      <th><input type="checkbox" name="selezione[]" value="<?php echo $Id; ?>" onclick="update_importo()" id=""></th>
+      <th><input type="checkbox" id="cbox<?php echo $Id ?>" onclick="update_bonifico_tmp('<?php echo $Id; ?>')" id=""></th>
       <th><?php echo $Id ?></th>
       <td><?php echo $forn_den ?></td>
       <td><?php echo $doc_tipo ?></td>
@@ -73,7 +73,7 @@ if ($dati) {
       <td><?php echo $doc_data ?></td>
       <td><?php echo $scadenza_importo ?></td>
       <td><?php echo $iban ?></td>
-      <td><?php echo $importoPagato ?></td>
+      <td id="bon_imp<?php echo $Id ?>"><?php echo $importoPagato ?></td>
       <td><?php echo $note ?></td>  
       <td>
         <button type="button" id="btnModPag<?php echo $Id; ?>" class="btn" data-bs-toggle="modal" data-bs-target="#modalModifica<?php echo $Id ?>" title="Modifica pagamento">
