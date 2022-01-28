@@ -30,6 +30,8 @@ $dati = mysqli_query($connessioneDB,$query);
 
 <a class="btn btn-success" href="script/export_excel.php?idaz=<?php echo $testo;?>">Esporta dati in excel</a>
 <button class="btn btn-info" onclick="archivia_pag('<?php echo $testo ?>')">Archivia dati pagamenti</button>
+<label for="">Importo bonifico</label>
+<input type="text" id="ipt_imp_bon" value="" style="text-align: right;">
 
 <table class="table table-hover" style="margin-left:10px">
   <thead>
