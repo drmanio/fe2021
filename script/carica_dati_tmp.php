@@ -67,7 +67,7 @@ if ($dati) {
 ?>
 
     <tr>
-      <th><input type="checkbox" id="cbox<?php echo $Id ?>" onclick="update_bonifico_tmp('<?php echo $Id; ?>')" id=""></th>
+      <th><input type="checkbox" id="cbox<?php echo $Id ?>" onclick="update_bonifico_tmp('<?php echo $Id; ?>', '<?php echo $importoPagato; ?>')" id=""></th>
       <th><?php echo $Id ?></th>
       <td><?php echo $forn_den ?></td>
       <td><?php echo $doc_tipo ?></td>

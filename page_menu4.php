@@ -88,9 +88,9 @@ session_start();
 
       }
 
-      function update_bonifico_tmp(id) {
+      function update_bonifico_tmp(id, bon_importo) {
 
-        var bon_importo = document.getElementById('bon_imp'+ id).value;
+        // var bon_importo = document.getElementById('bon_imp'+ id).value;
 
         if ($('#cbox'+id).prop('checked')) {
           var tipo = 'ins';
@@ -102,9 +102,11 @@ session_start();
           url: "script/update_bonifico_tmp.php",
           async:false,
           data: {chiave:tipo,idbonifico:id,importo:bon_importo},
-          success: function(msg)
+          dataType:'text',
+          success: function(risposta)
           {
-            id_contact = id;
+            // alert (risposta);
+            $("#ipt_imp_bon").val(risposta);
           },
           error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
