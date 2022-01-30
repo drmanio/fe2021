@@ -1,16 +1,15 @@
 <?php
     include "..\db.php";
 
-
     $istruzione = $_POST['chiave'];
-    $iditem = $_POST['idbonifico'];
-    $importo = $_POST['importo'];
+    $azienda = $_POST['azienda'];
 
-
-    if ($istruzione == 'ins'){
-      $query = "INSERT INTO bonifici_tmp (idPagamentiTemp, importoPagato) VALUES ('$iditem', '$importo')";
+    if ($istruzione == 'ins_all'){
+      $query = "DELETE FROM bonifici_tmp";
+      $dati = mysqli_query($connessioneDB,$query);
+      $query = "INSERT INTO bonifici_tmp (idPagamentiTemp, importoPagato) select idPagamentiTemp, importoPagato from pagamenti_temp where idAzienda = '{$azienda}'";
       } else {
-      $query = "DELETE FROM bonifici_tmp WHERE idPagamentiTemp = '$iditem'";
+      $query = "DELETE FROM bonifici_tmp";
     }
 
     $dati = mysqli_query($connessioneDB,$query);

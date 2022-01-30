@@ -38,7 +38,7 @@
         scadenza.ModoPagamento,
         scadenza.IBAN,
         scadenza.scadenzaPagamento,
-        scadenza.importoPagamento
+        scadenza.differenza
         from view_scadenzario_aperto as scadenza
         where scadenza.Id='$iditem'";
 

@@ -22,14 +22,22 @@ $activeSheet->setCellValue('F1', 'IBAN');
 $activeSheet->setCellValue('G1', 'nr_documento');
 $activeSheet->setCellValue('H1', 'Importo');
 $activeSheet->setCellValue('I1', 'Note');
-$activeSheet->setCellValue('J1', 'Data pagamento');
+// $activeSheet->setCellValue('J1', 'Data pagamento');
 
 // include "..\db.php";
 $idazienda=$_GET['idaz'];
 				
-$query = "SELECT 
-idScadenzario, idAzienda, denominazione, forn_piva, forn_den, IBAN, doc_nr, importoPagato, Note, DataPagamento 
-FROM pagamenti_temp WHERE idAzienda = '$idazienda' ORDER BY forn_den";
+$query = "SELECT pag_tmp.idPagamentiTemp, pag_tmp.idScadenzario, pag_tmp.idAzienda, pag_tmp.denominazione, pag_tmp.forn_piva, pag_tmp.forn_den, 
+pag_tmp.IBAN, pag_tmp.doc_nr, pag_tmp.importoPagato, pag_tmp.Note 
+FROM fe2021.pagamenti_temp pag_tmp 
+INNER JOIN fe2021.bonifici_tmp bon_tmp
+ON pag_tmp.idAzienda = '{$idazienda}' AND 
+pag_tmp.idPagamentiTemp = bon_tmp.idPagamentiTemp 
+ORDER BY pag_tmp.forn_den;";
+
+// "SELECT 
+// idScadenzario, idAzienda, denominazione, forn_piva, forn_den, IBAN, doc_nr, importoPagato, Note, DataPagamento 
+// FROM pagamenti_temp WHERE idAzienda = '$idazienda' ORDER BY forn_den";
 			
 $result = mysqli_query($connessioneDB,$query);
 
@@ -50,7 +58,7 @@ if($result->num_rows > 0) {
       $activeSheet->setCellValue('G'.$i, "Saldo doc. ".$row['doc_nr']);
       $activeSheet->setCellValue('H'.$i, $row['importoPagato']);
       $activeSheet->setCellValue('I'.$i, $row['Note']);
-      $activeSheet->setCellValue('J'.$i, $row['DataPagamento']);
+      // $activeSheet->setCellValue('J'.$i, $row['DataPagamento']);
       
       $i++;
   }

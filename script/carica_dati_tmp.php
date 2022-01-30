@@ -21,6 +21,9 @@ switch ($testo){
     break;
 }
 
+$query = "DELETE FROM bonifici_tmp;";
+$dati = mysqli_query($connessioneDB,$query);
+
 $query = "SELECT idPagamentiTemp, idScadenzario, idAzienda, forn_den, doc_tipo, doc_nr, doc_data, 
 importoPagamento, DataPagamento, IBAN, importoPagato, Note FROM pagamenti_temp 
 WHERE idAzienda like ('{$testo}') ORDER BY forn_den, scadenzaPagamento";
@@ -36,7 +39,7 @@ $dati = mysqli_query($connessioneDB,$query);
 <table class="table table-hover" style="margin-left:10px">
   <thead>
     <tr>
-      <th>#</th>
+      <th><input type="checkbox" id="cbox_all" onclick="update_bonifico_tmp_all('<?php echo $testo; ?>')"></th>
       <th>Id</th>
       <th>Fornitore</th>
       <th>Tipo doc</th>
@@ -67,7 +70,7 @@ if ($dati) {
 ?>
 
     <tr>
-      <th><input type="checkbox" id="cbox<?php echo $Id ?>" onclick="update_bonifico_tmp('<?php echo $Id; ?>', '<?php echo $importoPagato; ?>')" id=""></th>
+      <th><input type="checkbox" class = "cbox_item" id="cbox<?php echo $Id ?>" onclick="update_bonifico_tmp('<?php echo $Id; ?>', '<?php echo $importoPagato; ?>')"></th>
       <th><?php echo $Id ?></th>
       <td><?php echo $forn_den ?></td>
       <td><?php echo $doc_tipo ?></td>

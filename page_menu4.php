@@ -88,6 +88,38 @@ session_start();
 
       }
 
+      function update_bonifico_tmp_all(idazienda) {
+
+        // var bon_importo = document.getElementById('bon_imp'+ id).value;
+
+        if ($('#cbox_all').prop('checked')) {
+          var tipo = 'ins_all';
+          $( ".cbox_item" ).prop( "checked", true );
+        } else {
+          var tipo = 'del_all';
+          $( ".cbox_item" ).prop( "checked", false );
+        }
+        $.ajax({
+          type: "POST",
+          url: "script/update_bonifico_tmp_all.php",
+          async:false,
+          data: {chiave:tipo,azienda:idazienda},
+          dataType:'text',
+          success: function(risposta)
+          {
+            // alert (risposta);
+            // $("#ipt_imp_bon").val(risposta);
+            risposta = JSON.parse(risposta);
+
+            //  alert(importo);
+            $("#ipt_imp_bon").val(risposta.importo);
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+          } 
+        })
+      }
+
       function update_bonifico_tmp(id, bon_importo) {
 
         // var bon_importo = document.getElementById('bon_imp'+ id).value;
@@ -96,6 +128,9 @@ session_start();
           var tipo = 'ins';
         } else {
           var tipo = 'del';
+          if ($('#cbox_all').prop('checked')) {
+            $( "#cbox_all" ).prop( "checked", false );
+          }
         }
         $.ajax({
           type: "POST",
@@ -106,7 +141,11 @@ session_start();
           success: function(risposta)
           {
             // alert (risposta);
-            $("#ipt_imp_bon").val(risposta);
+            // $("#ipt_imp_bon").val(risposta);
+            risposta = JSON.parse(risposta);
+
+	          //  alert(importo);
+            $("#ipt_imp_bon").val(risposta.importo);
           },
           error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
