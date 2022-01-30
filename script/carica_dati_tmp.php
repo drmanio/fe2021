@@ -36,7 +36,7 @@ $dati = mysqli_query($connessioneDB,$query);
 <label for="">Importo bonifico</label>
 <input type="text" id="ipt_imp_bon" value="" style="text-align: right;">
 
-<table class="table table-hover" style="margin-left:10px">
+<table class="table table-hover table-sm table-striped">
   <thead>
     <tr>
       <th><input type="checkbox" id="cbox_all" onclick="update_bonifico_tmp_all('<?php echo $testo; ?>')"></th>

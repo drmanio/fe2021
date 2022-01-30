@@ -33,7 +33,7 @@
     $dati_bontmp = mysqli_query($connessioneDB,$query_tmp);
      
     
-    echo '<table class="table table-hover" style="margin-left:165px">';
+    echo '<table class="table table-hover table-sm" style="margin-left:10px">';
     echo '<thead>';
     echo  '<tr>';
     echo    '<th>Id</th>';
@@ -49,6 +49,8 @@
     echo    '<th>Importo scadenza</th>';
     echo    '<th>Importo pagato</th>';
     echo    '<th>Residuo da pagare</th>';
+    echo    '<th></th>';
+    echo    '<th></th>';
     echo  '</tr>';
     echo '</thead>';
     echo '<tbody>';
