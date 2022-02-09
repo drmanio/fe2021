@@ -38,6 +38,11 @@ function pulsanti () {
     window.open("page_menu4.php","_self");
   });
 
+  // apre la pagina page_menu5
+  $('#btn_pagamenti_sc').click(function(){
+    window.open("page_menu5.php","_self");
+  });
+
   // apre la pagina test
   $('#btn_test').click(function(){
     window.open("test.php","_self");
