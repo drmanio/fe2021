@@ -1,1 +1,2 @@
 smime -verify -inform DER -in prova.xml.p7m -noverify -out prova.xml
+smime -verify -inform DER -in prova.xml.p7m -noverify -no_attr_verify -out prova.xml
