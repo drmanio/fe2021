@@ -29,7 +29,7 @@ function pulsanti () {
   });
 
   // apre la pagina page_menu3
-  $('#btn_scadenze').click(function(){
+  $('#btn_page_menu3').click(function(){
     window.open("page_menu3.php","_self");
   });
 
@@ -65,7 +65,7 @@ function sc_menu2 (){
 }
 
 function sc_menu3 (){
-  $("#btn_scadenze").addClass("active");
+  // $("#btn_scadenze").addClass("active");
 }
 
 function sc_menu4 (){
