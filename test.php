@@ -14,6 +14,29 @@
       });
     </script>
 
+    <style>
+      .tableFixHead {
+        overflow-y: auto;
+        height: 90%;
+      }
+      .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+      }
+      th {
+        background: #eee;
+      }
+    </style>
+
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
 <link rel="stylesheet" href="sidebar.css" type="text/css">
@@ -40,74 +63,234 @@
 
 
 <!-- MY TABLE -->
-<nav class="mynavbar">
-  <!-- <a href="">Insert Brand / Logo</a> -->
-</nav>
-<section class="content-area">
-  <div class="mytable-area">
-    <table class="myresponsive-table table">
-      <thead>
-        <tr>
-          <th><input type="checkbox"> First name</th>
-          <th>Last name</th>
-          <th>Points</th>
-          <th>Content</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="checkbox">  Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Jill</td>
-          <td>Smith</td>
-          <td>50</td>
-          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
-        </tr>
-        <tr>
-          <td><input type="checkbox">  Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
-        </tr>
- 
-      </tbody>
-    </table>
-  </div>
-</section>
+<div class="tableFixHead">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Col 1</th>
+            <th>Col 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.1</td>
+            <td>2.1</td>
+          </tr>
+          <tr>
+            <td>1.2</td>
+            <td>2.2</td>
+          </tr>
+          <tr>
+            <td>1.3</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>1.4</td>
+            <td>2.4</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.1</td>
+            <td>2.1</td>
+          </tr>
+          <tr>
+            <td>1.2</td>
+            <td>2.2</td>
+          </tr>
+          <tr>
+            <td>1.3</td>
+            <td>2.3</td>
+          </tr>
+          <tr>
+            <td>1.4</td>
+            <td>2.4</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>1.5</td>
+            <td>2.5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
            
   
   </body>
