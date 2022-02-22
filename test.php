@@ -17,6 +17,7 @@
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 
 <link rel="stylesheet" href="sidebar.css" type="text/css">
+<link rel="stylesheet" href="mytable.css" type="text/css">
 
   </head>
   <body>
@@ -36,12 +37,77 @@
   </div>
 </div>
 
-<!-- Button to open the offcanvas sidebar -->
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
-  Open Offcanvas Sidebar
-</button>
 
 
+<!-- MY TABLE -->
+<nav class="mynavbar">
+  <!-- <a href="">Insert Brand / Logo</a> -->
+</nav>
+<section class="content-area">
+  <div class="mytable-area">
+    <table class="myresponsive-table table">
+      <thead>
+        <tr>
+          <th><input type="checkbox"> First name</th>
+          <th>Last name</th>
+          <th>Points</th>
+          <th>Content</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox">  Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Jill</td>
+          <td>Smith</td>
+          <td>50</td>
+          <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </td>
+        </tr>
+        <tr>
+          <td><input type="checkbox">  Eve</td>
+          <td>Jackson</td>
+          <td>94</td>
+          <td>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</td>
+        </tr>
+ 
+      </tbody>
+    </table>
+  </div>
+</section>
            
   
   </body>
