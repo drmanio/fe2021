@@ -46,7 +46,7 @@
     
   ?>
 
-  <table class="table table-hover table-sm">
+  <table class="mytable">
     
     <thead>
       <tr>
@@ -90,27 +90,28 @@
 
       <tr>
         <th> <?php echo $Id; ?> </th>
-        <?php if ($testo=="%"){ ?> <td><?php echo $denominazione ?></td> <?php }
-          echo   "<td>{$forn_den}</td>";
-          echo   "<td>{$doc_tipo}</td>";
-          echo   "<td>{$doc_nr}</td>";
-          echo   "<td>{$doc_data}</td>";
-          echo   "<td>{$doc_importo}</td>";
-          echo   "<td>{$scadenzaPagamento}</td>";
-          echo   "<td>{$importoPagamento}</td>";
-          echo   "<td>{$importoPagato}</td>";
-          echo   "<td>{$importoResiduo}</td>";
-          echo "<td>";
-              echo " <button type='button' id='btnPagamento".$Id."' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalModifica".$Id."' title='Inserisci pagamento'>";
-      echo "<img src='bootstrap-icons/currency-euro.svg'";
-      echo "</button>";
-    echo "</td>";
-          echo "<td>";
-              echo " <button type='button' id='btnBonifico".$Id."' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalPredisponi".$Id."' title='Predisponi pagamento'>";
-      echo "<img src='bootstrap-icons/send-fill.svg'";
-      echo "</button>";
-    echo "</td>";
+          <?php if ($testo=="%"){ ?> <td><?php echo $denominazione; ?></td> <?php } ?>
+          <td><?php echo $forn_den; ?></td>
+          <td><?php echo $doc_tipo; ?></td>
+          <td><?php echo $doc_nr; ?></td>
+          <td><?php echo $doc_data; ?></td>
+          <td class="importo"><?php echo number_format($doc_importo, 2, ',', '.'); ?></td>
+          <td><?php echo $scadenzaPagamento; ?></td>
+          <td class="importo"><?php echo number_format($importoPagamento, 2, ',', '.'); ?></td>
+          <td class="importo"><?php echo number_format($importoPagato, 2, ',', '.'); ?></td>
+          <td class="importo"><?php echo number_format($importoResiduo, 2, ',', '.'); ?></td>
+          <td>
+            <button type="button" id="btnPagamento<?php echo $Id; ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalModifica<?php echo $Id; ?>" title="Inserisci pagamento">
+              <img src="bootstrap-icons/currency-euro.svg"
+            </button>
+          </td>
+          <td>
+            <button type="button" id="btnBonifico<?php echo $Id; ?>" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPredisponi<?php echo $Id; ?>" title="Predisponi pagamento">
+              <img src="bootstrap-icons/send-fill.svg"
+            </button>
+          </td>
           
+          <?php
           //Inizio MODAL	modalModifica	
           echo '
           <div class="modal fade" id="modalModifica'.$Id.'" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

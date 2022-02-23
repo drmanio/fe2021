@@ -57,3 +57,19 @@ table.myresponsive-table tr > td,
 table.myresponsive-table th {
   text-align: left;
 }
+
+.mytable {
+  width: 100%;
+}
+
+.mytable th {
+  text-align: center;
+}
+
+.mytable td {
+  padding-right: 10px;
+}
+
+.mytable td.importo {
+  text-align: right;
+}
