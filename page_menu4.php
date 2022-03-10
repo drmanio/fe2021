@@ -200,7 +200,7 @@ session_start();
 </div>
 
 <div class="row" id='row_elenco'>
-		<div class='col-md-12' id="elenco">
+		<div class="col-md-12" id="elenco">
 			<span id="tabella"></span>
 		</div>
 	</div>

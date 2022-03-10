@@ -46,9 +46,11 @@
     
   ?>
 
+  <div class="mytableFixHead">
+
   <table class="mytable">
     
-    <thead>
+    <thead class="mytable-dark">
       <tr>
         <th>Id</th>
         <?php if ($testo=="%"){ ?> <th>Azienda</th> <?php } ?>
@@ -243,5 +245,10 @@
   echo '</tbody>';
   echo '</table>';
 
-?>
+  ?>
+
+  </div>
+  
+
+
  

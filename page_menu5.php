@@ -16,164 +16,48 @@ session_start();
       $("#btn_pagamenti_sc").addClass("active");
 
       $(document).ready(function(){
-          pulsanti();
+        pulsanti();
       });
 
-      function cerca(){
-        document.getElementById('row_elenco').className='row show';
-        var azienda = document.getElementById('azienda').value;
-        var data = document.getElementById('data_pag').value;
+        $(".cbox_item").select(function(){
+          $("#ipt_imp_pag").val("prova");
+        });
+
+        function cerca(){
+          document.getElementById('row_elenco').className='row show';
+          var azienda = document.getElementById('azienda').value;
+          var data = document.getElementById('data_pag').value;
         
 
-        $.ajax({
-          type: "POST",
-          url: "script/carica_dati_pag.php",
-          async:false,
-          data: {testo:azienda,datapag:data},
-          dataType: "html",
-          success: function(msg)
-          {
-            $("#tabella").html(msg);
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + textStatus); alert("Error: " + errorThrown);
-          } 
-        });
+          $.ajax({
+            type: "POST",
+            url: "script/carica_dati_pag.php",
+            async:false,
+            data: {testo:azienda,datapag:data},
+            dataType: "html",
+            success: function(msg)
+            {
+              $("#tabella").html(msg);
+              
+              $(":checkbox").click(function(){
+                var importo = $("#ipt_imp_pag").val();
+                var nuovo_importo = $(this).val();
+                if ($(this).prop('checked') == true) {
+                  var totale = Number(importo) + Number(nuovo_importo);
+                } else {
+                  var totale = Number(importo) - Number(nuovo_importo);
+                }
+                $("#ipt_imp_pag").val(Number(totale));
+              });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+              alert("Status: " + textStatus); alert("Error: " + errorThrown);
+            } 
+          });
 
-      }
-
-      function archivia_pag(iditem) {
-
-        $.ajax({
-          type: "POST",
-          url: "script/archivia_pag.php",
-          async:false,
-          data: {idAzienda:iditem},
-          dataType: "html",
-          success: function(msg)
-          {
-            id_contact = iditem;
-            cerca();
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-          }  
-        });
- 
-      }
-
-      function update_pag(iditem) {
-         
-			  var importo_mod = document.getElementById('importo_mod'+ iditem).value;
-			  var data_mod = document.getElementById('data_mod' + iditem).value;
-			  var mezzo_mod = document.getElementById('mezzo_mod' + iditem).value;
-			  var note_mod = document.getElementById('note_mod' + iditem).value;
-			  
-				$.ajax({
-				  type: "POST",
-				  url: "script/pay_update.php",
-				  
-				  async:false,
-				  
-				  data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
-				  dataType: "html",
-				  success: function(msg)
-				  {
-					  id_contact = iditem;
-            cerca();
-				  },
-				  error: function(XMLHttpRequest, textStatus, errorThrown) { 
-					  alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-				  }  
-			  });
-
-      }
-
-      function update_bonifico_tmp_all(idazienda) {
-
-        // var bon_importo = document.getElementById('bon_imp'+ id).value;
-
-        if ($('#cbox_all').prop('checked')) {
-          var tipo = 'ins_all';
-          $( ".cbox_item" ).prop( "checked", true );
-        } else {
-          var tipo = 'del_all';
-          $( ".cbox_item" ).prop( "checked", false );
         }
-        $.ajax({
-          type: "POST",
-          url: "script/update_bonifico_tmp_all.php",
-          async:false,
-          data: {chiave:tipo,azienda:idazienda},
-          dataType:'text',
-          success: function(risposta)
-          {
-            // alert (risposta);
-            // $("#ipt_imp_bon").val(risposta);
-            risposta = JSON.parse(risposta);
 
-            //  alert(importo);
-            $("#ipt_imp_bon").val(risposta.importo);
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-          } 
-        })
-      }
-
-      function update_bonifico_tmp(id, bon_importo) {
-
-        // var bon_importo = document.getElementById('bon_imp'+ id).value;
-
-        if ($('#cbox'+id).prop('checked')) {
-          var tipo = 'ins';
-        } else {
-          var tipo = 'del';
-          if ($('#cbox_all').prop('checked')) {
-            $( "#cbox_all" ).prop( "checked", false );
-          }
-        }
-        $.ajax({
-          type: "POST",
-          url: "script/update_bonifico_tmp.php",
-          async:false,
-          data: {chiave:tipo,idbonifico:id,importo:bon_importo},
-          dataType:'text',
-          success: function(risposta)
-          {
-            // alert (risposta);
-            // $("#ipt_imp_bon").val(risposta);
-            risposta = JSON.parse(risposta);
-
-	          //  alert(importo);
-            $("#ipt_imp_bon").val(risposta.importo);
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-          } 
-        })
-      }
-
-      function delete_pag(iditem) {
-         
-        $.ajax({
-          type: "POST",
-          url: "script/pay_delete.php",
-
-          async:false,
-
-          data: {idScadenzario:iditem},
-          dataType: "html",
-          success: function(msg)
-          {
-            id_contact = iditem;
-            cerca();
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) { 
-            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-          }  
-        });
-      }
+      
 
     </script>
 
@@ -202,11 +86,16 @@ session_start();
         <button onclick='cerca()' id='btn_cerca'>Carica dati azienda</button>					
 </div>
 
+<div>
+  <label for="">Importo bonifico</label>
+  <input type="number" id="ipt_imp_pag" style="text-align: right;">
+</div>
+
 <div class="row" id='row_elenco'>
 		<div class='col-md-12' id="elenco">
 			<span id="tabella"></span>
 		</div>
 	</div>
-  
+
   </body>
 </html>

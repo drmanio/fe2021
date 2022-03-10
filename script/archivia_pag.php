@@ -21,7 +21,10 @@
 
 	$result = mysqli_query($connessioneDB,$query);
 
-	$query = "DELETE FROM pagamenti_temp WHERE idAzienda = '$idazienda'";
+	$query = "DELETE FROM 
+  fe2021.pagamenti_temp 
+  WHERE 
+  fe2021.pagamenti_temp.idScadenzario = ANY (SELECT idScadenzario FROM fe2021.pagamenti_scadenze);";
 
 	$result = mysqli_query($connessioneDB,$query);
 		

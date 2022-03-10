@@ -48,7 +48,7 @@
     
   
     
-  <div class="offcanvas offcanvas-start" id="demo">
+  <div class="offcanvas offcanvas-start" id="select">
   <div class="offcanvas-header">
     <h1 class="offcanvas-title">Heading</h1>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
@@ -61,7 +61,9 @@
 </div>
 
 
-
+<div class="" id='row_elenco'>
+<div class='col-md-12' id="elenco">
+<span>
 <!-- MY TABLE -->
 <div class="tableFixHead">
       <table class="table table-striped">
@@ -291,6 +293,9 @@
         </tbody>
       </table>
     </div>
+    </span>
+  </div>
+</div>
            
   
   </body>

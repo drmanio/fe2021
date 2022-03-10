@@ -9,19 +9,19 @@
 
     <!-- EVIDENZIO IL PULSANTE DELLA PAGINA MODIFICANDO LA CLASSE AGGANCIATA ALL'ELEMENTO a (viene caricato con il file navbar.html) CON id="btn_file_xml" -->
     <script>
-      $("#btn_page_menu3").addClass("active");
+      
       // INSERISCO IL RIFERIMENTO ALLA FUNZIONE JS pulsanti() CHE GESTISCE LA PRESSIONE DEI VARI PULSANTI
       $(document).ready(function(){
           pulsanti();
       });
 
       // FUNZIONE PER CARICARE I DATI RICHIESTI
-      function cerca(){
+      function cerca(idaz){
         // MODIFICO LA CLASSE DEL DIV CHE CONTERRA' LA TABELLA PER RENDERLO VISIBILE
-        document.getElementById('row_elenco').className='row show';
+        // document.getElementById('row_elenco').className='row show';
         // ASSEGNO ALLA VARIABILE AZIENDA IL VALORE DELL'ELEMENTO SELECT CON ID=azienda
-        var azienda = document.getElementById('azienda').value;
-        
+        // var azienda = document.getElementById('azienda').value;
+        var azienda = idaz;
         // CHIAMO UNA FUNZIONE AJAX PER RECUPERARE I DATI DA INSERIRE NELLA TABELLA
         $.ajax({
           // METODO DI TRASMISSIONE DEI DATI
@@ -118,31 +118,51 @@
   <body>
 
     <?php
-      include "navbar.html";
+      // riferimento al file che contiene la navbar superiore
+     include "navbar.html";
     ?>
 
-    <div class = "container-fluid">
-      <h1>Inserisci pagamenti</h1>
+    <script>
+      $("#btn_page_menu3").addClass("active");
+    </script>
+
+    <!-- <div class = "container-fluid"> -->
+      <!-- <h1>Inserisci pagamenti</h1> -->
       <!-- INSERISCO UN ELEMENTO SELECT PER SELEZIONARE L'AZIENDA -->
-      <select name="Aziende" id="azienda">
+      <!-- <select name="Aziende" id="azienda">
         <option value="%">Tutte le aziende</option>
         <option value=1>SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE</option>
         <option value=101>CENTRO ASSISTENZA IMPRESE COLDIRETTI VENETO SRL</option>
         <option value=102>FEDERAZIONE REGIONALE COLDIRETTI DEL VENETO</option>
         <option value=103>SERENISSIMA AGRIDATA SRL</option>
         <option value=104>ORGANISMO DI CONSULENZA PSR & INNOVAZIONE VENETO SRL</option>
-      </select>
+      </select> -->
       <!-- PREMENDO IL PULSANTE ATTIVO LA FUNZIONE JS CHE INSERISCE LA TABELLA CON I DATI -->
-      <button onclick='cerca()' id='btn_cerca'>Carica dati azienda</button>					
-   
+      <!-- <button onclick='cerca()' id='btn_cerca'>Carica dati azienda</button>					 -->
+    <!-- </div> -->
 
-      <div class="row hide" id='row_elenco'>
+    <div class="offcanvas offcanvas-start" id="select">
+      <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Seleziona azienda</h1>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(1)">SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(101)">CENTRO ASSISTENZA IMPRESE COLDIRETTI VENETO SRL</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(102)">FEDERAZIONE REGIONALE COLDIRETTI DEL VENETO</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(103)">SERENISSIMA AGRIDATA SRL</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(104)">ORGANISMO DI CONSULENZA PSR & INNOVAZIONE VENETO SRL</a>
+        <!-- <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas">A Button</button> -->
+      </div>
+    </div>
+
+      <!-- <div class="" id='row_elenco'> -->
         <div class='col-md-12' id="elenco">
           <span id="tabella"></span>
         </div>
-      </div>
+      <!-- </div> -->
 
-    </div>
+    
   
   </body>
 </html>
