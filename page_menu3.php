@@ -74,7 +74,7 @@
 
       }
 
-      function insert_pag(iditem) {
+      function insert_pag(iditem, idaz) {
 
         $(document).ready(function(){
 
@@ -100,7 +100,7 @@
             success: function(msg)
             {
               id_contact = iditem;
-              cerca();
+              cerca(idaz);
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) { 
               alert("Status: " + textStatus); alert("Error: " + errorThrown); 

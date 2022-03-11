@@ -214,7 +214,7 @@
                       <div class="modal-footer">
 
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="insert_pag('.$Id.')">Predisponi pagamento</button>
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="insert_pag('.$Id.','.$testo.')">Predisponi pagamento</button>
                       </div>
                   </div>
               </div>
