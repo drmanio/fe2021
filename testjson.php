@@ -1,8 +1,10 @@
 <?php
 
+$obj = $_POST['name'];
+
 $provaj = new stdClass();
-$provaj ->name = 'Manio';
-$provaj ->age = 49;
+$provaj ->name = $obj;
+// $provaj ->age = 49;
 
 $myjson = json_encode($provaj);
 

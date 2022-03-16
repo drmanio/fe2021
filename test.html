@@ -30,8 +30,12 @@
     </div>
 
     <script>
+      const obj = {name: "Jhon", age: 30};
+      const objson = JSON.stringify(obj);
       $("#btn_prova").click(function(){
-        $.post("testjson.php", function(data, status){
+        $.post("testjson.php", 
+       {name:"John"},
+        function(data, status){
           alert("Data: " + data.name + "\nStatus: " + status);
         },"json");
       });
