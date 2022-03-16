@@ -18,24 +18,24 @@
     <script src="jquery-3.6.0.min.js"></script>
     <!-- LIBRERIA DEGLI SCRIPT JAVASCRIPT CREATI ED UTILIZZATI NELL'APPLICATIVO -->
     <script src="script_file.js"></script>
+
+
+
   </head>
   <body>
-    <!-- creo la barra di navigazione laterale -->
-    <!-- la barra laterale viene formatata con il file sidebar.css -->
-    <div class="sidenav" id="div_sidenav">
-      <!-- Navigation available in Bootstrap share general markup and styles, from the base .nav class to the active and disabled states. 
-      Swap modifier classes to switch between each style.
-      The base .nav component is built with flexbox and provide a strong foundation for building all types of navigation components. 
-      It includes some style overrides (for working with lists), some link padding for larger hit areas, and basic disabled styling. -->
-      <!-- Takes the basic nav from above and adds the .nav-pills class to generate a pilled interface. -->
-      <div class="nav nav-pills">
-        <button class="nav-link active" id="v-pills-upload-tab" data-bs-toggle="pill" data-bs-target="#upload">Upload file</button>
-        <button class="nav-link" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#datigen">Dati generali</button>
-        <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#scadenze">Scadenze</button>
-        <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#ritenute">Ritenute</button>
-        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#beniservizi">Beni e servizi</button>
-        <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#filexml">File xml</button>
-      </div>
+    
+
+    <div>
+      <button id="btn_prova">prova</button>
     </div>
+
+    <script>
+      $("#btn_prova").click(function(){
+        $.post("testjson.php", function(data, status){
+          alert("Data: " + data.name + "\nStatus: " + status);
+        },"json");
+      });
+    </script>
+
   </body>
 </html>

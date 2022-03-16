@@ -45,7 +45,7 @@ function pulsanti () {
 
   // apre la pagina test
   $('#btn_test').click(function(){
-    window.open("test.php","_self");
+    window.open("test.html","_self");
   });
 
 };
