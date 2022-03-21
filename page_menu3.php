@@ -47,7 +47,7 @@
 
       }
 
-      function update_pag(iditem) {
+      function update_pag(iditem, idaz) {
          
 			  var importo_mod = document.getElementById('importo_mod'+ iditem).value;
 			  var data_mod = document.getElementById('data_mod' + iditem).value;
@@ -60,12 +60,16 @@
 				  
 				  async:false,
 				  
-				  data: {idScadenzario:iditem,importoPagamento:importo_mod,DataPagamento:data_mod,ModoPagamento:mezzo_mod,Note:note_mod},
+				  data: {idScadenzario:iditem,
+            importoPagamento:importo_mod,
+            DataPagamento:data_mod,
+            ModoPagamento:mezzo_mod,
+            Note:note_mod},
 				  dataType: "html",
 				  success: function(msg)
 				  {
 					  id_contact = iditem;
-            cerca();
+            cerca(idaz);
 				  },
 				  error: function(XMLHttpRequest, textStatus, errorThrown) { 
 					  alert("Status: " + textStatus); alert("Error: " + errorThrown); 
