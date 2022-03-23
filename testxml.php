@@ -14,6 +14,7 @@ th,td {
 <h1>The XMLHttpRequest Object</h1>
 
 <button type="button" onclick="loadDoc()">Get my CD collection</button>
+<button type="button" onclick="provaxpath()">Prova xpath</button>
 <br><br>
 <table id="demo"></table>
 
@@ -50,8 +51,43 @@ function myFunction(xml) {
     "</td></tr>";
   }
   document.getElementById("demo").innerHTML = table;
+
 }
+
+function provaxpath(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        showResult(xhttp.responseXML);
+    }
+  };
+  xhttp.open("GET", "cd_catalog.xml", true);
+  xhttp.send();
+}
+ 
+
+function showResult(xml) {
+  var nome = "";  
+  var txt = "";
+  path = "//CATALOG/CD/TITLE"
+  var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+  var nodes_count = xml.evaluate('count(' + path + ')', xml, null, XPathResult.ANY_TYPE, null);
+  var nodes_name = xml.evaluate('name(' + path + ')', xml, null, XPathResult.ANY_TYPE, null);
+  alert (nodes_count.numberValue);
+  alert (nodes_name.stringValue);
+  var result = nodes.iterateNext();
+  
+  while (result) {
+      txt += result.childNodes[0].nodeValue + "<br>";
+      result = nodes.iterateNext();
+  } 
+  alert(txt);
+}
+
 </script>
 
+
+
 </body>
+
 </html>

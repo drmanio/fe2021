@@ -10,6 +10,15 @@
 			<FormatoTrasmissione>FPR12</FormatoTrasmissione>
  			<PECDestinatario>agricola.derossi@pec.it</PECDestinatario>
 		</DatiTrasmissione>
+    <DatiTrasmissione2>
+			<IdTrasmittente>
+				<IdPaese>IT2</IdPaese>
+				<IdCodice>05262890014</IdCodice>
+			</IdTrasmittente>
+			<ProgressivoInvio>00000</ProgressivoInvio>
+			<FormatoTrasmissione>FPR12</FormatoTrasmissione>
+ 			<PECDestinatario>agricola.derossi@pec.it</PECDestinatario>
+		</DatiTrasmissione2>
   </FatturaElettronicaHeader>
   <CATALOG>
     <CD>
