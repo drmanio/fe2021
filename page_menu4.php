@@ -42,12 +42,13 @@ session_start();
       }
 
       function archivia_pag(iditem) {
-
+        var data_bon = $('#ipt_date_bon').val();
+        alert (data_bon);
         $.ajax({
           type: "POST",
           url: "script/archivia_pag.php",
           async:false,
-          data: {idAzienda:iditem},
+          data: {idAzienda:iditem,data_arc:data_bon},
           dataType: "html",
           success: function(msg)
           {

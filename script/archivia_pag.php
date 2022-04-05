@@ -1,6 +1,7 @@
 <?php
 	include "..\db.php";
 	$idazienda = $_POST['idAzienda'];
+  $data_arc = $_POST['data_arc'];
 	// $idazienda=$_GET['idaz'];
 			
 	$query = "INSERT INTO 
@@ -8,7 +9,7 @@
 	SELECT 
   pag_tmp.idScadenzario, 
   pag_tmp.importoPagato, 
-  pag_tmp.DataPagamento, 
+  '$data_arc', 
   pag_tmp.modPagamento, 
   pag_tmp.Note 
 	FROM 

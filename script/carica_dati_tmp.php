@@ -35,6 +35,8 @@ $dati = mysqli_query($connessioneDB,$query);
 <button class="btn btn-info" onclick="archivia_pag('<?php echo $testo ?>')">Archivia dati pagamenti</button>
 <label for="">Importo bonifico</label>
 <input type="text" id="ipt_imp_bon" value="" style="text-align: right;">
+<label for="">Data bonifico</label>
+<input type="date" id="ipt_date_bon" style="text-align: right;">
 
 <table class="table table-hover table-sm table-striped">
   <thead>
