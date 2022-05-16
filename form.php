@@ -120,7 +120,7 @@ function form_scadenze ($tabella_nodi, $xml_file){
     //- $nr_scadenze CONTIENE L'ARRAY DEL FILE SIMPLEXML NELLA PARTE RELATIVA AI DATI DI PAGAMENTO
     //- $scadenze_array INIZIALIZZA UN ARRAY DI ARRAY CHE CONTERRA' I DATI DA INSERIRE NEL FORM
     //- $posizione_array INIZIALIZZA IL PRIMO VALORE CHE VERRA' ATTRIBUITO ALL'ARRAY DELL'ARRAY $scadenze_array IN MODO DA GESTIRE PIU' SCADENZE
-    $nr_scadenze = $xml_file->xpath("FatturaElettronicaBody/DatiPagamento");
+    $nr_scadenze = $xml_file->xpath("FatturaElettronicaBody/DatiPagamento/DettaglioPagamento");
     $scadenze_array = array();
     $posizione_array = 0;
     // echo "<br/>";

@@ -19,10 +19,10 @@ $dati_generali = array(
 );
 
 $scadenze = array(
-    array("ModalitaPagamento","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","DettaglioPagamento/ModalitaPagamento"),
-    array("DataScadenzaPagamento","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","DettaglioPagamento/DataScadenzaPagamento"),
-    array("ImportoPagamento","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","DettaglioPagamento/ImportoPagamento"),
-    array("IBAN","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","DettaglioPagamento/IBAN"),
+    array("ModalitaPagamento","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","ModalitaPagamento"),
+    array("DataScadenzaPagamento","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","DataScadenzaPagamento"),
+    array("ImportoPagamento","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","ImportoPagamento"),
+    array("IBAN","FatturaElettronicaBody/DatiPagamento/DettaglioPagamento/","IBAN"),
 );
 
 $ritenute = array(
