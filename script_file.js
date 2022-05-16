@@ -13,6 +13,8 @@ function pulsanti () {
     }
   });
 
+  
+
   // apre la pagina index
   $('#btn_home').click(function(){
     window.open("index.php","_self");

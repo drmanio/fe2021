@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- TAG IN CUI INCLUDERE L'HEADER COMUNE A TUTTE LE PAGINE -->
+    <span id="header"></span>
+
+    <script src="script_file.js"></script>
+
+    <script>
+      // ATTENDO IL CARICAMENTO DELLA PAGINA PER CARICARE GLI SCRIPT
+      window.onload = function(){
+        // INCLUDO NEL TAG HEAD L'HEADER DEFINITO NEL FILE heder.html
+        const xheader = new XMLHttpRequest();
+          xheader.onload = function() {
+            document.getElementById("header").innerHTML =
+            this.responseText;
+          }
+        xheader.open("GET", "header.html");
+        xheader.send();
+
+        // INCLUDO NEL TAG BODY LA NAVBAR SUPERIORE DEFINITA NEL FILE navbar.html
+        const xnavbar = new XMLHttpRequest();
+        xnavbar.onload = function() {
+          document.getElementById("navbar").innerHTML =
+          this.responseText;
+
+          // EVIDENZIO IL PULSANTE DI RIFERIMENTO DELLA PAGINA
+          var element = document.getElementById("btn_page_menu6");
+          element.classList.add("active");
+
+        }
+        xnavbar.open("GET", "navbar.html");
+        xnavbar.send();
+      }
+
+    </script>
+
+    <title>Documenti archiviati</title>
+
+  </head>
+  <body>
+
+    <!-- TAG IN CUI INCLUDERE LA NAVBAR SUPERIORE -->
+    <span id="navbar"></span>
+
+    <div class="offcanvas offcanvas-start" id="select">
+      <div class="offcanvas-header">
+        <h1 class="offcanvas-title">Seleziona azienda</h1>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(1)">SOCIETA' AGRICOLA DE ROSSI SOCIETA' SEMPLICE</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(101)">CENTRO ASSISTENZA IMPRESE COLDIRETTI VENETO SRL</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(102)">FEDERAZIONE REGIONALE COLDIRETTI DEL VENETO</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(103)">SERENISSIMA AGRIDATA SRL</a>
+        <a class="nav-link" href="#" data-bs-toggle="offcanvas" onclick="cerca(104)">ORGANISMO DI CONSULENZA PSR & INNOVAZIONE VENETO SRL</a>
+        <!-- <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas">A Button</button> -->
+      </div>
+    </div>
+
+  </body>
+</html>
