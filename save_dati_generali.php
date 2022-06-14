@@ -2,7 +2,7 @@
 include 'db.php';
 $info=array($_POST['info1'],$_POST['info2'],$_POST['info3'],$_POST['info4'],$_POST['info5'],$_POST['info6'],
     $_POST['info7'],$_POST['info8'],$_POST['info9'],$_POST['info10'],$_POST['info11'],$_POST['info12'],
-    $_POST['info13'],$_POST['info14'],$_POST['info15'],$_POST['info16']);
+    $_POST['info13'],$_POST['info14'],$_POST['info15'],$_POST['info16'], $_POST['info17']);
 $info=str_replace ("'","\'",$info);
 switch ($info[4]){
     case '00782150270':
@@ -21,9 +21,9 @@ switch ($info[4]){
         $azienda=104;
         break;
 }
-$istruzione_sql= "INSERT INTO xml_doc_archivio(idFE, File, Protocollo, Barcode, idAzienda, azienda_piva, azienda_cf, 
+$istruzione_sql= "INSERT INTO xml_doc_archivio(idFE, File, data_reg, Protocollo, Barcode, idAzienda, azienda_piva, azienda_cf, 
 azienda_den, forn_piva, forn_cf, forn_den, doc_tipo, doc_divisa, doc_data, doc_nr, doc_importo, doc_note) 
-VALUES('$info[0]','$info[1]','$info[2]','$info[3]',$azienda,'$info[4]','$info[5]','$info[6]','$info[7]','$info[8]',
+VALUES('$info[0]','$info[1]','$info[16]', '$info[2]', '$info[3]',$azienda,'$info[4]','$info[5]','$info[6]','$info[7]','$info[8]',
 '$info[9]','$info[10]','$info[11]','$info[12]','$info[13]',$info[14],'$info[15]')";
 $test = mysqli_query($connessioneDB, $istruzione_sql);
 if (!$test){

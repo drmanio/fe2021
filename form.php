@@ -34,6 +34,8 @@ function form_dati_generali($tabella_nodi, $xml_file){
     <input type="text" readonly value="<?php echo $_SESSION['id'] ?>" name="info1" STYLE="background-color: lightgray;"><br>
     <label>Nome file xml:</label><br>
     <input type="text" readonly value="<?php echo $_SESSION['nomeFile'] ?>" name="info2" size="50" STYLE="background-color: lightgray;"><br>
+    <label>Data registrazione:</label><br>
+    <input type="date" name="info17" STYLE="background-color : #72A4D2;"><br>
     <label>Protocollo:</label><br>
     <input type="text" name="info3" STYLE="background-color : #72A4D2;"><br>
     <label>Id barcode:</label><br>
