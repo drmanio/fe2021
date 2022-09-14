@@ -7,7 +7,7 @@
     if ($istruzione == 'ins_all'){
       $query = "DELETE FROM bonifici_tmp";
       $dati = mysqli_query($connessioneDB,$query);
-      $query = "INSERT INTO bonifici_tmp (idPagamentiTemp, importoPagato) select idPagamentiTemp, importoPagato from pagamenti_temp where idAzienda = '{$azienda}'";
+      $query = "INSERT INTO bonifici_tmp (idPagamentiTemp, importoPagato) select idScadenzario, importoPagato from pagamenti_temp where idAzienda = '{$azienda}'";
       } else {
       $query = "DELETE FROM bonifici_tmp";
     }

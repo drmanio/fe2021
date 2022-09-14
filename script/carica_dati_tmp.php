@@ -24,8 +24,8 @@ switch ($testo){
 $query = "DELETE FROM bonifici_tmp;";
 $dati = mysqli_query($connessioneDB,$query);
 
-$query = "SELECT idPagamentiTemp, idScadenzario, idAzienda, forn_den, doc_tipo, doc_nr, doc_data, 
-importoPagamento, DataPagamento, IBAN, importoPagato, Note FROM pagamenti_temp 
+$query = "SELECT idScadenzario, idAzienda, forn_den, doc_tipo, doc_nr, doc_data, 
+importoPagamento,scadenzaPagamento, IBAN, importoPagato, Note FROM pagamenti_temp 
 WHERE idAzienda like ('{$testo}') ORDER BY forn_den, scadenzaPagamento";
 $dati = mysqli_query($connessioneDB,$query);
 
@@ -59,7 +59,7 @@ $dati = mysqli_query($connessioneDB,$query);
 
 if ($dati) {
   while ($row = mysqli_fetch_array($dati)) {
-    $Id = $row['idPagamentiTemp'];
+    $Id = $row['idScadenzario'];
     $forn_den = $row['forn_den'];
     $doc_tipo = $row['doc_tipo'];
     $doc_nr = $row['doc_nr'];

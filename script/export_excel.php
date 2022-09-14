@@ -27,12 +27,12 @@ $activeSheet->setCellValue('I1', 'Note');
 // include "..\db.php";
 $idazienda=$_GET['idaz'];
 				
-$query = "SELECT pag_tmp.idPagamentiTemp, pag_tmp.idScadenzario, pag_tmp.idAzienda, pag_tmp.denominazione, pag_tmp.forn_piva, pag_tmp.forn_den, 
+$query = "SELECT pag_tmp.idScadenzario, pag_tmp.idAzienda, pag_tmp.denominazione, pag_tmp.forn_piva, pag_tmp.forn_den, 
 pag_tmp.IBAN, pag_tmp.doc_nr, pag_tmp.importoPagato, pag_tmp.Note 
 FROM fe2021.pagamenti_temp pag_tmp 
 INNER JOIN fe2021.bonifici_tmp bon_tmp
 ON pag_tmp.idAzienda = '{$idazienda}' AND 
-pag_tmp.idPagamentiTemp = bon_tmp.idPagamentiTemp 
+pag_tmp.idScadenzario = bon_tmp.idPagamentiTemp 
 ORDER BY pag_tmp.forn_den;";
 
 // "SELECT 
